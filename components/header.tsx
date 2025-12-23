@@ -61,8 +61,8 @@ export function Header() {
       >
         <div className={`mx-auto transition-all duration-500 transform-gpu ${
           isScrolled 
-            ? "max-w-5xl px-4" 
-            : "max-w-7xl px-4 sm:px-6 lg:px-8"
+            ? "max-w-7xl px-4" 
+            : "max-w-[1400px] px-4 sm:px-6 lg:px-8"
         }`}>
           <div className={`flex items-center justify-between transition-all duration-500 rounded-2xl transform-gpu backface-hidden ${
             isScrolled 
@@ -82,7 +82,7 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center gap-1">
+            <nav className="hidden xl:flex items-center gap-4">
               {mainNavLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -106,7 +106,7 @@ export function Header() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-6">
               <div 
                 className="hidden xl:block relative group/dropdown mr-2 transform-gpu"
                 onMouseEnter={() => setIsServicesOpen(true)}
