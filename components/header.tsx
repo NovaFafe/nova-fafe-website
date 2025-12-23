@@ -61,8 +61,8 @@ export function Header() {
       >
         <div className={`mx-auto transition-all duration-500 transform-gpu ${
           isScrolled 
-            ? "max-w-7xl px-4" 
-            : "max-w-[1400px] px-4 sm:px-6 lg:px-8"
+            ? "max-w-7xl px-6" 
+            : "max-w-[1400px] px-6 sm:px-8 lg:px-12"
         }`}>
           <div className={`flex items-center justify-between transition-all duration-500 rounded-2xl transform-gpu backface-hidden ${
             isScrolled 
@@ -113,7 +113,7 @@ export function Header() {
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
                 <button
-                  className="flex items-center gap-1.5 px-4 py-2 text-[15px] font-bold text-foreground/60 hover:text-[#00701a] hover:bg-green-50/50 transition-all duration-300 rounded-xl group/btn transform-gpu backface-hidden"
+                  className="flex items-center gap-1.5 px-4 py-2 text-[15px] font-bold text-foreground/60 hover:text-[#00701a] hover:bg-green-50/50 transition-all duration-300 rounded-xl group/btn transform-gpu backface-hidden cursor-pointer"
                 >
                   <LayoutGrid className="h-4 w-4 transition-colors group-hover/btn:text-[#00701a] text-foreground/40 transform-gpu" />
                   Explorar
@@ -291,18 +291,19 @@ export function Header() {
               <div className="flex flex-col gap-4">
                 <a 
                   href="tel:253504130" 
-                  className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-[#00701a] text-white font-bold text-[15px] hover:bg-[#005a15] transition-all shadow-lg shadow-green-900/10 active:scale-[0.98]"
+                  className="group relative overflow-hidden w-full flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-[#00701a] text-white font-bold text-[15px] hover:bg-[#005a15] transition-all shadow-lg shadow-green-900/10 active:scale-[0.98]"
                 >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
                   <Phone className="h-5 w-5" />
                   Ligar Agora: 253 504 130
                 </a>
                 
                 <div className="flex items-center justify-center gap-3">
                   <span className="text-[12px] font-medium text-muted-foreground mr-2">Siga-nos:</span>
-                  <a href="#" className="flex items-center justify-center h-11 w-11 rounded-xl bg-[#f8fafc] border border-[#f1f5f9] text-[#4a4a4a] hover:bg-green-50 hover:text-[#00701a] hover:border-green-100 transition-all">
+                  <a href="#" className="flex items-center justify-center h-11 w-11 rounded-xl bg-[#f8fafc] border border-[#f1f5f9] text-[#4a4a4a] hover:bg-green-50 hover:text-[#00701a] hover:border-green-100 transition-all cursor-pointer">
                     <Instagram className="h-5.5 w-5.5" />
                   </a>
-                  <a href="#" className="flex items-center justify-center h-11 w-11 rounded-xl bg-[#f8fafc] border border-[#f1f5f9] text-[#4a4a4a] hover:bg-green-50 hover:text-[#00701a] hover:border-green-100 transition-all">
+                  <a href="#" className="flex items-center justify-center h-11 w-11 rounded-xl bg-[#f8fafc] border border-[#f1f5f9] text-[#4a4a4a] hover:bg-green-50 hover:text-[#00701a] hover:border-green-100 transition-all cursor-pointer">
                     <Facebook className="h-5.5 w-5.5" />
                   </a>
                 </div>

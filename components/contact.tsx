@@ -39,7 +39,7 @@ export function Contact() {
       id="contacto"
       className="py-24 lg:py-32 bg-gradient-to-b from-secondary/30 to-white relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20 mb-6">
             <MessageSquare className="h-4 w-4 text-primary" />
