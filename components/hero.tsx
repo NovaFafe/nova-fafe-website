@@ -2,7 +2,7 @@ import { Phone, MapPin, Clock } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden pb-32">
+    <section className="relative min-h-[90dvh] flex items-center overflow-hidden pb-32">
       <div className="absolute inset-0">
         <img
           src="/professional-driving-school-car-on-portuguese-road.jpg"
