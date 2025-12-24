@@ -5,7 +5,7 @@ import { ArrowRight, Phone, Sparkles } from "lucide-react"
 
 export function CTA() {
   return (
-    <section className="py-16 lg:py-24 bg-white relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-primary/5 relative overflow-hidden">
       {/* Top Section Divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/80 to-transparent z-10" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-1 bg-primary/20 blur-xl z-10" />

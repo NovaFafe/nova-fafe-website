@@ -35,7 +35,7 @@ const advantages = [
 
 export function Advantages() {
   return (
-    <section id="vantagens" className="relative py-16 lg:py-24 bg-slate-50 overflow-hidden">
+    <section id="vantagens" className="relative py-16 lg:py-24 bg-primary/5 overflow-hidden">
       {/* Top Section Divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/80 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-1 bg-primary/20 blur-xl" />

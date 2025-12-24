@@ -2,7 +2,7 @@ import { Users } from "lucide-react"
 
 export function About() {
   return (
-    <section id="sobre" className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-slate-50 overflow-hidden">
+    <section id="sobre" className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-primary/5 overflow-hidden">
       {/* Top Section Divider */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/80 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-1 bg-primary/20 blur-xl" />
