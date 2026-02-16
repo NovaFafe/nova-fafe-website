@@ -2,8 +2,8 @@ import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Advantages } from "@/components/advantages"
-import { PricingPreview } from "@/components/pricing-preview"
-import { Testimonials } from "@/components/testimonials"
+import { Fleet } from "@/components/fleet"
+import { RecentApprovals } from "@/components/recent-approvals"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
@@ -13,9 +13,9 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
-      <PricingPreview />
       <Advantages />
-      <Testimonials />
+      <Fleet />
+      <RecentApprovals />
       <CTA />
       <Footer />
     </main>

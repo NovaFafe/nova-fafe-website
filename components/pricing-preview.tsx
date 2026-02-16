@@ -1,7 +1,4 @@
-"use client"
-
-import { Button } from "@/components/ui/button"
-import { Check, ArrowRight, Sparkles } from "lucide-react"
+import { Check, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 const plans = [
@@ -41,85 +38,80 @@ const plans = [
 
 export function PricingPreview() {
   return (
-    <section id="precos" className="relative py-16 lg:py-24 bg-white overflow-hidden">
-      {/* Top Section Divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/80 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-1 bg-primary/20 blur-xl" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/5 to-transparent lg:from-primary/5" />
-
-      {/* Bottom Section Divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/80 to-transparent" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/4 h-1 bg-primary/10 blur-xl" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-primary/5 to-transparent lg:from-primary/5" />
-
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-primary/10 text-primary text-xs font-bold mb-6">
-            <Sparkles className="h-3.5 w-3.5" />
+    <section id="precos" className="py-24 lg:py-32 bg-muted/30">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
             <span>Nossos Cursos</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-4 leading-tight">
-            Formação Para Todas as <span className="text-primary">Categorias</span>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-6">
+            Formação Para Todas as{" "}
+            <span className="text-primary">Categorias</span>
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed">
-            Escolha o plano que melhor se adapta aos seus objetivos. Preços transparentes.
+
+          <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+            Preços transparentes, sem surpresas. Escolha o plano ideal para si.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {plans.map((plan, i) => (
             <div
               key={i}
-              className={`relative bg-white rounded-2xl p-6 transition-all flex flex-col ${
-                plan.popular 
-                  ? "border-2 border-primary shadow-lg lg:scale-105 z-10" 
-                  : "border border-border shadow-sm hover:shadow-md"
+              className={`relative bg-white rounded-3xl p-7 transition-all duration-300 flex flex-col ${
+                plan.popular
+                  ? "border-2 border-primary shadow-xl shadow-primary/10 lg:scale-[1.03] z-10"
+                  : "border border-border/50 shadow-sm hover:shadow-lg hover:-translate-y-1"
               }`}
             >
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
                   Mais Escolhido
                 </div>
               )}
 
-              <div className="mb-6 text-center">
-                <h3 className="text-lg font-bold text-foreground mb-1 tracking-tight">{plan.name}</h3>
-                <p className="text-[9px] font-bold text-primary uppercase tracking-widest mb-4">{plan.subtitle}</p>
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-3xl font-extrabold text-foreground tracking-tighter">{plan.price}</span>
-                  {plan.period && <span className="text-[10px] text-muted-foreground font-bold">{plan.period}</span>}
+              <div className="mb-6">
+                <h3 className="text-lg font-black text-foreground mb-1">{plan.name}</h3>
+                <p className="text-xs font-bold text-primary uppercase tracking-widest mb-5">{plan.subtitle}</p>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-black text-foreground tracking-tight">{plan.price}</span>
+                  {plan.period && <span className="text-sm text-muted-foreground font-medium">{plan.period}</span>}
                 </div>
               </div>
 
-              <ul className="space-y-3 mb-6 flex-1">
+              <ul className="space-y-3.5 mb-8 flex-1">
                 {plan.features.map((feature, j) => (
-                  <li key={j} className="flex items-start gap-2 text-xs text-muted-foreground">
-                    <div className="w-4 h-4 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="h-2.5 w-2.5 text-primary" />
+                  <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
+                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="h-3 w-3 text-primary" />
                     </div>
-                    <span className="font-medium">{feature}</span>
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <Button 
-                className={`group relative overflow-hidden w-full font-bold h-10 rounded-lg text-xs transition-all active:scale-95 ${
-                  plan.popular 
-                    ? "bg-primary hover:bg-primary/90 text-white shadow-md" 
-                    : "bg-muted hover:bg-muted/80 text-foreground"
+              <a
+                href="/contacto"
+                className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 font-bold rounded-2xl text-sm transition-all active:scale-95 cursor-pointer ${
+                  plan.popular
+                    ? "bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20"
+                    : "bg-muted text-foreground hover:bg-muted/80"
                 }`}
               >
-                <div className={`absolute inset-0 bg-gradient-to-r from-transparent ${plan.popular ? "via-white/20" : "via-primary/5"} to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out`} />
                 Saber Mais
-              </Button>
+              </a>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <Link href="/precos" className="inline-flex items-center font-bold text-primary hover:text-primary/80 transition-all group gap-2">
+          <Link
+            href="/precos"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-bold text-sm transition-all group"
+          >
             Ver tabela de preços completa
-            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
       </div>

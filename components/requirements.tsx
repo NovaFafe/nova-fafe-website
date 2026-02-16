@@ -1,25 +1,20 @@
-import { FileText, Calendar, Camera, CreditCard, CheckCircle2 } from "lucide-react"
+import { FileText, Calendar, CheckCircle2 } from "lucide-react"
 
 const requirements = [
   {
     icon: Calendar,
     title: "Idade Mínima",
-    description: "17 anos e 6 meses para carta de automóvel (categoria B).",
+    description: "17 anos e 6 meses para inscrição na categoria B.",
   },
   {
     icon: FileText,
     title: "Cartão de Cidadão",
-    description: "Documento de identificação válido (CC ou Passaporte).",
+    description: "Documento de identificação válido e atualizado.",
   },
   {
-    icon: CreditCard,
-    title: "NIF",
-    description: "Número de Identificação Fiscal (se aplicável).",
-  },
-  {
-    icon: Camera,
-    title: "Fotografia",
-    description: "Foto tipo passe recente a cores.",
+    icon: CheckCircle2,
+    title: "Atestado Médico",
+    description: "Atestado Médico Eletrónico transmitido via SNS.",
   },
 ]
 
@@ -44,7 +39,7 @@ export function Requirements() {
         </div>
 
         {/* Requirements Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {requirements.map((req, i) => (
             <div key={i} className="bg-white border border-border rounded p-5 text-center">
               <div className="w-12 h-12 bg-primary/10 rounded mx-auto mb-4 flex items-center justify-center">

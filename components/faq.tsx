@@ -5,34 +5,29 @@ import { ChevronDown, Phone } from "lucide-react"
 
 const faqs = [
   {
-    question: "Quanto tempo demora a tirar a carta?",
+    question: "Quanto custa a carta?",
     answer:
-      "O tempo médio para obter a carta de condução é de 3 a 6 meses, dependendo da disponibilidade do aluno para frequentar as aulas teóricas e práticas. Na NOVAFAFE, trabalhamos para otimizar o processo mantendo a qualidade da formação.",
+      "Temos pacotes adaptados a cada aluno e categoria. Contacta-nos via WhatsApp para um orçamento imediato e personalizado!",
   },
   {
-    question: "Posso fazer aulas à noite ou ao fim de semana?",
+    question: "Posso pagar em prestações?",
     answer:
-      "Sim, oferecemos horários flexíveis que incluem períodos noturnos e fins de semana. Adaptamos o horário das aulas à sua rotina profissional e pessoal.",
+      "Sim, facilitamos o pagamento em fases para que possas focar-te apenas na tua aprendizagem, sem preocupações financeiras imediatas.",
+  },
+  {
+    question: "Quanto tempo demora a tirar a carta?",
+    answer:
+      "O tempo depende da tua disponibilidade e dedicação. Na NOVAFAFE, trabalhamos para otimizar o processo mantendo a qualidade da formação.",
   },
   {
     question: "Qual é a idade mínima para tirar a carta?",
     answer:
-      "Para a carta de automóvel (categoria B), a idade mínima é 17 anos e 6 meses. Para motociclos, varia conforme a categoria pretendida. Consulte-nos para mais detalhes.",
+      "Podes inscrever-te e começar as aulas teóricas com 17 anos e 6 meses (para a categoria B).",
   },
   {
-    question: "O que acontece se reprovar no exame?",
+    question: "Que documentos preciso para me inscrever?",
     answer:
-      "Se reprovar, pode remarcar o exame após um período de espera. Na NOVAFAFE, oferecemos aulas adicionais de preparação para garantir que está pronto para a nova tentativa.",
-  },
-  {
-    question: "Os veículos têm duplo comando?",
-    answer:
-      "Sim, todos os nossos veículos de instrução estão equipados com duplo comando, garantindo a máxima segurança durante as aulas práticas.",
-  },
-  {
-    question: "Posso mudar de categoria com carta estrangeira?",
-    answer:
-      "Sim, é possível fazer a mudança de categoria mesmo com carta estrangeira, desde que cumpra os requisitos legais. Contacte-nos para avaliarmos o seu caso específico.",
+      "Apenas do teu Cartão de Cidadão e de um Atestado Médico Eletrónico (que podemos ajudar a tratar).",
   },
 ]
 

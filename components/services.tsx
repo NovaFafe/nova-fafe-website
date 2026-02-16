@@ -1,32 +1,25 @@
-import { Car, Bike, Truck, RefreshCw, ArrowRight } from "lucide-react"
+import { Car, Bike, RefreshCw, ArrowRight } from "lucide-react"
 
 const services = [
   {
     icon: Car,
     title: "Carta de Ligeiros",
     subtitle: "Categoria B",
-    description: "Aulas teóricas e práticas completas para automóveis ligeiros.",
-    highlight: "Mais Popular",
+    description: "Desde a primeira aula de código até ao exame final, estamos consigo. Aulas adaptadas ao seu ritmo.",
+    highlight: "Mais Procurado",
   },
   {
     icon: Bike,
     title: "Carta de Motociclo",
-    subtitle: "Categoria A",
-    description: "Aprenda a conduzir motociclos com segurança e confiança.",
-    highlight: null,
-  },
-  {
-    icon: Truck,
-    title: "Carta de Pesados",
-    subtitle: "Categoria C",
-    description: "Formação profissional completa para veículos pesados e CAM.",
+    subtitle: "Cat. A, A1, A2",
+    description: "Liberdade sobre duas rodas. Aprenda com segurança máxima e instrutores experientes.",
     highlight: null,
   },
   {
     icon: RefreshCw,
-    title: "Revalidação",
-    subtitle: "Mudança de Categoria",
-    description: "Processo simplificado para upgrade ou renovação da sua carta.",
+    title: "Outros Serviços",
+    subtitle: "Apoio IMT",
+    description: "Aulas de código, revalidação de títulos e apoio administrativo IMT. Tratamos da burocracia por si.",
     highlight: null,
   },
 ]
@@ -38,17 +31,17 @@ export function Services() {
         <div className="text-center max-w-3xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-8">
             <Car className="h-4 w-4" />
-            <span>Nossos Serviços</span>
+            <span>Os nossos serviços</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mb-8 leading-tight">
-            Formação Para Todas as <span className="text-primary">Categorias</span>
+            Tudo o que precisa para <span className="text-primary">conduzir</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Cursos adaptados às suas necessidades com instrutores experientes e metodologia comprovada.
+            Seja qual for o seu objetivo, temos a formação certa para si. Sem complicações.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, i) => (
             <div
               key={i}

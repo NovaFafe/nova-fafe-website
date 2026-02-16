@@ -86,7 +86,9 @@ export function Pricing() {
               </ul>
 
               <a
-                href="tel:253504130"
+                href="https://wa.me/351968268951"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`flex items-center justify-center gap-2 w-full py-3 rounded font-semibold transition-colors ${
                   pkg.popular
                     ? "bg-primary text-white hover:bg-primary/90"
@@ -94,7 +96,7 @@ export function Pricing() {
                 }`}
               >
                 <Phone className="h-4 w-4" />
-                Pedir Orçamento
+                Peça Orçamento Personalizado
               </a>
             </div>
           ))}

@@ -1,92 +1,76 @@
-import { CheckCircle2, Shield, Clock, Users, Award, Headphones } from "lucide-react"
+import { CheckCircle2, Shield, Users, Award, MapPin, Zap } from "lucide-react"
 
 const advantages = [
   {
-    icon: Award,
-    title: "Ensino de Excelência",
-    description: "Metodologia focada na aprendizagem real, preparando-o para qualquer situação na estrada.",
-  },
-  {
-    icon: Clock,
-    title: "Horários à Sua Medida",
-    description: "Aulas teóricas e práticas disponíveis em horários flexíveis, incluindo pós-laboral.",
-  },
-  {
-    icon: Shield,
-    title: "Segurança em Primeiro Lugar",
-    description: "Frota moderna equipada com os mais recentes sistemas de segurança ativa e passiva.",
+    icon: Zap,
+    title: "Ensino Moderno",
+    description: "Foco na facilidade de aprendizagem com métodos atuais.",
   },
   {
     icon: Users,
-    title: "Instrutores Pacientes",
-    description: "Equipa experiente que entende o seu ritmo e ajuda a superar o nervosismo inicial.",
+    title: "Equipa Qualificada",
+    description: "Instrutores dedicados e experientes ao seu lado.",
   },
   {
-    icon: Headphones,
-    title: "Suporte Administrativo",
-    description: "Tratamos de toda a burocracia e documentação para que se foque apenas em aprender.",
+    icon: MapPin,
+    title: "Localização Prática",
+    description: "Instalações modernas na Rua da Cumieira, em Fafe.",
   },
   {
-    icon: CheckCircle2,
-    title: "Pista de Treino Própria",
-    description: "Espaço exclusivo para as primeiras manobras, garantindo confiança antes de ir para a estrada.",
+    icon: Shield,
+    title: "Frota Recente",
+    description: "Aprenda em viaturas seguras e confortáveis.",
   },
 ]
 
 export function Advantages() {
   return (
-    <section id="vantagens" className="relative py-16 lg:py-24 bg-primary/5 overflow-hidden">
-      {/* Top Section Divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/80 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-1 bg-primary/20 blur-xl" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white to-transparent lg:from-white/80" />
-
-      {/* Bottom Section Divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/80 to-transparent" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/4 h-1 bg-primary/10 blur-xl" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent lg:from-white/80" />
-
+    <section id="vantagens" className="py-16 lg:py-24 bg-gray-50 overflow-hidden relative">
+      {/* Subtle Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Content */}
-          <div className="order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-primary/10 text-primary text-xs font-bold mb-6">
-              <CheckCircle2 className="h-3.5 w-3.5" />
-              <span>Diferenciais</span>
+        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column: Title & Intro */}
+          <div className="lg:col-span-1 space-y-6">
+            <div className="relative">
+              <div className="absolute -left-4 top-0 w-1 h-full bg-primary/20 rounded-full" />
+              <h2 className="text-4xl sm:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
+                Porque os alunos preferem a <span className="text-primary border-b-4 border-primary/10">NOVAFAFE.</span>
+              </h2>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground mb-6 leading-tight">
-              O Que Nos Torna a <span className="text-primary">Melhor Escolha?</span>
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mb-8">
-              Focamo-nos na experiência do aluno e na qualidade da formação.
+            <p className="text-lg text-muted-foreground leading-relaxed font-light">
+              Mais do que tirar a carta, garantimos que se torna um condutor seguro, num ambiente que respeita o seu tempo e as suas necessidades.
             </p>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              {advantages.map((advantage, i) => (
-                <div
-                  key={i}
-                  className="group p-4 rounded-xl border border-border/50 hover:border-primary/30 hover:bg-primary/[0.02] transition-all"
-                >
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <advantage.icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="text-sm font-bold text-foreground mb-1 tracking-tight">{advantage.title}</h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{advantage.description}</p>
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* Image */}
-          <div className="relative order-1 lg:order-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src="/happy-student-with-driving-license.jpg"
-                alt="Aluno feliz com carta de condução"
-                className="w-full h-[400px] lg:h-[550px] object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            </div>
+          {/* Right Column: Grid of Advantages */}
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4 sm:gap-6">
+            {advantages.map((advantage, i) => (
+              <div
+                key={i}
+                className="group relative bg-white p-8 rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100/80 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+              >
+                {/* Hover Accent */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-700" />
+                
+                <div className="relative z-10 flex flex-col items-start gap-4">
+                  <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-500 shadow-inner">
+                    <advantage.icon className="h-6 w-6 text-primary group-hover:text-white transition-colors duration-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-500">
+                      {advantage.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {advantage.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

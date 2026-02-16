@@ -10,26 +10,26 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Morada",
-    content: "Rua 5 de Outubro, 123\n4820-000 Fafe",
-    color: "from-blue-500 to-cyan-500",
+    content: "Rua da Cumieira, n.º 4820\n4820-000 Fafe",
+    color: "from-primary/80 to-primary",
   },
   {
     icon: Phone,
     title: "Telefone",
-    content: "253 490 080\n910 123 456",
-    color: "from-primary to-emerald-500",
+    content: "+351 253 095 892\n+351 968 268 951",
+    color: "from-primary to-green-600",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "geral@novafe.pt",
-    color: "from-purple-500 to-pink-500",
+    content: "novafafec@gmail.com",
+    color: "from-primary/90 to-primary/70",
   },
   {
     icon: Clock,
     title: "Horário",
-    content: "Seg-Sex: 9h-20h\nSábado: 9h-13h",
-    color: "from-orange-500 to-amber-500",
+    content: "Seg-Sex: 09:30 – 13:00 / 14:00 – 19:30\nSábado: 09:30 – 12:30",
+    color: "from-green-700 to-primary",
   },
 ]
 

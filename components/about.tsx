@@ -1,79 +1,62 @@
-import { Users } from "lucide-react"
+import { Users, Shield, Award, CheckCircle2, ArrowRight } from "lucide-react"
 
 export function About() {
   return (
-    <section id="sobre" className="relative pt-32 pb-16 lg:pt-40 lg:pb-24 bg-primary/5 overflow-hidden">
-      {/* Top Section Divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/80 to-transparent" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/4 h-1 bg-primary/20 blur-xl" />
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white to-transparent lg:from-white/80" />
-
-      {/* Bottom Section Divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border/80 to-transparent" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/4 h-1 bg-primary/10 blur-xl" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-white to-transparent lg:from-white/80" />
-
-      {/* Decorative Background Element */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none opacity-[0.03] select-none flex items-start justify-center pt-20">
-        <span className="text-[20rem] font-black leading-none">25</span>
-      </div>
-
+    <section id="sobre" className="py-24 lg:py-32 bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image Column */}
           <div className="relative order-2 lg:order-1">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100">
               <img
-                src="/driving-instructor-teaching-student.jpg"
-                alt="Instrutor da NOVAFAFE a ensinar um aluno"
-                className="w-full h-[300px] sm:h-[400px] lg:h-[550px] object-cover hover:scale-105 transition-transform duration-1000"
+                src="/NovaFafe-Facebook/Escola/mural.jpg"
+                alt="Mural da NOVAFAFE"
+                className="w-full h-[400px] sm:h-[500px] lg:h-[600px] object-cover hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-              
-              {/* Experience Badge on Image */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/90 backdrop-blur-md rounded-xl border border-white/20 shadow-lg flex items-center gap-4">
-                <div className="flex items-center justify-center w-12 h-12 bg-primary rounded-lg text-white shrink-0">
-                  <span className="text-xl font-bold">25</span>
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-foreground leading-tight">Anos de Compromisso</div>
-                  <div className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider">Com a sua segurança</div>
-                </div>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
             </div>
           </div>
 
           {/* Content Column */}
-          <div className="order-1 lg:order-2 space-y-6 text-center lg:text-left">
+          <div className="space-y-10 order-1 lg:order-2">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-primary/10 text-primary text-xs font-bold mb-6">
-                <Users className="h-3.5 w-3.5" />
-                <span>A Nossa História</span>
-              </div>
-              
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-foreground leading-tight mb-6">
-                Mais de Duas Décadas a Formar <span className="text-primary">Bons Condutores</span>
-                <span className="block text-sm font-bold text-primary/40 mt-2 uppercase tracking-[0.2em]">Desde 1999</span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] mb-8 tracking-tight">
+                Uma escola jovem <br />
+                com espírito <span className="text-primary">inovador.</span>
               </h2>
-              
-              <div className="space-y-4 text-base text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0">
+
+              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Fundada com o objetivo de elevar o padrão do ensino da condução em Fafe, a 
-                  <strong className="text-foreground"> NOVAFAFE</strong> tornou-se uma referência 
-                  pela sua dedicação e resultados.
+                  Fundada em 2018, a <strong className="text-foreground font-bold">NOVAFAFE</strong> nasceu para mudar a forma como se aprende a conduzir em Fafe. Deixamos para trás os métodos antiquados e focamo-nos no que realmente importa: a sua segurança e confiança.
                 </p>
                 <p>
-                  Acreditamos que aprender a conduzir é mais do que passar num exame; é adquirir 
-                  competências para uma vida inteira de segurança na estrada.
+                  Não somos apenas uma escola, somos uma equipa próxima. Aqui conhecemos o seu nome, as suas dificuldades e celebramos consigo cada conquista.
                 </p>
               </div>
             </div>
 
-            <div className="pt-2">
-              <button className="group relative overflow-hidden px-6 py-3 bg-foreground text-white rounded-lg font-bold hover:bg-foreground/90 transition-all active:scale-95 text-sm cursor-pointer">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
-                Conheça a Nossa Equipa
-              </button>
+            {/* Features List */}
+            <ul className="space-y-4">
+              {[
+                "Pedagogia paciente e adaptada ao seu ritmo",
+                "Ambiente familiar e profissional",
+                "Transparência total em preços e processos",
+              ].map((item, i) => (
+                <li key={i} className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span className="text-foreground font-medium text-lg">{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="pt-4 border-t border-gray-100">
+              <a
+                href="/sobre"
+                className="group inline-flex items-center gap-3 text-foreground font-bold text-lg hover:text-primary transition-colors"
+              >
+                Ver mais sobre a escola
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
           </div>
         </div>

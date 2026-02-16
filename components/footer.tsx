@@ -2,120 +2,158 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail, Heart } from "lucide-react"
+import { Facebook, Instagram, MapPin, Phone, Mail, Clock, ChevronRight } from "lucide-react"
 
 export function Footer() {
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="bg-foreground text-white relative overflow-hidden">
-      {/* Decorative top border */}
-      <div className="h-1 bg-gradient-to-r from-primary via-emerald-500 to-primary" />
-
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Image
-              src="/images/image.png"
-              alt="NOVAFE"
-              width={160}
-              height={53}
-              className="h-12 w-auto mb-6 brightness-0 invert"
-            />
-            <p className="text-white/60 leading-relaxed mb-6">
-              A sua escola de condução de confiança há mais de 25 anos. Formamos condutores de excelência em Fafe.
+    <footer className="bg-black text-gray-300 relative overflow-hidden font-sans border-t border-neutral-800">
+      {/* Green translucency effects */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/20 rounded-full blur-[128px] pointer-events-none" />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/10 rounded-full blur-[96px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-emerald-600/10 rounded-full blur-[64px] pointer-events-none" />
+      
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-16 pb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          
+          {/* Brand Info */}
+          <div className="space-y-6">
+            <Link href="/" className="block">
+              <div className="relative h-auto w-40 flex items-center justify-start mb-4">
+                 <Image
+                  src="/images/image.png"
+                  alt="Nova Fafe"
+                  width={160}
+                  height={53}
+                  className="h-12 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              Formamos condutores responsáveis e seguros. A sua escola de condução de referência em Fafe, com uma equipa experiente e dedicada ao seu sucesso.
             </p>
-            <div className="flex gap-3">
-              {[
-                { icon: Facebook, href: "#" },
-                { icon: Instagram, href: "#" },
-                { icon: Linkedin, href: "#" },
-              ].map((social, i) => (
-                <Link
-                  key={i}
-                  href={social.href}
-                  className="w-10 h-10 bg-white/10 hover:bg-primary rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer"
-                >
-                  <social.icon className="h-5 w-5" />
-                </Link>
-              ))}
+            <div className="flex gap-4">
+              <Link 
+                href="https://facebook.com/escoladeconducaonovafafe" 
+                target="_blank"
+                className="bg-neutral-800 p-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300 group"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+              </Link>
+              <Link 
+                href="https://instagram.com/ec_novafafe" 
+                target="_blank"
+                className="bg-neutral-800 p-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300 group"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+              </Link>
             </div>
           </div>
 
-          {/* Cursos */}
+          {/* Links Rápidos */}
           <div>
-            <h3 className="font-bold text-lg mb-6">Cursos</h3>
-            <ul className="space-y-3">
-              {["Categoria B", "Categoria A", "Categoria C", "Aulas de Reforço"].map((item) => (
-                <li key={item}>
-                  <Link href="/servicos" className="text-white/60 hover:text-primary transition-colors">
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h3 className="font-bold text-lg mb-6">Empresa</h3>
-            <ul className="space-y-3">
+            <h3 className="text-white font-semibold text-lg mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-primary after:rounded-full">
+              Navegação
+            </h3>
+            <ul className="space-y-3 text-sm">
               {[
-                { label: "Sobre Nós", href: "/sobre" },
+                { label: "Início", href: "/" },
+                { label: "A Escola", href: "/sobre" },
                 { label: "Serviços", href: "/servicos" },
-                { label: "Testemunhos", href: "/testemunhos" },
-                { label: "Contacto", href: "/contacto" },
-              ].map((item) => (
-                <li key={item.label}>
-                  <Link href={item.href} className="text-white/60 hover:text-primary transition-colors">
-                    {item.label}
+                { label: "Requisitos", href: "/requisitos" },
+                { label: "Contactos", href: "/contacto" },
+              ].map((link) => (
+                <li key={link.label}>
+                  <Link 
+                    href={link.href} 
+                    className="flex items-center gap-2 hover:text-primary transition-colors duration-200 group"
+                  >
+                    <ChevronRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all -ml-4 group-hover:ml-0" />
+                    <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Horário */}
           <div>
-            <h3 className="font-bold text-lg mb-6">Contacto</h3>
-            <ul className="space-y-4">
+            <h3 className="text-white font-semibold text-lg mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-primary after:rounded-full">
+              Horário
+            </h3>
+            <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-white/60">
-                  Rua 5 de Outubro, 123
-                  <br />
-                  4820-000 Fafe
+                <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <span className="block text-white font-medium mb-1">Segunda a Sexta</span>
+                  <span className="block text-gray-400">09:30 – 13:00</span>
+                  <span className="block text-gray-400">14:00 – 19:30</span>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <span className="block text-white font-medium mb-1">Sábado</span>
+                  <span className="block text-gray-400">09:30 – 12:30</span>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-5 h-5" /> {/* Spacer for alignment */}
+                <div>
+                  <span className="block text-white font-medium mb-1">Domingo</span>
+                  <span className="block text-gray-500 italic">Encerrado</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contactos */}
+          <div>
+            <h3 className="text-white font-semibold text-lg mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-primary after:rounded-full">
+              Contactos
+            </h3>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-3 group">
+                <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5 group-hover:text-white transition-colors" />
+                <span className="text-gray-400 group-hover:text-white transition-colors">
+                  Rua da Cumieira, n.º 4820<br />
+                  4820-000 Fafe, Portugal
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-white/60">253 490 080</span>
+              <li className="flex items-start gap-3 group">
+                <Phone className="w-5 h-5 text-primary shrink-0 mt-0.5 group-hover:text-white transition-colors" />
+                <div className="flex flex-col">
+                  <a href="tel:+351253095892" className="text-gray-400 group-hover:text-white transition-colors hover:text-primary">
+                    +351 253 095 892
+                  </a>
+                  <a href="tel:+351968268951" className="text-gray-400 group-hover:text-white transition-colors hover:text-primary">
+                    +351 968 268 951
+                  </a>
+                </div>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-white/60">geral@novafe.pt</span>
+              <li className="flex items-start gap-3 group">
+                <Mail className="w-5 h-5 text-primary shrink-0 mt-0.5 group-hover:text-white transition-colors" />
+                <a href="mailto:novafafec@gmail.com" className="text-gray-400 group-hover:text-white transition-colors hover:text-primary break-all">
+                  novafafec@gmail.com
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
-            <p className="flex items-center gap-1">
-              © 2025 NOVAFE - Escola de Condução. Feito com <Heart className="h-4 w-4 text-primary fill-primary" /> em
-              Portugal.
-            </p>
-            <div className="flex gap-6">
-              <Link href="#" className="hover:text-white transition-colors">
-                Política de Privacidade
-              </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                Termos de Serviço
-              </Link>
-            </div>
+        {/* Bottom Bar */}
+        <div className="border-t border-neutral-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-gray-500 text-center md:text-left">
+            &copy; {currentYear} Nova Fafe. Todos os direitos reservados.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
+            <Link href="#" className="hover:text-primary transition-colors">Política de Privacidade</Link>
+            <Link href="#" className="hover:text-primary transition-colors">Termos e Condições</Link>
+            <Link href="https://www.livroreclamacoes.pt" target="_blank" className="hover:text-primary transition-colors">Livro de Reclamações</Link>
           </div>
         </div>
       </div>
