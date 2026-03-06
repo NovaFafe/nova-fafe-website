@@ -19,11 +19,11 @@ const requirements = [
 ]
 
 const steps = [
-  { step: "1", title: "Inscrição", description: "Inscreva-se na autoescola com os documentos necessários." },
-  { step: "2", title: "Aulas Teóricas", description: "Frequente as aulas de código e prepare-se para o exame." },
-  { step: "3", title: "Exame Teórico", description: "Realize o exame teórico no IMT." },
-  { step: "4", title: "Aulas Práticas", description: "Inicie as aulas de condução com instrutor certificado." },
-  { step: "5", title: "Exame Prático", description: "Realize o exame prático e obtenha a sua carta." },
+  { step: "1", title: "Inscrição", description: "Inscreve-te na escola de condução com os documentos necessários." },
+  { step: "2", title: "Aulas Teóricas", description: "Frequenta as aulas de código e prepara-te para o exame." },
+  { step: "3", title: "Exame Teórico", description: "Realiza o teu exame teórico no IMT." },
+  { step: "4", title: "Aulas Práticas", description: "Inicia as aulas de condução com um instrutor certificado." },
+  { step: "5", title: "Exame Prático", description: "Realiza o exame prático e obtém a tua carta." },
 ]
 
 export function Requirements() {

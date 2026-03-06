@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle2, Star } from "lucide-react"
+import { CheckCircle2, Star, Facebook } from "lucide-react"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Autoplay } from 'swiper/modules';
 
@@ -33,11 +33,11 @@ export function RecentApprovals() {
       </div>
 
       {/* Carousel Container */}
-      <div className="relative w-full max-w-[1200px] mx-auto">
+      <div className="relative w-full mx-auto">
         
         {/* Soft Fade Edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 lg:w-24 bg-gradient-to-r from-gray-50 to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-8 lg:w-24 bg-gradient-to-l from-gray-50 to-transparent z-20 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-gray-50 to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-l from-gray-50 to-transparent z-20 pointer-events-none" />
 
         <Swiper
             effect={'coverflow'}
@@ -47,23 +47,24 @@ export function RecentApprovals() {
             slideToClickedSlide={true}
             coverflowEffect={{
                 rotate: 0,
-                stretch: 0,
-                depth: 100,
+                stretch: -40,
+                depth: 150,
                 modifier: 1.2,
                 slideShadows: false,
             }}
             loop={true}
+            speed={800}
             autoplay={{
-                delay: 3000,
+                delay: 2500,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true
             }}
             modules={[EffectCoverflow, Autoplay]}
-            className="approved-swiper !pb-10"
+            className="approved-swiper !pb-14 !pt-4"
         >
             {approvedStudents.map((student, index) => (
-                <SwiperSlide key={index} className="!w-[200px] !h-[280px] sm:!w-[240px] sm:!h-[320px] mx-2 transition-all duration-300">
-                    <div className="slide-content w-full h-full rounded-xl overflow-hidden bg-white transition-all duration-300 border border-gray-100 shadow-md relative">
+                <SwiperSlide key={index} className="!w-[240px] !h-[340px] sm:!w-[280px] sm:!h-[400px] lg:!w-[340px] lg:!h-[480px] transition-all duration-300">
+                    <div className="slide-content w-full h-full rounded-2xl overflow-hidden bg-white transition-all duration-300 shadow-xl relative">
                         <img
                             src={student.image}
                             alt={`Aluno aprovado ${index + 1}`}
@@ -89,9 +90,10 @@ export function RecentApprovals() {
           href="https://www.facebook.com/ecnovafafe/photos" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-10 py-4 text-base font-bold text-primary bg-white border-2 border-primary/20 rounded-full hover:bg-primary hover:text-white hover:border-primary shadow-lg shadow-primary/5 transition-all duration-300 active:scale-95"
+          className="inline-flex items-center justify-center gap-2 px-8 py-3 text-sm font-bold text-white bg-[#1877F2] rounded-md hover:bg-[#166fe5] shadow-md transition-all duration-200 active:scale-95 group"
         >
-          Ver mais no Facebook
+          <Facebook className="h-4 w-4 fill-white" />
+          <span className="border-l border-white/20 pl-2 ml-1">Ver mais no Facebook</span>
         </a>
       </div>
 
@@ -99,8 +101,8 @@ export function RecentApprovals() {
         /* Active slide styling */
         .swiper-slide-active .slide-content {
             border: 2px solid hsl(var(--primary));
-            box-shadow: 0 25px 50px -12px rgba(var(--primary-rgb), 0.5);
-            transform: scale(1.02);
+            box-shadow: 0 30px 60px -10px rgba(0,0,0,0.4), 0 0 0 2px hsl(var(--primary));
+            transform: scale(1.05);
             filter: grayscale(0) brightness(1);
         }
         
@@ -124,7 +126,7 @@ export function RecentApprovals() {
 
         .swiper-slide {
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: grayscale(1) brightness(1.1);
+            filter: grayscale(0.6) brightness(0.95);
         }
 
         .swiper-slide-active {

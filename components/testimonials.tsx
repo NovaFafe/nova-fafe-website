@@ -5,15 +5,15 @@ import Link from "next/link"
 
 const testimonials = [
   {
-    name: "Aluno Aprovado",
-    role: "Categoria B",
+    name: "José Roberto",
+    role: "Categoria A",
     content:
-      "Excelente escola! Os instrutores são muito profissionais e pacientes. Consegui a minha carta de condução!",
+      "Ambiente organizado, métodos de ensino fantásticos, receção e instrutores empenhados e uma excelente dinâmica de ensino. Fui aprovado <span class='underline decoration-foreground/30 underline-offset-4 text-foreground font-medium'>de primeira</span> com <strong class='text-foreground font-bold'>38/40</strong> no exame de código de A+B em cerca de 1 mês e meio de dedicação. Excelente escola de condução",
     rating: 5,
     image: "/NovaFafe-Facebook/Aprovados/484167430_1220491633412570_3802731146145604473_n.jpg",
   },
   {
-    name: "Aluno Aprovado",
+    name: "Rui Silva",
     role: "Categoria B",
     content:
       "Sempre quis tirar a carta e a NOVAFAFE tornou isso possível. Instalações de topo e equipamento moderno.",

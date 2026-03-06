@@ -1,78 +1,93 @@
-import { CheckCircle2, Shield, Users, Award, MapPin, Zap } from "lucide-react"
-
 const advantages = [
   {
-    icon: Zap,
-    title: "Ensino Moderno",
-    description: "Foco na facilidade de aprendizagem com métodos atuais.",
+    num: "01",
+    title: "O Seu Ritmo, a Nossa Prioridade",
+    description: "Na NovaFafe, o plano de aulas é desenhado à sua medida. Ajustamos o ensino à sua evolução para que se sinta 100% preparado.",
+    tag: "Ensino Personalizado",
   },
   {
-    icon: Users,
-    title: "Equipa Qualificada",
-    description: "Instrutores dedicados e experientes ao seu lado.",
+    num: "02",
+    title: "Instrutores que Inspiram Confiança",
+    description: "Mais do que ensinar a conduzir, a nossa equipa foca-se em eliminar o stress e criar condutores seguros e decididos.",
+    tag: "Equipa Dedicada",
   },
   {
-    icon: MapPin,
-    title: "Localização Prática",
-    description: "Instalações modernas na Rua da Cumieira, em Fafe.",
+    num: "03",
+    title: "Ambiente de Estudo Moderno",
+    description: "Esqueça as salas de código abafadas. As nossas instalações na Rua da Cumieira oferecem o conforto ideal para a sua aprendizagem teórica.",
+    tag: "Instalações Modernas",
   },
   {
-    icon: Shield,
-    title: "Frota Recente",
-    description: "Aprenda em viaturas seguras e confortáveis.",
+    num: "04",
+    title: "Suporte em Cada Etapa",
+    description: "Do exame médico à marcação da prova prática, tratamos de toda a burocracia para que se foque apenas na estrada.",
+    tag: "Apoio Total",
   },
 ]
 
 export function Advantages() {
   return (
-    <section id="vantagens" className="py-16 lg:py-24 bg-gray-50 overflow-hidden relative">
-      {/* Subtle Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-      
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 items-start">
-          
-          {/* Left Column: Title & Intro */}
-          <div className="lg:col-span-1 space-y-6">
-            <div className="relative">
-              <div className="absolute -left-4 top-0 w-1 h-full bg-primary/20 rounded-full" />
-              <h2 className="text-4xl sm:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
-                Porque os alunos preferem a <span className="text-primary border-b-4 border-primary/10">NOVAFAFE.</span>
-              </h2>
-            </div>
-            <p className="text-lg text-muted-foreground leading-relaxed font-light">
-              Mais do que tirar a carta, garantimos que se torna um condutor seguro, num ambiente que respeita o seu tempo e as suas necessidades.
-            </p>
-          </div>
+    <section id="vantagens" className="bg-gray-950 overflow-hidden relative">
+      {/* Subtle glow accents */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="absolute -top-32 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
 
-          {/* Right Column: Grid of Advantages */}
-          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4 sm:gap-6">
-            {advantages.map((advantage, i) => (
-              <div
-                key={i}
-                className="group relative bg-white p-8 rounded-2xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-gray-100/80 hover:border-primary/30 transition-all duration-500 overflow-hidden"
-              >
-                {/* Hover Accent */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 group-hover:scale-150 transition-transform duration-700" />
-                
-                <div className="relative z-10 flex flex-col items-start gap-4">
-                  <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-500 shadow-inner">
-                    <advantage.icon className="h-6 w-6 text-primary group-hover:text-white transition-colors duration-500" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-500">
-                      {advantage.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {advantage.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+
+        {/* Header */}
+        <div className="pt-20 lg:pt-28 pb-16 lg:pb-20 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+          <div className="max-w-2xl">
+            <span className="inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-5">
+              Porque escolher a NovaFafe
+            </span>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.95] tracking-tighter">
+              Feitos para o<br />
+              <span className="text-white/25 italic font-light">seu sucesso.</span>
+            </h2>
           </div>
+          <p className="text-white/50 text-lg leading-relaxed max-w-sm font-light lg:text-right">
+            Mais do que tirar a carta — tornamos o processo simples, humano e sem stress.
+          </p>
         </div>
+
+        {/* Divider */}
+        <div className="w-full h-px bg-white/8" />
+
+        {/* Items */}
+        <div className="divide-y divide-white/8">
+          {advantages.map((item) => (
+            <div
+              key={item.num}
+              className="group relative grid grid-cols-[auto_1fr] lg:grid-cols-[120px_1fr_1fr] gap-x-8 lg:gap-x-16 gap-y-3 py-10 lg:py-12 items-start lg:items-center -mx-6 px-6 sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12 overflow-hidden"
+            >
+              {/* Green glow background on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-[radial-gradient(ellipse_80%_120%_at_50%_50%,rgba(34,139,34,0.18)_0%,rgba(34,139,34,0.07)_45%,transparent_75%)]" />
+
+              {/* Number */}
+              <span className="relative text-[3.5rem] lg:text-[5rem] font-black leading-none text-white/10 transition-colors duration-500 tabular-nums select-none">
+                {item.num}
+              </span>
+
+              {/* Title + Tag */}
+              <div className="relative flex flex-col gap-2 pt-2 lg:pt-0">
+                <span className="inline-block self-start text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 border border-primary/20 px-2.5 py-1 rounded-full">
+                  {item.tag}
+                </span>
+                <h3 className="text-xl lg:text-2xl font-bold text-white leading-snug">
+                  {item.title}
+                </h3>
+              </div>
+
+              {/* Description — on desktop, 3rd column; on mobile, spans both columns */}
+              <p className="relative col-span-2 lg:col-span-1 text-white/50 text-base leading-relaxed font-light lg:pt-0 pl-[calc(3.5rem+2rem)] lg:pl-0">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="pb-20 lg:pb-28" />
       </div>
     </section>
   )

@@ -23,7 +23,7 @@ export function Footer() {
             <Link href="/" className="block">
               <div className="relative h-auto w-40 flex items-center justify-start mb-4">
                  <Image
-                  src="/images/image.png"
+                  src="/Nova-fafe-Logo-Emblema.png"
                   alt="Nova Fafe"
                   width={160}
                   height={53}

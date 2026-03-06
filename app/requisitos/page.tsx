@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { Requirements } from "@/components/requirements"
+import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function RequisitosPage() {
       <div className="pt-20">
         <Requirements />
       </div>
+      <CTA />
       <Footer />
     </main>
   )

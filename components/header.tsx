@@ -25,7 +25,6 @@ export function Header() {
     { href: "/sobre", label: "A Escola", icon: Users2 },
     { href: "/servicos", label: "Serviços", icon: CarFront },
     { href: "/requisitos", label: "Requisitos", icon: FileCheck },
-    { href: "/contacto", label: "Contactos", icon: Phone },
   ]
 
   useEffect(() => {
@@ -59,7 +58,7 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center flex-shrink-0">
               <Image
-                src="/images/image.png"
+                src="/Nova-fafe-Logo-Emblema.png"
                 alt="NOVAFE Escola de Condução"
                 width={160}
                 height={53}
@@ -70,7 +69,7 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden xl:flex items-center gap-8 h-full">
-              {mainNavLinks.slice(0, 5).map((link) => (
+              {mainNavLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -86,15 +85,6 @@ export function Header() {
             </nav>
 
             <div className="flex items-center gap-6">
-              <Link 
-                  href="/contacto" 
-                  className={`relative hidden xl:block text-sm font-bold transition-all py-2 hover:text-primary ${
-                    pathname === "/contacto" 
-                    ? "text-primary after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full" 
-                    : "text-gray-600"
-                  }`}>
-                  Contactos
-              </Link>
 
               {/* CTA Button */}
               <Link
@@ -163,17 +153,28 @@ export function Header() {
                    {link.label}
                   </Link>
                 ))}
+                
+                <Link
+                  href="/contacto"
+                  className={`flex items-center justify-between px-6 py-3.5 text-sm transition-colors border-l-4 ${
+                    pathname === "/contacto"
+                      ? "bg-gray-50 border-primary text-primary font-semibold"
+                      : "border-transparent text-gray-600 hover:bg-gray-50"
+                  }`}
+                >
+                  Contactos
+                </Link>
               </div>
             </div>
 
             {/* Footer */}
             <div className="p-6 border-t border-gray-100 bg-gray-50">
               <a
-                href="tel:253504130"
+                href="tel:+351253095892"
                 className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white border border-gray-200 rounded-md text-gray-700 font-medium hover:bg-gray-50 transition-all shadow-sm mb-4"
               >
                 <Phone className="h-4 w-4" />
-                253 504 130
+                253 095 892
               </a>
               
               <div className="flex justify-center gap-4">

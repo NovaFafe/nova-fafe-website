@@ -1,15 +1,14 @@
-import { Car, Bike, Zap, Info } from "lucide-react"
+import { Car, Bike, Zap, ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 
 const categories = [
   {
     id: "cars",
     title: "Ligeiros Premium",
-    description: "Aprenda ao volante das melhores marcas. A nossa frota de ligeiros é composta por viaturas recentes Mercedes Classe A e BMW Série 1.",
+    description: "Mercedes Classe A e BMW Série 1. Viaturas recentes com toda a tecnologia que merece.",
     icon: Car,
-    features: ["Ar Condicionado", "Sensores de Estacionamento", "Assistência à Condução"],
+    features: ["Categoria B", "Mercedes & BMW", "Assistência à Condução"],
     imageDefault: "/NovaFafe-Facebook/Veiculos/bmw-mercedes-frente.jpeg",
-    // Voltando a colocar a traseira nos ligeiros para libertar o interior
     imageHover: "/NovaFafe-Facebook/Veiculos/bmw-mercedes-tras.jpeg",
     subLabel: "Categoria B",
     link: "/servicos#ligeiros"
@@ -17,9 +16,9 @@ const categories = [
   {
     id: "bikes",
     title: "Motociclos",
-    description: "Do iniciante ao avançado. Dispomos de uma gama variada de motociclos para todas as categorias de carta (A, A1, A2).",
+    description: "Do iniciante ao avançado, com motociclos para todas as categorias de carta.",
     icon: Bike,
-    features: ["Várias Cilindradas", "Equipamento de Proteção", "Acompanhamento Dedicado"],
+    features: ["Cat. A, A1, A2", "Várias Cilindradas", "Equipamento Incluído"],
     imageDefault: "/NovaFafe-Facebook/Veiculos/motociclos.jpeg",
     imageHover: "/NovaFafe-Facebook/Veiculos/mota-individual.jpeg",
     subLabel: "Categorias A, A1, A2",
@@ -28,11 +27,10 @@ const categories = [
   {
     id: "electric",
     title: "Mobilidade Elétrica",
-    description: "O futuro da condução urbana. Conheça o nosso Citroën AMI, 100% elétrico, ideal para a nova geração de condutores.",
+    description: "Citroën AMI 100% elétrico. O futuro da condução urbana, disponível já hoje.",
     icon: Zap,
-    features: ["100% Elétrico", "Fácil de Conduzir", "Tecnologia Moderna"],
+    features: ["Quadriciclos / AM", "100% Elétrico", "Tecnologia Moderna"],
     imageDefault: "/NovaFafe-Facebook/Veiculos/citroen-ami-tras.jpeg",
-    // Colocando o interior aqui conforme pedido
     imageHover: "/NovaFafe-Facebook/Veiculos/interior-carro-citroen.jpeg",
     subLabel: "Quadriciclos / AM",
     link: "/servicos#eletricos"
@@ -40,76 +38,76 @@ const categories = [
 ]
 
 export function Fleet() {
+  const [main, ...rest] = categories
+
   return (
-    <section id="frota" className="py-16 lg:py-24 bg-white">
+    <section id="frota" className="py-16 lg:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] mb-6 tracking-tight">
-            A nossa <span className="text-primary">Frota</span>
+        <div className="mb-12">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground leading-[0.95] tracking-tight">
+            A nossa <span className="text-primary">frota.</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Qualidade, segurança e conforto. Escolhemos os melhores veículos para garantir a melhor aprendizagem.
+          <p className="text-muted-foreground text-base font-light mt-3">
+            Viaturas modernas e seguras para todos os níveis de condução.
           </p>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {categories.map((cat) => (
-            <Link 
-              key={cat.id} 
-              href={cat.link}
-              className="group flex flex-col bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-500 cursor-pointer"
-            >
-              {/* Image Container with Hover Switch Effect */}
-              <div className="relative aspect-[4/3] overflow-hidden bg-gray-200">
-                {/* Default Image - stays visible to prevent holes properly */}
-                <img
-                  src={cat.imageDefault}
-                  alt={`${cat.title} - Vista Principal`}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  loading="lazy"
-                />
-                
-                {/* Hover Image - simple fade in on top */}
-                <img
-                  src={cat.imageHover}
-                  alt={`${cat.title} - Vista Detalhada`}
-                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0 group-hover:opacity-100"
-                  loading="lazy"
-                />
+        {/* Asymmetric grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-4 lg:gap-5">
 
-                {/* Badge */}
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-foreground shadow-sm z-10">
-                  {cat.subLabel}
-                </div>
+          {/* Main card — tall */}
+          <Link
+            href={main.link}
+            className="group relative rounded-3xl overflow-hidden block bg-gray-900 min-h-[480px] lg:min-h-0 lg:row-span-2"
+          >
+            <img src={main.imageDefault} alt={main.title}
+              className="absolute inset-0 w-full h-full object-cover brightness-90 saturate-90 scale-105 group-hover:scale-100 group-hover:opacity-0 transition-all duration-700" loading="lazy" />
+            <img src={main.imageHover} alt={main.title}
+              className="absolute inset-0 w-full h-full object-cover brightness-90 saturate-90 scale-100 group-hover:scale-105 opacity-0 group-hover:opacity-100 transition-all duration-700" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+            <div className="absolute top-5 right-5 w-9 h-9 rounded-full bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+              <ArrowUpRight className="h-4 w-4 text-white" />
+            </div>
+            <div className="absolute inset-x-0 bottom-0 p-7">
+              <div className="inline-flex items-center gap-1.5 mb-4">
+                <main.icon className="h-4 w-4 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
+                <span className="text-sm font-semibold text-white tracking-wide drop-shadow-[0_0_6px_rgba(255,255,255,0.8)]">{main.subLabel}</span>
               </div>
+              <h3 className="text-4xl font-black text-white leading-tight tracking-tight mb-2 drop-shadow-lg">{main.title}</h3>
+              <p className="text-base text-white/75 leading-relaxed font-light max-h-0 group-hover:max-h-16 overflow-hidden transition-all duration-500">{main.description}</p>
+              <div className="mt-5 h-px w-8 bg-primary group-hover:w-full transition-all duration-500 ease-out" />
+            </div>
+          </Link>
 
-              {/* Content */}
-              <div className="flex-1 p-8 flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                    <cat.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">{cat.title}</h3>
+          {/* Secondary cards — stacked */}
+          {rest.map((cat) => (
+            <Link
+              key={cat.id}
+              href={cat.link}
+              className="group relative rounded-3xl overflow-hidden block bg-gray-900 min-h-[280px]"
+            >
+              <img src={cat.imageDefault} alt={cat.title}
+                className="absolute inset-0 w-full h-full object-cover brightness-90 saturate-90 scale-105 group-hover:scale-100 group-hover:opacity-0 transition-all duration-700" loading="lazy" />
+              <img src={cat.imageHover} alt={cat.title}
+                className="absolute inset-0 w-full h-full object-cover brightness-90 saturate-90 scale-100 group-hover:scale-105 opacity-0 group-hover:opacity-100 transition-all duration-700" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+              <div className="absolute top-4 right-4 w-8 h-8 rounded-full bg-primary flex items-center justify-center opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                <ArrowUpRight className="h-3.5 w-3.5 text-white" />
+              </div>
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <div className="inline-flex items-center gap-1.5 mb-2">
+                  <cat.icon className="h-4 w-4 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.8)]" />
+                  <span className="text-sm font-semibold text-white tracking-wide drop-shadow-[0_0_6px_rgba(255,255,255,0.8)]">{cat.subLabel}</span>
                 </div>
-
-                <p className="text-muted-foreground leading-relaxed mb-6 text-sm flex-1">
-                  {cat.description}
-                </p>
-
-                {/* Features List */}
-                <ul className="space-y-2 pt-6 border-t border-gray-100">
-                  {cat.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm text-foreground/80 font-medium">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="text-2xl font-black text-white leading-tight tracking-tight mb-1 drop-shadow-lg">{cat.title}</h3>
+                <p className="text-sm text-white/75 leading-relaxed font-light max-h-0 group-hover:max-h-12 overflow-hidden transition-all duration-500">{cat.description}</p>
+                <div className="mt-3 h-px w-6 bg-primary group-hover:w-full transition-all duration-500 ease-out" />
               </div>
             </Link>
           ))}
+
         </div>
       </div>
     </section>

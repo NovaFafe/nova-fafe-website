@@ -54,7 +54,7 @@ export function About() {
                 href="/sobre"
                 className="group inline-flex items-center gap-3 text-foreground font-bold text-lg hover:text-primary transition-colors"
               >
-                Ver mais sobre a escola
+                Conheça a nossa história
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
