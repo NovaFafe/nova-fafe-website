@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Home, Users2, CarFront, FileCheck, Euro, Phone, ChevronRight, Instagram, Facebook } from "lucide-react"
+import { Menu, X, Home, Users2, CarFront, FileCheck, Euro, Phone, ChevronRight, ChevronDown, Instagram, Facebook, Car, Bike, Zap, RotateCcw, RefreshCw, ClipboardList, HelpCircle } from "lucide-react"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -23,8 +23,21 @@ export function Header() {
   const mainNavLinks = [
     { href: "/", label: "Início", icon: Home },
     { href: "/sobre", label: "A Escola", icon: Users2 },
-    { href: "/servicos", label: "Serviços", icon: CarFront },
-    { href: "/requisitos", label: "Requisitos", icon: FileCheck },
+    { 
+      href: "/servicos", 
+      label: "Serviços", 
+      icon: CarFront,
+      submenu: [
+        { href: "/servicos#categoria-b",        label: "Categoria B — Ligeiros",             icon: Car },
+        { href: "/servicos#categoria-a",        label: "Categoria A / A1 / A2 — Motociclos", icon: Bike },
+        { href: "/servicos#categoria-am",       label: "Categoria AM — Ciclomotores",        icon: Zap },
+        { href: "/servicos#recuperacao-pontos", label: "Recuperação de Pontos (AVF)",         icon: RotateCcw },
+        { href: "/servicos#revalidacao",        label: "Revalidação de Título",              icon: RefreshCw },
+        { href: "/servicos#apoio-imt",          label: "Apoio Administrativo IMT",           icon: ClipboardList },
+      ]
+    },
+    { href: "/requisitos", label: "Inscrição", icon: FileCheck },
+    { href: "/faq", label: "FAQ", icon: HelpCircle },
   ]
 
   useEffect(() => {
@@ -43,16 +56,47 @@ export function Header() {
   }, [isMobileMenuOpen])
 
   const isHomePage = pathname === "/"
+  const currentYear = new Date().getFullYear()
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? "bg-white/95 backdrop-blur-md border-b border-gray-200 py-3 shadow-md" 
-            : "bg-white/80 backdrop-blur-sm border-b border-gray-100 py-4 shadow-sm"
-        }`}
-      >
+      {/* Wrapper fixo que agrupa Top Bar + Header */}
+      <div className="fixed top-0 left-0 right-0 z-50">
+
+        {/* Top Bar */}
+        <div className={`hidden lg:block bg-zinc-900 text-white text-xs font-medium overflow-hidden transition-all duration-300 ${
+          isScrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100"
+        }`}>
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center py-2.5">
+            <div className="flex gap-6 items-center">
+              <a href="tel:+351253504148" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+                <Phone size={14} className="text-primary" />
+                <span>+351 253 504 148</span>
+              </a>
+              <div className="flex items-center gap-2 text-zinc-400">
+                <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                <span>Inscrições abertas para {currentYear}</span>
+              </div>
+            </div>
+            <div className="flex gap-4 items-center">
+              <Link href="https://facebook.com" target="_blank" className="text-zinc-400 hover:text-white transition-colors">
+                <Facebook size={14} />
+              </Link>
+              <Link href="https://instagram.com" target="_blank" className="text-zinc-400 hover:text-white transition-colors">
+                <Instagram size={14} />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Header */}
+        <header
+          className={`transition-all duration-500 ${
+            isScrolled
+              ? "bg-white/95 backdrop-blur-md border-b border-gray-200 py-2 shadow-md"
+              : "bg-white/80 backdrop-blur-sm border-b border-gray-100 py-4 shadow-sm"
+          }`}
+        >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex items-center justify-between h-14">
             {/* Logo */}
@@ -68,19 +112,51 @@ export function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center gap-8 h-full">
+            <nav className="hidden xl:flex items-center gap-1 h-full ml-8">
               {mainNavLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`relative text-sm font-bold transition-all py-2 hover:text-primary ${
-                    pathname === link.href
-                      ? "text-primary after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-primary after:rounded-full"
-                      : "text-gray-600"
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                <div key={link.href} className="relative group h-full flex items-center">
+                  <Link
+                    href={link.href}
+                    className={`relative flex items-center gap-2 px-4 py-2 text-sm font-bold transition-all duration-300 rounded-lg group/link ${
+                      pathname === link.href 
+                        ? "text-primary bg-primary/5" 
+                        : "text-gray-600 hover:text-primary hover:bg-gray-50/80"
+                    }`}
+                  >
+                    {link.icon && <link.icon size={15} className={`flex-shrink-0 transition-colors ${pathname === link.href ? "text-primary" : "text-gray-400 group-hover/link:text-primary"}`} />}
+                    {link.label}
+                    {link.submenu && (
+                      <ChevronDown size={14} className="transition-transform duration-300 group-hover:rotate-180" />
+                    )}
+                    
+                    {/* Floating Indicator Bar */}
+                    <span 
+                      className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/link:w-1/2 ${
+                        pathname === link.href ? "w-1/2" : ""
+                      }`} 
+                    />
+                  </Link>
+
+                  {/* Dropdown Menu */}
+                  {link.submenu && (
+                    <div className="absolute top-full left-0 w-64 pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
+                      <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden p-2">
+                        {link.submenu.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            className="flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors group/sub"
+                          >
+                            <div className="w-7 h-7 flex items-center justify-center rounded-md bg-gray-100 text-gray-400 group-hover/sub:bg-primary/10 group-hover/sub:text-primary transition-colors flex-shrink-0">
+                              {sub.icon && <sub.icon size={14} />}
+                            </div>
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
 
@@ -107,6 +183,8 @@ export function Header() {
           </div>
         </div>
       </header>
+
+      </div>{/* fim do wrapper fixo */}
 
       {/* Mobile Menu */}
       <div
@@ -141,27 +219,55 @@ export function Header() {
             <div className="flex-1 overflow-y-auto py-4">
               <div className="flex flex-col">
                 {mainNavLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`flex items-center justify-between px-6 py-3.5 text-sm transition-colors border-l-4 ${
-                      pathname === link.href
-                        ? "bg-gray-50 border-primary text-primary font-semibold"
-                        : "border-transparent text-gray-600 hover:bg-gray-50"
-                    }`}
-                  >
-                   {link.label}
-                  </Link>
+                  <div key={link.href} className="flex flex-col">
+                    <Link
+                      href={link.href}
+                      className={`relative flex items-center justify-between px-6 py-4 text-base transition-all duration-300 border-l-4 group/item ${
+                        pathname === link.href
+                          ? "bg-primary/5 border-primary text-primary font-bold"
+                          : "border-transparent text-gray-700 hover:bg-gray-50/80 font-semibold hover:border-gray-200"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2 rounded-lg transition-colors ${
+                          pathname === link.href ? "bg-primary text-white" : "bg-gray-100 text-gray-400 group-hover/item:bg-gray-200"
+                        }`}>
+                          {link.icon && <link.icon size={18} />}
+                        </div>
+                        {link.label}
+                      </div>
+                      {link.submenu && <ChevronRight size={16} className="text-gray-400" />}
+                    </Link>
+                    
+                    {/* Submenu no mobile */}
+                    {link.submenu && (
+                      <div className="bg-gray-50/50 py-1 border-l-4 border-transparent ml-6">
+                        {link.submenu.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            className="flex items-center gap-3 pl-8 pr-6 py-3 text-sm font-medium text-gray-500 hover:text-primary hover:bg-white/70 transition-colors"
+                          >
+                            <div className="w-7 h-7 flex items-center justify-center rounded-md bg-white border border-gray-100 text-gray-400 flex-shrink-0">
+                              {sub.icon && <sub.icon size={13} />}
+                            </div>
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
                 
                 <Link
                   href="/contacto"
-                  className={`flex items-center justify-between px-6 py-3.5 text-sm transition-colors border-l-4 ${
+                  className={`flex items-center gap-3 px-6 py-4 text-base transition-colors border-l-4 ${
                     pathname === "/contacto"
-                      ? "bg-gray-50 border-primary text-primary font-semibold"
-                      : "border-transparent text-gray-600 hover:bg-gray-50"
+                      ? "bg-primary/5 border-primary text-primary font-bold"
+                      : "border-transparent text-gray-700 hover:bg-gray-50 font-semibold"
                   }`}
                 >
+                  <Phone size={18} className={pathname === "/contacto" ? "text-primary" : "text-gray-400"} />
                   Contactos
                 </Link>
               </div>
