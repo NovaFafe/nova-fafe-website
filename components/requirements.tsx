@@ -1,93 +1,141 @@
-import { FileText, Calendar, CheckCircle2 } from "lucide-react"
+import { FileText, Calendar, CheckCircle2, ArrowRight, ClipboardList, Stethoscope } from "lucide-react"
 
-const requirements = [
+const docs = [
   {
     icon: Calendar,
     title: "Idade Mínima",
-    description: "17 anos e 6 meses para inscrição na categoria B.",
+    detail: "17 anos e 6 meses",
+    description: "Para inscrição e aulas teóricas na Categoria B. O exame prático só pode ser feito aos 18 anos.",
   },
   {
     icon: FileText,
     title: "Cartão de Cidadão",
-    description: "Documento de identificação válido e atualizado.",
+    detail: "Documento válido",
+    description: "Identificação nacional válida e atualizada. Cidadãos estrangeiros devem apresentar título de residência.",
   },
   {
-    icon: CheckCircle2,
+    icon: Stethoscope,
     title: "Atestado Médico",
-    description: "Atestado Médico Eletrónico transmitido via SNS.",
+    detail: "Via SNS / Médico de família",
+    description: "Atestado Médico Eletrónico transmitido ao IMT. Podemos orientar-te no processo de obtenção.",
   },
 ]
 
 const steps = [
-  { step: "1", title: "Inscrição", description: "Inscreve-te na escola de condução com os documentos necessários." },
-  { step: "2", title: "Aulas Teóricas", description: "Frequenta as aulas de código e prepara-te para o exame." },
-  { step: "3", title: "Exame Teórico", description: "Realiza o teu exame teórico no IMT." },
-  { step: "4", title: "Aulas Práticas", description: "Inicia as aulas de condução com um instrutor certificado." },
-  { step: "5", title: "Exame Prático", description: "Realiza o exame prático e obtém a tua carta." },
+  {
+    step: "01",
+    title: "Inscrição na escola",
+    description: "Traz o Cartão de Cidadão e o Atestado Médico Eletrónico. Tratamos do resto.",
+  },
+  {
+    step: "02",
+    title: "Aulas de código",
+    description: "Frequenta as aulas teóricas em sala ou online e prepara-te para o exame.",
+  },
+  {
+    step: "03",
+    title: "Exame teórico (IMT)",
+    description: "Realizas o exame de código no IMT. A nossa taxa de aprovação é elevada.",
+  },
+  {
+    step: "04",
+    title: "Aulas práticas",
+    description: "Conduzes com instrutor certificado em viatura BMW ou Mercedes, ao teu ritmo.",
+  },
+  {
+    step: "05",
+    title: "Exame prático",
+    description: "O exame final com examinador do IMT. Celebramos contigo a aprovação.",
+  },
 ]
 
 export function Requirements() {
   return (
-    <section id="requisitos" className="py-20 lg:py-28 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-          <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Requisitos</p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">O Que Precisa Para Tirar a Carta</h2>
-          <p className="text-muted-foreground">
-            Conheça os documentos e requisitos necessários para iniciar a sua formação de condução em Portugal.
-          </p>
-        </div>
-
-        {/* Requirements Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {requirements.map((req, i) => (
-            <div key={i} className="bg-white border border-border rounded p-5 text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded mx-auto mb-4 flex items-center justify-center">
-                <req.icon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="font-semibold text-foreground mb-1">{req.title}</h3>
-              <p className="text-sm text-muted-foreground">{req.description}</p>
+    <>
+      {/* Hero */}
+      <section className="relative bg-zinc-950 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="pt-36 lg:pt-44 pb-16 lg:pb-24 max-w-3xl">
+            <div className="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-8 uppercase tracking-widest">
+              <a href="/" className="hover:text-white transition-colors">Início</a>
+              <span>·</span>
+              <span className="text-primary">Requisitos & Inscrição</span>
             </div>
-          ))}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.0] tracking-tighter mb-6">
+              Como<br />
+              <span className="text-primary">funciona.</span>
+            </h1>
+            <p className="text-base text-zinc-400 leading-relaxed max-w-xl font-light">
+              O que precisas para te inscrever e como é o processo, passo a passo. Sem burocracia complicada.
+            </p>
+          </div>
         </div>
+      </section>
 
-        {/* Process Steps */}
-        <div className="bg-white border border-border rounded p-6 lg:p-8">
-          <h3 className="text-xl font-bold text-foreground mb-6 text-center">Processo de Obtenção da Carta</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {steps.map((step, i) => (
-              <div key={i} className="relative">
-                <div className="flex flex-col items-center text-center">
-                  <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold mb-3">
-                    {step.step}
-                  </div>
-                  <h4 className="font-semibold text-foreground mb-1">{step.title}</h4>
-                  <p className="text-xs text-muted-foreground">{step.description}</p>
+      {/* Documents */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="mb-14">
+            <p className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-3">Documentação</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-foreground tracking-tight">O que precisas para te inscrever</h2>
+          </div>
+          <div className="grid sm:grid-cols-3 gap-8">
+            {docs.map((doc, i) => (
+              <div key={i} className="group p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <div className="w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
+                  <doc.icon className="h-7 w-7 text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
-                {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-5 left-[60%] w-[80%] h-px bg-border" />
-                )}
+                <p className="text-xs font-black text-primary uppercase tracking-widest mb-1">{doc.detail}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3">{doc.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{doc.description}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Revalidation Info */}
-        <div className="mt-8 bg-primary/5 border border-primary/20 rounded p-6">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 bg-primary/10 rounded flex items-center justify-center flex-shrink-0">
-              <CheckCircle2 className="h-5 w-5 text-primary" />
+      {/* Process */}
+      <section className="py-20 lg:py-28 bg-gray-50/50">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="mb-14">
+            <p className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-3">Processo</p>
+            <h2 className="text-3xl sm:text-4xl font-black text-foreground tracking-tight">Da inscrição à aprovação</h2>
+          </div>
+
+          <div className="relative">
+            {/* Connecting line (desktop) */}
+            <div className="hidden lg:block absolute top-8 left-8 right-8 h-px bg-gray-200" style={{zIndex: 0}} />
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 relative" style={{zIndex: 1}}>
+              {steps.map((step, i) => (
+                <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+                  <div className="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center font-black text-lg mb-5 shadow-lg shadow-primary/20">
+                    {step.step}
+                  </div>
+                  <h4 className="font-bold text-foreground mb-2">{step.title}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Revalidation note */}
+          <div className="mt-12 bg-primary/5 border border-primary/20 rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start">
+            <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+              <ClipboardList className="h-6 w-6 text-primary" />
             </div>
             <div>
-              <h3 className="font-semibold text-foreground mb-1">Revalidação da Carta</h3>
-              <p className="text-sm text-muted-foreground">
-                A carta de condução precisa de revalidação a cada 10 anos (até aos 60 anos) e depois com maior
-                frequência. A NOVAFAFE pode ajudar a preparar e agendar a revalidação, incluindo aulas de atualização.
+              <h3 className="font-bold text-foreground mb-2 text-lg">Já tens carta? Verifica a revalidação</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                A carta de condução precisa de revalidação periódica — a cada 10 anos (até 60 anos), a cada 5 anos (60–70 anos) e a cada 2 anos após os 70. A NOVAFAFE trata de todo o processo, incluindo agendamento do exame médico.
               </p>
+              <a href="/contacto" className="inline-flex items-center gap-2 mt-4 text-primary font-bold text-sm hover:gap-3 transition-all">
+                Saber mais <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
