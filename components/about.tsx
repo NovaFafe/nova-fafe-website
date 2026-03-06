@@ -27,10 +27,10 @@ export function About() {
 
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Fundada em 2018, a <strong className="text-foreground font-bold">NOVAFAFE</strong> nasceu para mudar a forma como se aprende a conduzir em Fafe. Deixamos para trás os métodos antiquados e focamo-nos no que realmente importa: a sua segurança e confiança.
+                  Fundada em 2018, a <strong className="text-foreground font-bold">NOVAFAFE</strong> nasceu para mudar a forma como se aprende a conduzir em Fafe. Deixamos para trás os métodos antiquados e focamo-nos no que realmente importa: a tua segurança e confiança.
                 </p>
                 <p>
-                  Não somos apenas uma escola, somos uma equipa próxima. Aqui conhecemos o seu nome, as suas dificuldades e celebramos consigo cada conquista.
+                  Não somos apenas uma escola, somos uma equipa próxima. Aqui conhecemos o teu nome, as tuas dificuldades e celebramos contigo cada conquista.
                 </p>
               </div>
             </div>

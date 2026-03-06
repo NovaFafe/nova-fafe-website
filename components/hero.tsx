@@ -25,7 +25,7 @@ export function Hero() {
 
             {/* Description */}
             <p className="text-xl text-muted-foreground leading-relaxed mb-12 max-w-2xl font-light">
-              Na Escola de Condução Novafafe, em Fafe, acreditamos que tirar a carta deve ser um processo de confiança e segurança. Com uma abordagem moderna e personalizada, preparamos os nossos alunos para todos os desafios da estrada.
+              Na Escola de Condução <strong>NOVAFAFE</strong>, em Fafe, acreditamos que tirar a carta deve ser um processo de confiança e segurança. Com uma abordagem moderna e personalizada, preparamos os nossos alunos para todos os desafios da estrada.
             </p>
 
             {/* CTA Buttons */}

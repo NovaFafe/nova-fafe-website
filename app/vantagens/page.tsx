@@ -1,19 +1,21 @@
 import { Header } from "@/components/header"
 import { Advantages } from "@/components/advantages"
+import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Vantagens - NOVAFE Escola de Condução",
-  description: "Conheça as vantagens de escolher a NOVAFE como sua escola de condução.",
+  title: "Vantagens - NOVAFAFE Escola de Condução",
+  description: "Conhece as vantagens de escolher a NOVAFAFE como a tua escola de condução em Fafe.",
 }
 
 export default function VantagensPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Header />
       <div className="pt-20">
         <Advantages />
       </div>
+      <CTA />
       <Footer />
     </main>
   )

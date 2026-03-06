@@ -1,10 +1,10 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Users, Shield, Star, Sparkles, ArrowRight } from "lucide-react"
+import { Users, Shield, Star, Sparkles, ArrowRight, CheckCircle2 } from "lucide-react"
 
 export const metadata = {
-  title: "Sobre Nós - NOVAFE Escola de Condução",
-  description: "Conheça a história e valores da NOVAFAFE, a escola de condução que está a modernizar o ensino em Fafe.",
+  title: "A Escola - NOVAFAFE Escola de Condução",
+  description: "Conheça a história e valores da NOVAFAFE, a escola de condução de referência em Fafe desde 2018.",
 }
 
 export default function SobrePage() {

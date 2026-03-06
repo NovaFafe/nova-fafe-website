@@ -3,17 +3,15 @@ import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Contacto - NOVAFE Escola de Condução",
-  description: "Entre em contacto connosco para tirar dúvidas ou agendar uma visita.",
+  title: "Contacto - NOVAFAFE Escola de Condução",
+  description: "Entra em contacto connosco para tirar dúvidas ou agendar uma visita. Fafe.",
 }
 
 export default function ContactoPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Header />
-      <div className="pt-20">
-        <Contact />
-      </div>
+      <Contact />
       <Footer />
     </main>
   )
