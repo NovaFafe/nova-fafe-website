@@ -36,7 +36,7 @@ export function Header() {
         { href: "/servicos#apoio-imt",          label: "Apoio Administrativo IMT",           icon: ClipboardList },
       ]
     },
-    { href: "/requisitos", label: "Inscrição", icon: FileCheck },
+    { href: "/requisitos", label: "Requisitos", icon: FileCheck },
     { href: "/faq", label: "FAQ", icon: HelpCircle },
   ]
 
@@ -79,10 +79,10 @@ export function Header() {
               </div>
             </div>
             <div className="flex gap-4 items-center">
-              <Link href="https://facebook.com" target="_blank" className="text-zinc-400 hover:text-white transition-colors">
+              <Link href="https://www.facebook.com/NovaFafe" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">
                 <Facebook size={14} />
               </Link>
-              <Link href="https://instagram.com" target="_blank" className="text-zinc-400 hover:text-white transition-colors">
+              <Link href="https://www.instagram.com/ecnovafafe/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-white transition-colors">
                 <Instagram size={14} />
               </Link>
             </div>
@@ -94,7 +94,7 @@ export function Header() {
           className={`transition-all duration-500 ${
             isScrolled
               ? "bg-white/95 backdrop-blur-md border-b border-gray-200 py-2 shadow-md"
-              : "bg-white/80 backdrop-blur-sm border-b border-gray-100 py-4 shadow-sm"
+              : "bg-white border-b border-gray-100 py-4"
           }`}
         >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">

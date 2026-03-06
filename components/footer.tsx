@@ -36,7 +36,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <Link 
-                href="https://facebook.com/escoladeconducaonovafafe" 
+                href="https://www.facebook.com/NovaFafe" 
                 target="_blank"
                 className="bg-neutral-800 p-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300 group"
                 aria-label="Facebook"
@@ -44,7 +44,7 @@ export function Footer() {
                 <Facebook className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
               </Link>
               <Link 
-                href="https://instagram.com/ec_novafafe" 
+                href="https://www.instagram.com/ecnovafafe/" 
                 target="_blank"
                 className="bg-neutral-800 p-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300 group"
                 aria-label="Instagram"
@@ -66,6 +66,7 @@ export function Footer() {
                 { label: "Serviços", href: "/servicos" },
                 { label: "Requisitos", href: "/requisitos" },
                 { label: "Contactos", href: "/contacto" },
+                { label: "FAQ", href: "/faq" },
               ].map((link) => (
                 <li key={link.label}>
                   <Link 
@@ -151,8 +152,8 @@ export function Footer() {
             &copy; {currentYear} Nova Fafe. Todos os direitos reservados.
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-            <Link href="#" className="hover:text-primary transition-colors">Política de Privacidade</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Termos e Condições</Link>
+            <Link href="/privacidade" className="hover:text-primary transition-colors">Política de Privacidade</Link>
+            <Link href="/termos" className="hover:text-primary transition-colors">Termos e Condições</Link>
             <Link href="https://www.livroreclamacoes.pt" target="_blank" className="hover:text-primary transition-colors">Livro de Reclamações</Link>
           </div>
         </div>

@@ -13,31 +13,62 @@ export default function SobrePage() {
       <Header />
       
       {/* Page Hero */}
-      <section className="relative pt-28 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/NovaFafe-Facebook/Escola/mural.jpg"
-            alt="Mural da NOVAFAFE"
-            className="w-full h-full object-cover opacity-10 blur-sm"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white" />
-        </div>
+      <section className="relative bg-zinc-950 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center pt-36 lg:pt-44 pb-16 lg:pb-24">
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              Conheça a nossa história
-            </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight mb-8">
-              Uma escola moderna com um <span className="text-primary italic font-medium">legado de confiança.</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-2xl font-light">
-              Nascemos para transformar a aprendizagem na estrada. Na NOVAFAFE, combinamos tecnologia, proximidade e paixão por ensinar.
-            </p>
+            {/* Left — Copy */}
+            <div>
+              {/* Breadcrumb */}
+              <div className="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-8 uppercase tracking-widest">
+                <a href="/" className="hover:text-white transition-colors">Início</a>
+                <span>·</span>
+                <span className="text-primary">A Escola</span>
+              </div>
+
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.0] tracking-tighter mb-6">
+                A escola que<br />
+                <span className="text-primary">te entende.</span>
+              </h1>
+
+              <p className="text-base text-zinc-400 leading-relaxed max-w-md font-light mb-10">
+                Fundada em Fafe em 2018, somos uma equipa que conhece o teu nome, respeita o teu ritmo e celebra contigo cada conquista na estrada.
+              </p>
+
+              <div className="flex items-center gap-8 pt-8 border-t border-zinc-800">
+                {[
+                  { value: "+1000", label: "Aprovados" },
+                  { value: "7+", label: "Anos" },
+                  { value: "3", label: "Categorias" },
+                ].map((s, i) => (
+                  <div key={i}>
+                    <div className="text-2xl font-black text-white leading-none">{s.value}</div>
+                    <div className="text-[10px] text-zinc-500 font-medium uppercase tracking-widest mt-1">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — Image */}
+            <div className="relative hidden lg:block">
+              <div className="relative rounded-2xl overflow-hidden h-[500px]">
+                <img
+                  src="/NovaFafe-Facebook/Escola/mural.jpg"
+                  alt="Escola NOVAFAFE"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/50 to-transparent" />
+              </div>
+              {/* Small floating image */}
+              <div className="absolute -bottom-6 -left-6 w-40 h-28 rounded-xl overflow-hidden border-4 border-zinc-950 shadow-2xl">
+                <img
+                  src="/NovaFafe-Facebook/Escola/sala-de-aula.jpg"
+                  alt="Sala de aula"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -48,57 +79,81 @@ export default function SobrePage() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Image Side */}
             <div className="relative">
-                <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 rounded-full blur-3xl" />
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/50 group">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 group">
                     <img
-                        src="/NovaFafe-Facebook/Escola/mural.jpg"
-                        alt="Escola NOVAFAFE"
-                        className="w-full h-[500px] lg:h-[650px] object-cover transition-transform duration-1000 group-hover:scale-110"
+                        src="/NovaFafe-Facebook/Veiculos/bmw-mercedes-frente.jpeg"
+                        alt="Frota NOVAFAFE — BMW e Mercedes"
+                        className="w-full h-[500px] lg:h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-8 left-8 right-8">
-                        <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
-                            <p className="text-white text-lg font-medium italic">"Ensinar não é apenas passar regras, é construir condutores conscientes e seguros."</p>
-                        </div>
-                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                 </div>
             </div>
 
             {/* Content Side */}
-            <div className="space-y-12">
-              <div className="space-y-6">
+            <div className="space-y-10">
+              <div className="space-y-5">
                 <h2 className="text-4xl sm:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
-                  Mais do que uma escola, uma <span className="text-primary underline decoration-primary/20 decoration-8 underline-offset-4">família.</span>
+                  Uma escola onde <span className="text-primary">o aluno importa.</span>
                 </h2>
-                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed font-light">
+                <div className="space-y-5 text-lg text-muted-foreground leading-relaxed font-light">
                   <p>
-                    A <strong className="text-foreground font-bold">NOVAFAFE</strong> nasceu em 2018 com o propósito de redefinir o setor da formação automóvel em Fafe. A nossa missão foi clara desde o primeiro dia: criar um ambiente onde o aluno se sinta em casa, removendo o stress associado ao processo de tirar a carta.
+                    Tirar a carta pode ser stressante. Sabemos isso — e foi precisamente por isso que a <strong className="text-foreground font-bold">NOVAFAFE</strong> foi criada de forma diferente: sem filas, sem pressão, sem instrutores impacientes. Uma escola onde te sentes à vontade para errar, perguntar e evoluir.
                   </p>
                   <p>
-                    Ao longo destes anos, crescemos não apenas em número de alunos, mas em qualidade de ensino. Investimos constantemente em novas tecnologias e metodologias pedagógicas que facilitam a compreensão teórica e a destreza prática.
+                    Temos frota moderna, instalações confortáveis e uma equipa que te acompanha do primeiro dia de código até ao exame prático.
                   </p>
                 </div>
               </div>
 
-              {/* Stats/Values Grid */}
-              <div className="grid sm:grid-cols-2 gap-8">
+              {/* Concrete differentiators */}
+              <ul className="space-y-4">
                 {[
-                  { icon: Star, title: "Foco no Aluno", desc: "Cada percurso de aprendizagem é único e adaptado ao seu ritmo." },
-                  { icon: Shield, title: "Segurança Total", desc: "Veículos modernos e instrutores experientes para sua tranquilidade." },
-                  { icon: Sparkles, title: "Inovação", desc: "Simuladores e ferramentas digitais para facilitar o teu estudo." },
-                  { icon: Users, title: "Equipa Próxima", desc: "Instrutores pacientes que celebram cada vitória contigo." },
+                  { icon: CheckCircle2, text: "Frota BMW e Mercedes — viaturas recentes e tecnológicas" },
+                  { icon: CheckCircle2, text: "Simulador de condução para preparação sem stress" },
+                  { icon: CheckCircle2, text: "Horário pós-laboral e fins de semana" },
+                  { icon: CheckCircle2, text: "Apoio total no processo IMT e exames médicos" },
+                  { icon: CheckCircle2, text: "Pagamento faseado, sem surpresas" },
                 ].map((item, i) => (
-                  <div key={i} className="group p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                      <item.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </div>
+                  <li key={i} className="flex items-start gap-3">
+                    <item.icon className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground font-medium">{item.text}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Milestones Timeline */}
+      <section className="py-20 lg:py-28 bg-white border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center mb-16">
+            <span className="inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-4">A nossa história</span>
+            <h2 className="text-4xl sm:text-5xl font-black text-foreground leading-tight tracking-tight">
+              Anos de <span className="text-primary">conquistas.</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+            {[
+              { year: "2018", label: "Abertura", desc: "Abrimos em Fafe com o objetivo de tornar o ensino da condução mais humano e acessível." },
+              { year: "2019", label: "Frota BMW & Mercedes", desc: "Investimos na melhor frota da região para oferecer condições de aprendizagem premium." },
+              { year: "2021", label: "Simulador", desc: "Adquirimos simulador de condução para reduzir a ansiedade dos alunos antes da primeira aula." },
+              { year: "2025", label: "+1000 Aprovados", desc: "Mais de mil alunos aprovados. Uma conquista que pertence a cada um deles." },
+            ].map((item, i) => (
+              <div key={i} className="relative flex flex-col items-center text-center px-4">
+                {/* Line connector (not on last) */}
+                {i < 3 && (
+                  <div className="absolute top-8 left-[calc(50%+2.5rem)] right-0 h-px bg-gray-200 hidden lg:block" />
+                )}
+                <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-5 shadow-lg shadow-primary/20 relative z-10">
+                  <span className="text-white font-black text-xs">{item.year}</span>
+                </div>
+                <h3 className="font-black text-foreground text-lg mb-2">{item.label}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed font-light">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -111,7 +166,7 @@ export default function SobrePage() {
                     As Nossas <span className="text-primary italic">Instalações</span>
                 </h2>
                 <p className="text-lg text-muted-foreground font-light leading-relaxed">
-                    Preparadas para oferecer o máximo conforto e as melhores ferramentas para a tua aprendizagem.
+                    Preparadas para te oferecer o máximo conforto e as melhores ferramentas para a tua aprendizagem.
                 </p>
             </div>
 
@@ -127,7 +182,7 @@ export default function SobrePage() {
                     <div className="absolute bottom-10 left-10">
                         <div className="bg-primary/90 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Formação Teórica</div>
                         <h3 className="text-3xl font-bold text-white mb-2">Salas de Aula Modernas</h3>
-                        <p className="text-white/80 max-w-md font-light">Onde a teoria ganha vida com sistemas multimédia de última geração.</p>
+                        <p className="text-white/80 max-w-md font-light">Sala equipada com sistema de projeção e fichas de treino para o exame de código.</p>
                     </div>
                 </div>
 
@@ -142,7 +197,7 @@ export default function SobrePage() {
                     <div className="absolute bottom-10 left-10">
                         <div className="bg-primary/90 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Prática Antecipada</div>
                         <h3 className="text-2xl font-bold text-white mb-2">Área de Simulados</h3>
-                        <p className="text-white/80 font-light">Reduz a ansiedade inicial com a preparação tecnológica.</p>
+                        <p className="text-white/80 font-light">Treina a reação e tomada de decisão antes da primeira aula na estrada.</p>
                     </div>
                 </div>
 
@@ -169,75 +224,34 @@ export default function SobrePage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80" />
                     <div className="absolute bottom-8 left-8">
-                        <h3 className="text-xl font-bold text-white">Ambiente Acollhedor</h3>
-                        <p className="text-white/70 text-sm font-light">Desenhamos a escola para que te sintas relaxado e focado.</p>
+                        <h3 className="text-xl font-bold text-white">Ambiente Acolhedor</h3>
+                        <p className="text-white/70 text-sm font-light">Um espaço pensado para te sentires à vontade desde o primeiro dia.</p>
                     </div>
                 </div>
             </div>
         </div>
       </section>
 
-      {/* Final CTA - Full Length Section */}
-      <section className="relative py-24 lg:py-40 overflow-hidden bg-gray-900 border-t border-white/5">
-          {/* Background Image Layer */}
-          <div className="absolute inset-0 z-0">
-              <img 
-                  src="/NovaFafe-Facebook/Escola/mural.jpg" 
-                  alt="Fundo NOVAFAFE"
-                  className="w-full h-full object-cover opacity-30"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/70 to-transparent" />
-          </div>
-
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-              <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-                  <div className="text-left">
-                      <h2 className="text-5xl sm:text-6xl lg:text-8xl font-black text-white leading-[1] tracking-tight mb-8">
-                          O teu futuro <br className="hidden sm:block" />
-                          no <span className="text-white/40 italic font-light">volante.</span>
+      {/* Final CTA */}
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-gray-950 border-t border-white/5">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+                  <div className="max-w-xl">
+                      <h2 className="text-4xl sm:text-5xl font-black text-white leading-tight tracking-tight mb-4">
+                          Pronto para começar?
                       </h2>
-                      <p className="text-white/80 text-xl lg:text-2xl max-w-xl mb-12 font-light leading-relaxed">
-                          Não esperes mais para conquistar a tua liberdade. Estamos prontos para te ensinar com as melhores ferramentas e a melhor equipa de Fafe.
+                      <p className="text-white/60 text-lg font-light leading-relaxed">
+                          Fala connosco. Explicamos tudo, sem compromisso.
                       </p>
-                      
-                      <div className="flex flex-col sm:flex-row gap-5">
-                          <a href="/contacto" className="px-12 py-5 bg-white text-primary font-bold rounded-2xl hover:bg-gray-100 transition-all shadow-2xl active:scale-95 text-xl flex items-center justify-center gap-3">
-                              Pedir Orçamento Grátis
-                              <ArrowRight className="h-6 w-6" />
-                          </a>
-                          <a href="tel:+351253095892" className="px-12 py-5 bg-white/10 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/20 backdrop-blur-md transition-all active:scale-95 text-xl text-center">
-                              253 095 892
-                          </a>
-                      </div>
                   </div>
-
-                  <div className="hidden lg:block">
-                      <div className="relative">
-                          {/* Decorative floating proof of approval */}
-                          <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-10 rounded-[3rem] shadow-2xl transform hover:scale-105 transition-transform duration-700">
-                               <div className="flex items-center gap-6 mb-8">
-                                   <div className="flex -space-x-4">
-                                       {[1,2,3,4].map(i => (
-                                           <div key={i} className="w-14 h-14 rounded-full border-4 border-primary/50 overflow-hidden bg-gray-200">
-                                               <img src={`/NovaFafe-Facebook/Aprovados/${i}.jpg`} alt="Aluno Aprovado" className="w-full h-full object-cover" />
-                                           </div>
-                                       ))}
-                                   </div>
-                                   <div>
-                                       <p className="text-white font-black text-2xl leading-none">+1.000</p>
-                                       <p className="text-white/60 text-sm font-medium uppercase tracking-widest mt-1">Alunos Aprovados</p>
-                                   </div>
-                               </div>
-                               <p className="text-white/80 text-lg leading-relaxed font-light italic">
-                                   "A NOVAFAFE mudou a minha vida. Pensava que nunca ia tirar a carta, mas com esta equipa foi fácil!"
-                               </p>
-                               <p className="text-white font-bold mt-4">— João M., Aluno satisfeito</p>
-                          </div>
-                          
-                          {/* Elements behind for depth */}
-                          <div className="absolute -top-12 -right-12 w-24 h-24 bg-primary rounded-full blur-3xl opacity-50" />
-                          <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-secondary rounded-full blur-3xl opacity-30" />
-                      </div>
+                  <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+                      <a href="/contacto" className="group px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 active:scale-[0.98] text-base flex items-center justify-center gap-3">
+                          Pedir Orçamento Grátis
+                          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      </a>
+                      <a href="tel:+351253504148" className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all active:scale-[0.98] text-base text-center">
+                          253 504 148
+                      </a>
                   </div>
               </div>
           </div>
