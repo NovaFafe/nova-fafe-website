@@ -170,18 +170,18 @@ export function Header() {
             {/* Footer */}
             <div className="p-6 border-t border-gray-100 bg-gray-50">
               <a
-                href="tel:+351253095892"
+                href="tel:+351253504148"
                 className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white border border-gray-200 rounded-md text-gray-700 font-medium hover:bg-gray-50 transition-all shadow-sm mb-4"
               >
                 <Phone className="h-4 w-4" />
-                253 095 892
+                253 504 148
               </a>
               
               <div className="flex justify-center gap-4">
-                 <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                 <a href="https://instagram.com" target="_blank" className="text-gray-400 hover:text-primary transition-colors">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-primary transition-colors">
+                <a href="https://facebook.com" target="_blank" className="text-gray-400 hover:text-primary transition-colors">
                   <Facebook className="h-5 w-5" />
                 </a>
               </div>

@@ -36,11 +36,11 @@ export function CTA() {
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="tel:+351253095892"
+                href="tel:+351253504148"
                 className="flex items-center justify-center gap-2 px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 backdrop-blur-md transition-all hover:-translate-y-0.5 active:scale-[0.98] text-base cursor-pointer"
               >
                 <Phone className="h-4 w-4 text-primary" />
-                253 095 892
+                253 504 148
               </a>
             </div>
             
