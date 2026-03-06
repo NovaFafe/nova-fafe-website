@@ -32,16 +32,16 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <a
                 href="/contacto"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 hover:-translate-y-0.5 transition-all text-base shadow-lg shadow-primary/30 active:scale-95"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 hover:-translate-y-0.5 transition-all text-base shadow-xl shadow-primary/30 active:scale-[0.98]"
               >
-                Pedir Orçamento
+                Pedir Orçamento Grátis
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Escola+de+Condução+Novafafe+Rua+da+Cumieira+Fafe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white/40 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white hover:-translate-y-0.5 backdrop-blur-md transition-all text-base shadow-lg shadow-primary/10 active:scale-95"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/40 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white hover:-translate-y-0.5 backdrop-blur-md transition-all text-base shadow-xl shadow-primary/10 active:scale-[0.98]"
               >
                 <MapPin className="h-5 w-5" />
                 <span>Ver Localização</span>

@@ -66,9 +66,9 @@ export function Services() {
                 {service.description}
               </p>
 
-              <div className="flex items-center text-primary font-bold text-sm group-hover:gap-3 transition-all cursor-pointer gap-2">
+              <a href="/servicos" className="inline-flex items-center text-primary font-bold text-sm gap-2 group-hover:gap-3 transition-all">
                 Saber mais <ArrowRight className="h-5 w-5" />
-              </div>
+              </a>
             </div>
           ))}
         </div>
