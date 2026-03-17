@@ -31,7 +31,7 @@ const services = [
     badge: null,
     category: "Categoria A / A1 / A2",
     title: "Carta de Motociclo",
-    description: "Para quem quer a liberdade de duas rodas. Formamos para as três subcategorias com equipamento adequado e pistas de treino.",
+    description: "Para quem quer conduzir em duas rodas. Formamos para as três subcategorias com equipamento adequado e pistas de treino.",
     features: [
       "A1 — motociclos até 125cc (16 anos)",
       "A2 — motociclos até 35kW (18 anos)",

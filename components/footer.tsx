@@ -149,7 +149,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-neutral-800 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500 text-center md:text-left">
-            &copy; {currentYear} Nova Fafe. Todos os direitos reservados.
+            &copy; {currentYear} NOVAFAFE — Escola de Condução. Todos os direitos reservados.
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500">
             <Link href="/privacidade" className="hover:text-primary transition-colors">Política de Privacidade</Link>

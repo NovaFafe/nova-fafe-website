@@ -12,7 +12,7 @@ const services = [
     icon: Bike,
     title: "Carta de Motociclo",
     subtitle: "Cat. A, A1, A2",
-    description: "Liberdade sobre duas rodas. Aprenda com segurança máxima e instrutores experientes.",
+    description: "Conduz em duas rodas com confiança. Aprenda com segurança máxima e instrutores experientes.",
     highlight: null,
   },
   {

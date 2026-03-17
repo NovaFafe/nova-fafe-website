@@ -20,7 +20,7 @@ export function Hero() {
           <div className="max-w-3xl">
             {/* Title */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-8 tracking-tight">
-              A tua liberdade sobre rodas <span className="text-primary">começa aqui.</span>
+              Conduz o teu futuro. <span className="text-primary">Começa na NOVAFAFE.</span>
             </h1>
 
             {/* Description */}

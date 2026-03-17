@@ -12,7 +12,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "NOVAFAFE - Escola de Condução | A Sua Carta Começa Aqui",
+  title: "NOVAFAFE - Escola de Condução | Conduz o Teu Futuro",
   description:
     "Escola de condução profissional em Fafe. Aprenda a conduzir com instrutores certificados, veículos modernos e a maior taxa de aprovação da região.",
   icons: {
