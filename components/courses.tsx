@@ -18,7 +18,7 @@ const courses = [
     icon: Bike,
     title: "Carta de Motociclos",
     category: "Categoria A",
-    description: "Aprenda a conduzir motociclos com segurança e confiança.",
+    description: "Aprende a conduzir motociclos com segurança e confiança.",
     features: ["20 aulas práticas", "Equipamento fornecido", "Circuito fechado", "Treino intensivo"],
     popular: false,
     color: "from-blue-500 to-cyan-500",
@@ -47,7 +47,7 @@ export function Courses() {
   return (
     <section
       id="cursos"
-      className="py-24 lg:py-32 bg-gradient-to-b from-white via-secondary/20 to-white relative overflow-hidden"
+      className="py-24 lg:py-32 bg-background relative overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
@@ -59,10 +59,10 @@ export function Courses() {
             <span className="text-sm font-semibold text-primary">Cursos Disponíveis</span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-black text-foreground mb-6">
-            Escolha o Seu <span className="gradient-text">Caminho</span>
+            Escolhe o Teu <span className="gradient-text">Caminho</span>
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Oferecemos cursos adaptados às suas necessidades com a melhor formação do mercado.
+            Oferecemos cursos adaptados às tuas necessidades com a melhor formação do mercado.
           </p>
         </div>
 
@@ -110,7 +110,7 @@ export function Courses() {
                   className={`w-full group/btn ${
                     course.popular
                       ? "bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/25"
-                      : "bg-gray-100 hover:bg-primary hover:text-white text-foreground"
+                      : "bg-muted hover:bg-primary hover:text-white text-foreground"
                   } transition-all duration-300`}
                 >
                   Saber Mais

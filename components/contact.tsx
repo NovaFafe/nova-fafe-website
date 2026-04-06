@@ -56,7 +56,7 @@ export function Contact() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 lg:py-28 bg-gray-50/50">
+      <section className="py-20 lg:py-28 bg-muted/30">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
 
@@ -97,7 +97,7 @@ export function Contact() {
                   ],
                 },
               ].map((info, i) => (
-                <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-start gap-5">
+                <div key={i} className="bg-card rounded-2xl p-6 border border-border shadow-sm flex items-start gap-5">
                   <div className="w-11 h-11 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0">
                     <info.icon className="h-5 w-5 text-primary" />
                   </div>
@@ -113,32 +113,32 @@ export function Contact() {
               ))}
 
               {/* Social */}
-              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+              <div className="bg-card rounded-2xl p-6 border border-border shadow-sm">
                 <p className="text-xs font-black text-primary uppercase tracking-widest mb-4">Redes Sociais</p>
                 <div className="flex gap-3">
                   <a
                     href="https://www.facebook.com/NovaFafe"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 flex-1 px-4 py-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/30 hover:bg-primary/5 transition-all group"
+                    className="flex items-center gap-3 flex-1 px-4 py-3 bg-muted rounded-xl border border-border hover:border-primary/30 hover:bg-primary/5 transition-all group"
                   >
-                    <Facebook className="h-4 w-4 text-gray-400 group-hover:text-primary transition-colors" />
+                    <Facebook className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">Facebook</span>
                   </a>
                   <a
                     href="https://www.instagram.com/ecnovafafe/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 flex-1 px-4 py-3 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/30 hover:bg-primary/5 transition-all group"
+                    className="flex items-center gap-3 flex-1 px-4 py-3 bg-muted rounded-xl border border-border hover:border-primary/30 hover:bg-primary/5 transition-all group"
                   >
-                    <Instagram className="h-4 w-4 text-gray-400 group-hover:text-primary transition-colors" />
+                    <Instagram className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">Instagram</span>
                   </a>
                 </div>
               </div>
 
               {/* Map embed */}
-              <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm h-48">
+              <div className="rounded-2xl overflow-hidden border border-border shadow-sm h-48">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.0!2d-8.1770!3d41.4513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sEscola+de+Condu%C3%A7%C3%A3o+Nova+Fafe!5e0!3m2!1spt!2spt!4v1"
                   width="100%"
@@ -154,7 +154,7 @@ export function Contact() {
 
             {/* Right — Form */}
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-3xl border border-gray-100 shadow-lg">
+              <div className="bg-card rounded-3xl border border-border shadow-lg">
                 {/* Accent strip */}
                 <div className="h-1.5 bg-gradient-to-r from-primary via-primary/70 to-primary/30 rounded-t-3xl" />
 
@@ -176,7 +176,7 @@ export function Contact() {
                           <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                           <Input
                             placeholder="O teu nome"
-                            className="h-12 pl-10 border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 bg-gray-50"
+                            className="h-12 pl-10 border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 bg-muted/50"
                           />
                         </div>
                       </div>
@@ -186,7 +186,7 @@ export function Contact() {
                           <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                           <Input
                             placeholder="+351 9XX XXX XXX"
-                            className="h-12 pl-10 border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 bg-gray-50"
+                            className="h-12 pl-10 border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 bg-muted/50"
                           />
                         </div>
                       </div>
@@ -199,7 +199,7 @@ export function Contact() {
                         <Input
                           type="email"
                           placeholder="o.teu@email.com"
-                          className="h-12 pl-10 border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 bg-gray-50"
+                          className="h-12 pl-10 border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 bg-muted/50"
                         />
                       </div>
                     </div>
@@ -213,8 +213,8 @@ export function Contact() {
                           onClick={() => setOpen(v => !v)}
                           className={`w-full h-12 pl-10 pr-10 rounded-xl border text-sm text-left flex items-center transition-all
                             ${open
-                              ? "border-primary ring-2 ring-primary/10 bg-white"
-                              : "border-gray-200 bg-gray-50 hover:border-gray-300"
+                              ? "border-primary ring-2 ring-primary/10 bg-card"
+                              : "border-border bg-muted/50 hover:border-border"
                             }
                             ${!selected ? "text-muted-foreground" : "text-foreground font-medium"}
                           `}
@@ -234,7 +234,7 @@ export function Contact() {
 
                         {/* Dropdown panel */}
                         {open && (
-                          <div className="absolute z-50 mt-2 w-full bg-white rounded-2xl border border-gray-100 shadow-xl shadow-black/10 overflow-hidden">
+                          <div className="absolute z-50 mt-2 w-full bg-card rounded-2xl border border-border shadow-xl shadow-black/10 overflow-hidden">
                             <div className="p-2 space-y-0.5">
                               {CATEGORIES.map(cat => (
                                 <button
@@ -244,13 +244,13 @@ export function Contact() {
                                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm transition-all text-left group
                                     ${category === cat.value
                                       ? "bg-primary/5 text-primary font-semibold"
-                                      : "text-foreground hover:bg-gray-50"
+                                      : "text-foreground hover:bg-muted/50"
                                     }
                                   `}
                                 >
                                   <span className="flex items-center gap-2.5">
                                     <span className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                                      category === cat.value ? "bg-primary/10" : "bg-gray-100 group-hover:bg-gray-200"
+                                      category === cat.value ? "bg-primary/10" : "bg-muted group-hover:bg-muted/70"
                                     } transition-colors`}>
                                       <cat.Icon className={`h-3.5 w-3.5 ${category === cat.value ? "text-primary" : "text-gray-500"}`} />
                                     </span>
@@ -277,7 +277,7 @@ export function Contact() {
                         <Textarea
                           placeholder="Conta-nos mais sobre o que precisas..."
                           rows={4}
-                          className="pl-10 border-gray-200 rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 resize-none bg-gray-50"
+                          className="pl-10 border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 resize-none bg-muted/50"
                         />
                       </div>
                     </div>

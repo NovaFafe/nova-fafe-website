@@ -2,12 +2,12 @@ import { Users, Shield, Award, CheckCircle2, ArrowRight } from "lucide-react"
 
 export function About() {
   return (
-    <section id="sobre" className="py-24 lg:py-32 bg-white overflow-hidden relative">
+    <section id="sobre" className="py-24 lg:py-32 bg-background overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image Column */}
           <div className="relative order-2 lg:order-1">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl border border-border">
               <img
                 src="/NovaFafe-Facebook/Escola/mural.jpg"
                 alt="Mural da NOVAFAFE"
@@ -38,7 +38,7 @@ export function About() {
             {/* Features List */}
             <ul className="space-y-4">
               {[
-                "Pedagogia paciente e adaptada ao seu ritmo",
+                "Pedagogia paciente e adaptada ao teu ritmo",
                 "Ambiente familiar e profissional",
                 "Transparência total em preços e processos",
               ].map((item, i) => (
@@ -49,12 +49,12 @@ export function About() {
               ))}
             </ul>
 
-            <div className="pt-4 border-t border-gray-100">
+            <div className="pt-4 border-t border-border">
               <a
                 href="/sobre"
                 className="group inline-flex items-center gap-3 text-foreground font-bold text-lg hover:text-primary transition-colors"
               >
-                Conheça a nossa história
+                Conhece a nossa história
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>

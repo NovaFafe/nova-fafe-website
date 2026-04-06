@@ -28,7 +28,7 @@ export function VehicleGallery({ images }: VehicleGalleryProps) {
         {images.map((image, index) => (
           <div
             key={index}
-            className="break-inside-avoid group relative cursor-pointer overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-500 ease-out border border-gray-100"
+            className="break-inside-avoid group relative cursor-pointer overflow-hidden rounded-2xl bg-card shadow-md hover:shadow-xl transition-all duration-500 ease-out border border-border"
             onClick={() => handleImageClick(image.src)}
           >
             <img

@@ -10,8 +10,8 @@ export function Hero() {
           alt="Escola de condução NOVAFAFE"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-transparent h-32" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20 dark:from-zinc-950/95 dark:via-zinc-950/80 dark:to-zinc-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-transparent h-32 dark:from-zinc-950/50" />
       </div>
 
       {/* Content */}
@@ -52,9 +52,9 @@ export function Hero() {
       </div>
 
       {/* Stats Bar - Bottom */}
-      <div className="relative z-10 border-t border-border/50 bg-white/60 backdrop-blur-md">
+      <div className="relative z-10 border-t border-border/50 bg-white/60 dark:bg-zinc-950/60 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-gray-200">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
             {[
               { value: "Faseado", label: "Pagamento Facilitado", icon: Wallet },
               { value: "Elevada", label: "Taxa de Sucesso", icon: TrendingUp },

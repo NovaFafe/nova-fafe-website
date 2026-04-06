@@ -36,7 +36,7 @@ const services = [
       "A1 — motociclos até 125cc (16 anos)",
       "A2 — motociclos até 35kW (18 anos)",
       "A — sem limitações (≥ 24 anos ou 2 anos de A2)",
-      "Acesso direto ou progrssivo",
+      "Acesso direto ou progressivo",
       "Inclui equipa de proteção básica",
     ],
     highlight: false,
@@ -62,7 +62,7 @@ const services = [
     badge: null,
     category: "Recuperação de Pontos",
     title: "Curso AVF",
-    description: "Perdeu pontos na sua carta? O Curso de Atualização e Valorização de Formandos (AVF) permite recuperar até 3 pontos.",
+    description: "Perdeste pontos na tua carta? O Curso de Atualização e Valorização de Formandos (AVF) permite recuperar até 3 pontos.",
     features: [
       "Recupera até 3 pontos por curso",
       "Obrigatório após certos crimes rodoviários",
@@ -95,7 +95,7 @@ const services = [
     description: "Toda a burocracia do IMT tratada por nós. Agendamentos, submissão de documentos, atestados médicos eletrónicos e muito mais.",
     features: [
       "Agendamento de exames no IMT",
-      "Tratamento do Atestado Médico Eletronónico",
+      "Tratamento do Atestado Médico Eletrónico",
       "Submissão de documentos online",
       "Acompanhamento personalizado",
     ],
@@ -105,7 +105,7 @@ const services = [
 
 export default function ServicosPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <Header />
 
       {/* Page Hero */}
@@ -139,7 +139,7 @@ export default function ServicosPage() {
                 className={`group relative rounded-3xl p-8 border transition-all duration-300 flex flex-col ${
                   service.highlight
                     ? "bg-primary border-primary shadow-2xl shadow-primary/20 text-white"
-                    : "bg-white border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1"
+                    : "bg-card border-border shadow-sm hover:shadow-xl hover:-translate-y-1"
                 }`}
               >
                 {service.badge && (

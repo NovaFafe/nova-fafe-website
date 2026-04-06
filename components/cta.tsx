@@ -47,7 +47,7 @@ export function CTA() {
             <div className="flex items-center gap-4 pt-8 border-t border-white/10">
                <div className="flex -space-x-3">
                   {[1,2,3,4].map(i => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-primary/50 bg-gray-200 overflow-hidden shadow-xl">
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-primary/50 bg-muted overflow-hidden shadow-xl">
                        <img src={`/NovaFafe-Facebook/Aprovados/${i}.jpg`} alt="Aluno Aprovado" className="w-full h-full object-cover" />
                     </div>
                   ))}

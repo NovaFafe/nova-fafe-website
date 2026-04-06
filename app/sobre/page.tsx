@@ -4,12 +4,12 @@ import { Users, Shield, Star, Sparkles, ArrowRight, CheckCircle2 } from "lucide-
 
 export const metadata = {
   title: "A Escola - NOVAFAFE Escola de Condução",
-  description: "Conheça a história e valores da NOVAFAFE, a escola de condução de referência em Fafe desde 2018.",
+  description: "Conhece a história e valores da NOVAFAFE, a escola de condução de referência em Fafe desde 2018.",
 }
 
 export default function SobrePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <Header />
       
       {/* Page Hero */}
@@ -74,12 +74,12 @@ export default function SobrePage() {
       </section>
 
       {/* History & Story Section */}
-      <section className="py-24 lg:py-32 bg-gray-50/50 relative overflow-hidden">
+      <section className="py-24 lg:py-32 bg-muted/30 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Image Side */}
             <div className="relative">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-100 group">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-border group">
                     <img
                         src="/NovaFafe-Facebook/Veiculos/bmw-mercedes-frente.jpeg"
                         alt="Frota NOVAFAFE — BMW e Mercedes"
@@ -126,7 +126,7 @@ export default function SobrePage() {
       </section>
 
       {/* Milestones Timeline */}
-      <section className="py-20 lg:py-28 bg-white border-y border-gray-100">
+      <section className="py-20 lg:py-28 bg-background border-y border-border">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16">
             <span className="inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-4">A nossa história</span>
@@ -145,7 +145,7 @@ export default function SobrePage() {
               <div key={i} className="relative flex flex-col items-center text-center px-4">
                 {/* Line connector (not on last) */}
                 {i < 3 && (
-                  <div className="absolute top-8 left-[calc(50%+2.5rem)] right-0 h-px bg-gray-200 hidden lg:block" />
+                  <div className="absolute top-8 left-[calc(50%+2.5rem)] right-0 h-px bg-border hidden lg:block" />
                 )}
                 <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-5 shadow-lg shadow-primary/20 relative z-10">
                   <span className="text-white font-black text-xs">{item.year}</span>
@@ -159,7 +159,7 @@ export default function SobrePage() {
       </section>
 
       {/* Facilities/Gallery Section */}
-      <section className="py-24 lg:py-32 bg-white overflow-hidden">
+      <section className="py-24 lg:py-32 bg-background overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="text-center max-w-3xl mx-auto mb-20">
                 <h2 className="text-4xl sm:text-5xl font-bold text-foreground leading-tight mb-6">

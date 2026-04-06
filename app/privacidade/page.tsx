@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function PrivacidadePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <Header />
 
       <section className="relative bg-zinc-950 overflow-hidden">
@@ -29,17 +29,17 @@ export default function PrivacidadePage() {
 
       <section className="py-16 lg:py-24">
         <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="space-y-10 text-gray-700 leading-relaxed">
+          <div className="space-y-10 text-muted-foreground leading-relaxed">
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Responsável pelo Tratamento</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">1. Responsável pelo Tratamento</h2>
               <p>
                 A <strong>NOVAFAFE — Escola de Condução</strong>, com sede em Fafe, Portugal, é a entidade responsável pelo tratamento dos teus dados pessoais. Para questões de privacidade, contacta-nos em <a href="mailto:novafafec@gmail.com" className="text-primary font-semibold hover:underline">novafafec@gmail.com</a>.
               </p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Dados Recolhidos</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">2. Dados Recolhidos</h2>
               <p className="mb-3">Recolhemos os seguintes tipos de dados pessoais:</p>
               <ul className="space-y-2 list-none">
                 {[
@@ -57,7 +57,7 @@ export default function PrivacidadePage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">3. Finalidade do Tratamento</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">3. Finalidade do Tratamento</h2>
               <p className="mb-3">Os teus dados são tratados para:</p>
               <ul className="space-y-2 list-none">
                 {[
@@ -76,28 +76,28 @@ export default function PrivacidadePage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Base Legal</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">4. Base Legal</h2>
               <p>
                 O tratamento dos teus dados baseia-se no consentimento prestado no momento do contacto ou inscrição, na execução do contrato de formação, e no cumprimento de obrigações legais (nomeadamente as impostas pelo IMT para efeitos de registo e habilitação de condutores).
               </p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Partilha de Dados</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">5. Partilha de Dados</h2>
               <p>
                 Os teus dados não são vendidos nem cedidos a terceiros para fins comerciais. Podem ser partilhados com o <strong>Instituto da Mobilidade e dos Transportes (IMT)</strong> no âmbito do processo de habilitação legal, e com prestadores de serviços técnicos que operam sob contrato de confidencialidade (ex.: plataformas de email, alojamento web).
               </p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Conservação dos Dados</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">6. Conservação dos Dados</h2>
               <p>
                 Os dados relativos à formação são conservados pelo período legalmente exigido (mínimo de 5 anos após cessação da relação contratual). Dados de contacto de potenciais clientes são eliminados após 12 meses sem interação.
               </p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Os Teus Direitos (RGPD)</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">7. Os Teus Direitos (RGPD)</h2>
               <p className="mb-3">Tens o direito de:</p>
               <ul className="space-y-2 list-none">
                 {[
@@ -118,14 +118,14 @@ export default function PrivacidadePage() {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Cookies</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">8. Cookies</h2>
               <p>
                 Este website utiliza cookies técnicos (necessários para o funcionamento) e cookies analíticos (Google Analytics, com IP anonimizado) para compreender o comportamento de navegação de forma agregada. Podes desativar os cookies analíticos nas definições do teu browser sem afetar a funcionalidade do site.
               </p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Contacto</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">9. Contacto</h2>
               <p>
                 Para qualquer questão relacionada com a privacidade dos teus dados, contacta-nos:<br />
                 <a href="mailto:novafafec@gmail.com" className="text-primary font-semibold hover:underline">novafafec@gmail.com</a><br />

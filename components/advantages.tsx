@@ -1,8 +1,8 @@
 const advantages = [
   {
     num: "01",
-    title: "O Seu Ritmo, a Nossa Prioridade",
-    description: "Na NovaFafe, o plano de aulas é desenhado à sua medida. Ajustamos o ensino à sua evolução para que se sinta 100% preparado.",
+    title: "O Teu Ritmo, a Nossa Prioridade",
+    description: "Na NovaFafe, o plano de aulas é desenhado à tua medida. Ajustamos o ensino à tua evolução para que te sintas 100% preparado.",
     tag: "Ensino Personalizado",
   },
   {
@@ -14,13 +14,13 @@ const advantages = [
   {
     num: "03",
     title: "Ambiente de Estudo Moderno",
-    description: "Esqueça as salas de código abafadas. As nossas instalações na Rua da Cumieira oferecem o conforto ideal para a sua aprendizagem teórica.",
+    description: "Esqueceá as salas de código abafadas. As nossas instalações na Rua da Cumieira oferecem o conforto ideal para a tua aprendizagem teórica.",
     tag: "Instalações Modernas",
   },
   {
     num: "04",
     title: "Suporte em Cada Etapa",
-    description: "Do exame médico à marcação da prova prática, tratamos de toda a burocracia para que se foque apenas na estrada.",
+    description: "Do exame médico à marcação da prova prática, tratamos de toda a burocracia para te focares apenas na estrada.",
     tag: "Apoio Total",
   },
 ]

@@ -15,7 +15,7 @@ const approvedStudents = Array.from({ length: 15 }, (_, i) => ({
 export function RecentApprovals() {
 
   return (
-    <section className="py-24 lg:py-32 bg-gray-50 overflow-hidden relative border-t border-gray-100">
+    <section className="py-24 lg:py-32 bg-muted/30 overflow-hidden relative border-t border-border">
       
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -mr-40 -mt-20 pointer-events-none" />
@@ -36,8 +36,8 @@ export function RecentApprovals() {
       <div className="relative w-full mx-auto">
         
         {/* Soft Fade Edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-gray-50 to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-l from-gray-50 to-transparent z-20 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-muted/30 to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-l from-muted/30 to-transparent z-20 pointer-events-none" />
 
         <Swiper
             effect={'coverflow'}
@@ -64,7 +64,7 @@ export function RecentApprovals() {
         >
             {approvedStudents.map((student, index) => (
                 <SwiperSlide key={index} className="!w-[240px] !h-[340px] sm:!w-[280px] sm:!h-[400px] lg:!w-[340px] lg:!h-[480px] transition-all duration-300">
-                    <div className="slide-content w-full h-full rounded-2xl overflow-hidden bg-white transition-all duration-300 shadow-xl relative">
+                    <div className="slide-content w-full h-full rounded-2xl overflow-hidden bg-card transition-all duration-300 shadow-xl relative">
                         <img
                             src={student.image}
                             alt={`Aluno aprovado ${index + 1}`}

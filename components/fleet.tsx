@@ -1,4 +1,4 @@
-import { Car, Bike, Zap, ArrowUpRight } from "lucide-react"
+import { Car, Bike, Zap, ArrowUpRight, Leaf } from "lucide-react"
 import Link from "next/link"
 
 const categories = [
@@ -25,6 +25,17 @@ const categories = [
     link: "/servicos#motas"
   },
   {
+    id: "volvo",
+    title: "Volvo EX30",
+    description: "Compacto elétrico premium com design escandinavo. Segurança, performance e sustentabilidade.",
+    icon: Leaf,
+    features: ["100% Elétrico", "Categoria B", "Design Premium"],
+    imageDefault: "/NovaFafe-Facebook/Veiculos/Volvo-EX30-frente.jpg",
+    imageHover: "/NovaFafe-Facebook/Veiculos/Volvo-EX30-tras.jpg",
+    subLabel: "Categoria B Elétrico",
+    link: "/servicos#eletricos"
+  },
+  {
     id: "electric",
     title: "Mobilidade Elétrica",
     description: "Citroën AMI 100% elétrico. O futuro da condução urbana, disponível já hoje.",
@@ -41,7 +52,7 @@ export function Fleet() {
   const [main, ...rest] = categories
 
   return (
-    <section id="frota" className="py-16 lg:py-24 bg-gray-50">
+    <section id="frota" className="py-16 lg:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Header */}
@@ -55,7 +66,7 @@ export function Fleet() {
         </div>
 
         {/* Asymmetric grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-4 lg:gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr] gap-4 lg:gap-5 auto-rows-max">
 
           {/* Main card — tall */}
           <Link

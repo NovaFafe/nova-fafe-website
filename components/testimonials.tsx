@@ -53,7 +53,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="testemunhos" className="py-24 lg:py-32 bg-white">
+    <section id="testemunhos" className="py-24 lg:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
@@ -63,7 +63,7 @@ export function Testimonials() {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-6">
             O Que Dizem os{" "}
-            <span className="text-primary">Nossos Alunos</span>
+            <span className="text-primary">Os Nossos Alunos</span>
           </h2>
 
           <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
@@ -75,7 +75,7 @@ export function Testimonials() {
           {testimonials.map((testimonial, i) => (
             <div
               key={i}
-              className="group bg-muted/30 rounded-3xl p-7 hover:bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-border/50"
+              className="group bg-muted/30 rounded-3xl p-7 hover:bg-card hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-border/50"
             >
               <div className="flex gap-1 mb-5">
                 {Array.from({ length: testimonial.rating }).map((_, j) => (
@@ -94,7 +94,7 @@ export function Testimonials() {
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-2xl object-cover"
                   />
-                  <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
+                  <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-background flex items-center justify-center">
                     <CheckCircle2 className="h-3 w-3 text-white" />
                   </div>
                 </div>

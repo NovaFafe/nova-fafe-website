@@ -42,7 +42,7 @@ export function PricingPreview() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-xs font-bold mb-6">
-            <span>Nossos Cursos</span>
+            <span>Os Nossos Cursos</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-foreground leading-tight mb-6">
@@ -51,7 +51,7 @@ export function PricingPreview() {
           </h2>
 
           <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-            Preços transparentes, sem surpresas. Escolha o plano ideal para si.
+            Escolhe o plano ideal para ti.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export function PricingPreview() {
           {plans.map((plan, i) => (
             <div
               key={i}
-              className={`relative bg-white rounded-3xl p-7 transition-all duration-300 flex flex-col ${
+              className={`relative bg-card rounded-3xl p-7 transition-all duration-300 flex flex-col ${
                 plan.popular
                   ? "border-2 border-primary shadow-xl shadow-primary/10 lg:scale-[1.03] z-10"
                   : "border border-border/50 shadow-sm hover:shadow-lg hover:-translate-y-1"

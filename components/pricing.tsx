@@ -45,13 +45,13 @@ const packages = [
 
 export function Pricing() {
   return (
-    <section id="precos" className="py-20 lg:py-28 bg-white">
+    <section id="precos" className="py-20 lg:py-28 bg-background">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
           <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">Preços</p>
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">Pacotes de Formação</h2>
           <p className="text-muted-foreground">
-            Oferecemos diferentes opções para se adaptar às suas necessidades e orçamento. Contacte-nos para um
+            Oferecemos diferentes opções adaptadas às tuas necessidades e orçamento. Contacta-nos para um
             orçamento personalizado.
           </p>
         </div>
@@ -61,7 +61,7 @@ export function Pricing() {
             <div
               key={i}
               className={`relative rounded border p-6 lg:p-8 ${
-                pkg.popular ? "border-primary bg-primary/5 shadow-lg" : "border-border bg-white hover:border-primary/30"
+                pkg.popular ? "border-primary bg-primary/5 shadow-lg" : "border-border bg-card hover:border-primary/30"
               } transition-colors`}
             >
               {pkg.popular && (
@@ -107,7 +107,7 @@ export function Pricing() {
           <p className="text-sm text-muted-foreground">
             Opções de pagamento faseado disponíveis. Possibilidade de promoções para estudantes.
             <br />
-            Contacte-nos para mais informações sobre preços e condições.
+            Contacta-nos para mais informações sobre preços e condições.
           </p>
         </div>
       </div>

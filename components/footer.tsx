@@ -32,7 +32,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Formamos condutores responsáveis e seguros. A sua escola de condução de referência em Fafe, com uma equipa experiente e dedicada ao seu sucesso.
+              Formamos condutores responsáveis e seguros. A tua escola de condução de referência em Fafe, com uma equipa experiente e dedicada ao teu sucesso.
             </p>
             <div className="flex gap-4">
               <Link 

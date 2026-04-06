@@ -5,14 +5,14 @@ const services = [
     icon: Car,
     title: "Carta de Ligeiros",
     subtitle: "Categoria B",
-    description: "Desde a primeira aula de código até ao exame final, estamos consigo. Aulas adaptadas ao seu ritmo.",
+    description: "Desde a primeira aula de código até ao exame final, estamos contigo. Aulas adaptadas ao teu ritmo.",
     highlight: "Mais Procurado",
   },
   {
     icon: Bike,
     title: "Carta de Motociclo",
     subtitle: "Cat. A, A1, A2",
-    description: "Conduz em duas rodas com confiança. Aprenda com segurança máxima e instrutores experientes.",
+    description: "Aprende a conduzir em duas rodas com confiança. Aprende com segurança máxima e instrutores experientes.",
     highlight: null,
   },
   {
@@ -37,7 +37,7 @@ export function Services() {
             Tudo o que precisa para <span className="text-primary">conduzir</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Seja qual for o seu objetivo, temos a formação certa para si. Sem complicações.
+            Seja qual for o teu objetivo, temos a formação certa para ti. Sem complicações.
           </p>
         </div>
 
@@ -45,7 +45,7 @@ export function Services() {
           {services.map((service, i) => (
             <div
               key={i}
-              className="group relative bg-white rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-border/50 hover:-translate-y-2 flex flex-col"
+              className="group relative bg-card rounded-3xl p-8 shadow-sm hover:shadow-2xl transition-all duration-500 border border-border/50 hover:-translate-y-2 flex flex-col"
             >
               {service.highlight && (
                 <div className="absolute -top-3 right-8 bg-primary text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg shadow-primary/20">

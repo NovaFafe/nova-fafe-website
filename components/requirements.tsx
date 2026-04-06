@@ -73,7 +73,7 @@ export function Requirements() {
       </section>
 
       {/* Documents */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-20 lg:py-28 bg-background">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-14">
             <p className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-3">Documentação</p>
@@ -81,7 +81,7 @@ export function Requirements() {
           </div>
           <div className="grid sm:grid-cols-3 gap-8">
             {docs.map((doc, i) => (
-              <div key={i} className="group p-8 bg-gray-50 rounded-3xl border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+              <div key={i} className="group p-8 bg-muted/50 rounded-3xl border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <div className="w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
                   <doc.icon className="h-7 w-7 text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
@@ -95,7 +95,7 @@ export function Requirements() {
       </section>
 
       {/* Process */}
-      <section className="py-20 lg:py-28 bg-gray-50/50">
+      <section className="py-20 lg:py-28 bg-muted/30">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="mb-14">
             <p className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-3">Processo</p>
@@ -104,11 +104,11 @@ export function Requirements() {
 
           <div className="relative">
             {/* Connecting line (desktop) */}
-            <div className="hidden lg:block absolute top-8 left-8 right-8 h-px bg-gray-200" style={{zIndex: 0}} />
+            <div className="hidden lg:block absolute top-8 left-8 right-8 h-px bg-border" style={{zIndex: 0}} />
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 relative" style={{zIndex: 1}}>
               {steps.map((step, i) => (
-                <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300">
+                <div key={i} className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
                   <div className="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center font-black text-lg mb-5 shadow-lg shadow-primary/20">
                     {step.step}
                   </div>

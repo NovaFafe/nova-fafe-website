@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function RequisitosPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-background">
       <Header />
       <Requirements />
       <CTA />

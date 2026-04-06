@@ -86,7 +86,7 @@ export function FAQ() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 lg:py-28 bg-gray-50/50">
+      <section className="py-20 lg:py-28 bg-muted/30">
         <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
 
           {/* Category Filter */}
@@ -98,7 +98,7 @@ export function FAQ() {
                 className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
                   activeCategory === cat
                     ? "bg-primary text-white shadow-lg shadow-primary/20"
-                    : "bg-white border border-gray-200 text-gray-500 hover:border-primary/40 hover:text-primary"
+                    : "bg-card border border-border text-muted-foreground hover:border-primary/40 hover:text-primary"
                 }`}
               >
                 {cat}
@@ -114,8 +114,8 @@ export function FAQ() {
               return (
                 <div
                   key={globalIndex}
-                  className={`bg-white rounded-2xl border overflow-hidden shadow-sm transition-all duration-200 ${
-                    isOpen ? "border-primary/30 shadow-md shadow-primary/5" : "border-gray-100 hover:border-gray-200"
+                  className={`bg-card rounded-2xl border overflow-hidden shadow-sm transition-all duration-200 ${
+                    isOpen ? "border-primary/30 shadow-md shadow-primary/5" : "border-border hover:border-border/70"
                   }`}
                 >
                   <button
@@ -124,14 +124,14 @@ export function FAQ() {
                   >
                     <div className="flex items-center gap-4 pr-4">
                       <span className={`hidden sm:block text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex-shrink-0 ${
-                        isOpen ? "bg-primary/10 text-primary" : "bg-gray-100 text-gray-400"
+                        isOpen ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
                       }`}>
                         {faq.category}
                       </span>
                       <span className="font-bold text-foreground text-base">{faq.question}</span>
                     </div>
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                      isOpen ? "bg-primary text-white rotate-180" : "bg-gray-100 text-gray-400"
+                      isOpen ? "bg-primary text-white rotate-180" : "bg-muted text-muted-foreground"
                     }`}>
                       <ChevronDown className="h-4 w-4" />
                     </div>
@@ -140,7 +140,7 @@ export function FAQ() {
                   <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                     <div className="overflow-hidden">
                       <div className="px-6 pb-6 pt-0">
-                        <div className="h-px bg-gray-100 mb-4" />
+                        <div className="h-px bg-border mb-4" />
                         <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
                       </div>
                     </div>
