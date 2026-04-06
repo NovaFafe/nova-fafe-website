@@ -10,8 +10,8 @@ export function Hero() {
           alt="Escola de condução NOVAFAFE"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20 dark:from-zinc-950/95 dark:via-zinc-950/80 dark:to-zinc-950/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-transparent h-32 dark:from-zinc-950/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-transparent h-32" />
       </div>
 
       {/* Content */}
@@ -34,7 +34,7 @@ export function Hero() {
                 href="/contacto"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 hover:-translate-y-0.5 transition-all text-base shadow-xl shadow-primary/30 active:scale-[0.98]"
               >
-                Pedir Orçamento Grátis
+                Fala Connosco
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
@@ -52,7 +52,7 @@ export function Hero() {
       </div>
 
       {/* Stats Bar - Bottom */}
-      <div className="relative z-10 border-t border-border/50 bg-white/60 dark:bg-zinc-950/60 backdrop-blur-md">
+      <div className="relative z-10 border-t border-border/50 bg-white/60 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
             {[

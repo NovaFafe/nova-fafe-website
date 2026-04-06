@@ -3,7 +3,6 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { FloatingButtons } from "@/components/floating-buttons"
-import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "sonner"
 import "./globals.css"
 
@@ -29,14 +28,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="pt" className="scroll-smooth">
       <body className={`${inter.className} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
-          <FloatingButtons />
-          <Toaster richColors position="top-center" />
-          <Analytics />
-        </ThemeProvider>
+        {children}
+        <FloatingButtons />
+        <Toaster richColors position="top-center" theme="light" />
+        <Analytics />
       </body>
     </html>
   )

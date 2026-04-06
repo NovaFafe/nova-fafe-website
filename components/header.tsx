@@ -5,7 +5,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { Menu, X, Home, Users2, CarFront, FileCheck, Euro, Phone, ChevronRight, ChevronDown, Instagram, Facebook, Car, Bike, Zap, RotateCcw, RefreshCw, ClipboardList, HelpCircle } from "lucide-react"
 
 export function Header() {
@@ -94,8 +93,8 @@ export function Header() {
         <header
           className={`transition-all duration-500 ${
             isScrolled
-              ? "bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border-b border-gray-200 dark:border-zinc-700 py-2 shadow-md dark:shadow-zinc-900/50"
-              : "bg-white dark:bg-zinc-900 border-b border-gray-100 dark:border-zinc-800 py-4"
+              ? "bg-white/95 backdrop-blur-md border-b border-gray-200 py-2 shadow-md"
+              : "bg-white border-b border-gray-100 py-4"
           }`}
         >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -121,10 +120,10 @@ export function Header() {
                     className={`relative flex items-center gap-2 px-4 py-2 text-sm font-bold transition-all duration-300 rounded-lg group/link ${
                       pathname === link.href 
                         ? "text-primary bg-primary/5" 
-                        : "text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-gray-50/80 dark:hover:bg-zinc-800/80"
+                        : "text-gray-600 hover:text-primary hover:bg-gray-50/80"
                     }`}
                   >
-                    {link.icon && <link.icon size={15} className={`flex-shrink-0 transition-colors ${pathname === link.href ? "text-primary" : "text-gray-400 dark:text-gray-500 group-hover/link:text-primary"}`} />}
+                    {link.icon && <link.icon size={15} className={`flex-shrink-0 transition-colors ${pathname === link.href ? "text-primary" : "text-gray-400 group-hover/link:text-primary"}`} />}
                     {link.label}
                     {link.submenu && (
                       <ChevronDown size={14} className="transition-transform duration-300 group-hover:rotate-180" />
@@ -141,14 +140,14 @@ export function Header() {
                   {/* Dropdown Menu */}
                   {link.submenu && (
                     <div className="absolute top-full left-0 w-64 pt-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
-                      <div className="bg-white dark:bg-zinc-800 rounded-xl shadow-xl border border-gray-100 dark:border-zinc-700 overflow-hidden p-2">
+                      <div className="bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden p-2">
                         {link.submenu.map((sub) => (
                           <Link
                             key={sub.href}
                             href={sub.href}
-                            className="flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors group/sub"
+                            className="flex items-center gap-3 px-3 py-2.5 text-sm font-semibold text-gray-600 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors group/sub"
                           >
-                            <div className="w-7 h-7 flex items-center justify-center rounded-md bg-gray-100 dark:bg-zinc-700 text-gray-400 dark:text-gray-400 group-hover/sub:bg-primary/10 group-hover/sub:text-primary transition-colors flex-shrink-0">
+                            <div className="w-7 h-7 flex items-center justify-center rounded-md bg-gray-100 text-gray-400 group-hover/sub:bg-primary/10 group-hover/sub:text-primary transition-colors flex-shrink-0">
                               {sub.icon && <sub.icon size={14} />}
                             </div>
                             {sub.label}
@@ -168,17 +167,14 @@ export function Header() {
                 href="/contacto"
                 className="hidden md:inline-flex items-center justify-center px-6 py-2.5 font-bold text-sm rounded-lg bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20 active:scale-95 transition-all"
               >
-                Pedir Orçamento
+                Fala Connosco
               </Link>
-
-              {/* Theme Toggle */}
-              <ThemeToggle />
 
               {/* Mobile Menu Button */}
               <Button
                 variant="ghost"
                 size="icon"
-                className="xl:hidden text-gray-900 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-zinc-800"
+                className="xl:hidden text-gray-900 hover:bg-gray-100"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 <Menu className="h-6 w-6" />
@@ -201,21 +197,21 @@ export function Header() {
 
         {/* Menu Panel */}
         <div
-          className={`absolute right-0 top-0 h-full w-[280px] bg-white dark:bg-zinc-900 shadow-2xl transition-transform duration-300 ease-out transform ${
+          className={`absolute right-0 top-0 h-full w-[280px] bg-white shadow-2xl transition-transform duration-300 ease-out transform ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex flex-col h-full bg-white dark:bg-zinc-900">
+          <div className="flex flex-col h-full bg-white">
             {/* Header */}
-            <div className="flex items-center justify-between p-5 border-b border-gray-100 dark:border-zinc-800">
-              <span className="font-bold text-lg text-gray-900 dark:text-gray-100">Menu</span>
+            <div className="flex items-center justify-between p-5 border-b border-gray-100">
+              <span className="font-bold text-lg text-gray-900">Menu</span>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800"
+                className="rounded-full hover:bg-gray-100"
               >
-                <X className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                <X className="h-5 w-5 text-gray-500" />
               </Button>
             </div>
 
@@ -229,12 +225,12 @@ export function Header() {
                       className={`relative flex items-center justify-between px-6 py-4 text-base transition-all duration-300 border-l-4 group/item ${
                         pathname === link.href
                           ? "bg-primary/5 border-primary text-primary font-bold"
-                          : "border-transparent text-gray-700 dark:text-gray-300 hover:bg-gray-50/80 dark:hover:bg-zinc-800/80 font-semibold hover:border-gray-200 dark:hover:border-zinc-700"
+                          : "border-transparent text-gray-700 hover:bg-gray-50/80 font-semibold hover:border-gray-200"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <div className={`p-2 rounded-lg transition-colors ${
-                          pathname === link.href ? "bg-primary text-white" : "bg-gray-100 dark:bg-zinc-800 text-gray-400 dark:text-gray-500 group-hover/item:bg-gray-200 dark:group-hover/item:bg-zinc-700"
+                          pathname === link.href ? "bg-primary text-white" : "bg-gray-100 text-gray-400 group-hover/item:bg-gray-200"
                         }`}>
                           {link.icon && <link.icon size={18} />}
                         </div>
@@ -245,14 +241,14 @@ export function Header() {
                     
                     {/* Submenu no mobile */}
                     {link.submenu && (
-                      <div className="bg-gray-50/50 dark:bg-zinc-800/30 py-1 border-l-4 border-transparent ml-6">
+                      <div className="bg-gray-50/50 py-1 border-l-4 border-transparent ml-6">
                         {link.submenu.map((sub) => (
                           <Link
                             key={sub.href}
                             href={sub.href}
-                            className="flex items-center gap-3 pl-8 pr-6 py-3 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary hover:bg-white/70 dark:hover:bg-zinc-800/70 transition-colors"
+                            className="flex items-center gap-3 pl-8 pr-6 py-3 text-sm font-medium text-gray-500 hover:text-primary hover:bg-white/70 transition-colors"
                           >
-                            <div className="w-7 h-7 flex items-center justify-center rounded-md bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 text-gray-400 flex-shrink-0">
+                            <div className="w-7 h-7 flex items-center justify-center rounded-md bg-white border border-gray-100 text-gray-400 flex-shrink-0">
                               {sub.icon && <sub.icon size={13} />}
                             </div>
                             {sub.label}
@@ -268,7 +264,7 @@ export function Header() {
                   className={`flex items-center gap-3 px-6 py-4 text-base transition-colors border-l-4 ${
                     pathname === "/contacto"
                       ? "bg-primary/5 border-primary text-primary font-bold"
-                      : "border-transparent text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-zinc-800/80 font-semibold"
+                      : "border-transparent text-gray-700 hover:bg-gray-50 font-semibold"
                   }`}
                 >
                   <Phone size={18} className={pathname === "/contacto" ? "text-primary" : "text-gray-400"} />
@@ -278,10 +274,10 @@ export function Header() {
             </div>
 
             {/* Footer */}
-            <div className="p-6 border-t border-gray-100 dark:border-zinc-800 bg-gray-50 dark:bg-zinc-800/50">
+            <div className="p-6 border-t border-gray-100 bg-gray-50">
               <a
                 href="tel:+351253504148"
-                className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-md text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-zinc-700 transition-all shadow-sm mb-4"
+                className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white border border-gray-200 rounded-md text-gray-700 font-medium hover:bg-gray-50 transition-all shadow-sm mb-4"
               >
                 <Phone className="h-4 w-4" />
                 253 504 148

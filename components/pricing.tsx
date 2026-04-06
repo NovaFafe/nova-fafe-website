@@ -96,7 +96,7 @@ export function Pricing() {
                 }`}
               >
                 <Phone className="h-4 w-4" />
-                Peça Orçamento Personalizado
+                Fala Connosco
               </a>
             </div>
           ))}

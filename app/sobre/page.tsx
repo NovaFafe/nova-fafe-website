@@ -246,7 +246,7 @@ export default function SobrePage() {
                   </div>
                   <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
                       <a href="/contacto" className="group px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-xl shadow-primary/20 active:scale-[0.98] text-base flex items-center justify-center gap-3">
-                          Pedir Orçamento Grátis
+                          Fala Connosco
                           <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </a>
                       <a href="tel:+351253504148" className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all active:scale-[0.98] text-base text-center">

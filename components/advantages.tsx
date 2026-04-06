@@ -43,7 +43,7 @@ export function Advantages() {
             </span>
             <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.95] tracking-tighter">
               Feitos para o<br />
-              <span className="text-white/25 italic font-light">seu sucesso.</span>
+              <span className="text-white/25 italic font-light">teu sucesso.</span>
             </h2>
           </div>
           <p className="text-white/50 text-lg leading-relaxed max-w-sm font-light lg:text-right">

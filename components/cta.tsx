@@ -32,7 +32,7 @@ export function CTA() {
                 href="/contacto"
                 className="group flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-xl hover:-translate-y-0.5 active:scale-[0.98] text-base cursor-pointer"
               >
-                Pedir Orçamento Grátis
+                Fala Connosco
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
