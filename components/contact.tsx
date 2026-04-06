@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from "react"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, Clock, Send, User, Car, Gauge, Zap, RotateCcw, BadgeCheck, FileText, HelpCircle, MessageSquare, ChevronDown, Check, Facebook, Instagram, type LucideIcon } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Send, User, Car, Gauge, Zap, RotateCcw, BadgeCheck, FileText, HelpCircle, MessageSquare, ChevronDown, Check, Facebook, Instagram, Loader2, type LucideIcon } from "lucide-react"
+import { toast } from "sonner"
 
 const CATEGORIES: { value: string; label: string; sub: string | null; Icon: LucideIcon }[] = [
   { value: "B",     label: "Categoria B",           sub: "Ligeiros",    Icon: Car },
@@ -19,8 +20,12 @@ export function Contact() {
   const [category, setCategory] = useState<string | null>(null)
   const [open, setOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const [name, setName] = useState("")
+  const [phone, setPhone] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+  const [loading, setLoading] = useState(false)
 
-  // Fechar ao clicar fora
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -32,6 +37,30 @@ export function Contact() {
   }, [])
 
   const selected = CATEGORIES.find(c => c.value === category)
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (!name || !phone || !email) {
+      toast.error("Preenche o nome, telemóvel e email.")
+      return
+    }
+    setLoading(true)
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, email, category, message }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.error ?? "Erro desconhecido")
+      toast.success("Mensagem enviada! Entraremos em contacto em breve.")
+      setName(""); setPhone(""); setEmail(""); setCategory(null); setMessage("")
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Erro ao enviar. Tenta novamente.")
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <>
@@ -168,7 +197,7 @@ export function Contact() {
                     <p className="text-muted-foreground text-sm">Preenches o formulário e nós entramos em contacto o mais rapidamente possível.</p>
                   </div>
 
-                  <form className="space-y-5">
+                  <form className="space-y-5" onSubmit={handleSubmit}>
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div className="space-y-1.5">
                         <label className="text-xs font-black text-zinc-500 uppercase tracking-wider">Nome</label>
@@ -176,6 +205,10 @@ export function Contact() {
                           <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                           <Input
                             placeholder="O teu nome"
+                            value={name}
+                            onChange={e => setName(e.target.value)}
+                            disabled={loading}
+                            required
                             className="h-12 pl-10 border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 bg-muted/50"
                           />
                         </div>
@@ -186,6 +219,10 @@ export function Contact() {
                           <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
                           <Input
                             placeholder="+351 9XX XXX XXX"
+                            value={phone}
+                            onChange={e => setPhone(e.target.value)}
+                            disabled={loading}
+                            required
                             className="h-12 pl-10 border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 bg-muted/50"
                           />
                         </div>
@@ -199,6 +236,10 @@ export function Contact() {
                         <Input
                           type="email"
                           placeholder="o.teu@email.com"
+                          value={email}
+                          onChange={e => setEmail(e.target.value)}
+                          disabled={loading}
+                          required
                           className="h-12 pl-10 border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 bg-muted/50"
                         />
                       </div>
@@ -277,6 +318,9 @@ export function Contact() {
                         <Textarea
                           placeholder="Conta-nos mais sobre o que precisas..."
                           rows={4}
+                          value={message}
+                          onChange={e => setMessage(e.target.value)}
+                          disabled={loading}
                           className="pl-10 border-border rounded-xl focus:border-primary focus:ring-2 focus:ring-primary/10 resize-none bg-muted/50"
                         />
                       </div>
@@ -285,10 +329,20 @@ export function Contact() {
                     <div className="pt-2">
                       <button
                         type="submit"
-                        className="group w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-bold rounded-xl hover:from-primary/95 hover:to-primary/70 transition-all shadow-xl shadow-primary/25 active:scale-[0.99] text-base"
+                        disabled={loading}
+                        className="group w-full flex items-center justify-center gap-3 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-bold rounded-xl hover:from-primary/95 hover:to-primary/70 transition-all shadow-xl shadow-primary/25 active:scale-[0.99] text-base disabled:opacity-70 disabled:cursor-not-allowed"
                       >
-                        Enviar mensagem
-                        <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        {loading ? (
+                          <>
+                            <Loader2 className="h-4 w-4 animate-spin" />
+                            A enviar...
+                          </>
+                        ) : (
+                          <>
+                            Enviar mensagem
+                            <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                          </>
+                        )}
                       </button>
                     </div>
 
