@@ -23,17 +23,15 @@ export function Header() {
   const mainNavLinks = [
     { href: "/", label: "Início", icon: Home },
     { href: "/sobre", label: "A Escola", icon: Users2 },
-    { 
-      href: "/servicos", 
-      label: "Serviços", 
+    {
+      href: "/servicos",
+      label: "Serviços",
       icon: CarFront,
       submenu: [
-        { href: "/servicos#categoria-b",        label: "Categoria B — Ligeiros",             icon: Car },
-        { href: "/servicos#categoria-a",        label: "Categoria A / A1 / A2 — Motociclos", icon: Bike },
-        { href: "/servicos#categoria-am",       label: "Categoria AM — Ciclomotores",        icon: Zap },
-        { href: "/servicos#recuperacao-pontos", label: "Recuperação de Pontos (AVF)",         icon: RotateCcw },
-        { href: "/servicos#revalidacao",        label: "Revalidação de Título",              icon: RefreshCw },
-        { href: "/servicos#apoio-imt",          label: "Apoio Administrativo IMT",           icon: ClipboardList },
+        { href: "/servicos",                    label: "Carta de Condução",           icon: Car },
+        { href: "/servicos#recuperacao-pontos", label: "Recuperação de Pontos (AVF)", icon: RotateCcw },
+        { href: "/servicos#revalidacao",        label: "Revalidação de Título",       icon: RefreshCw },
+        { href: "/servicos#apoio-imt",          label: "Apoio Administrativo IMT",    icon: ClipboardList },
       ]
     },
     { href: "/requisitos", label: "Requisitos", icon: FileCheck },
@@ -54,6 +52,10 @@ export function Header() {
       document.body.style.overflow = "unset"
     }
   }, [isMobileMenuOpen])
+
+  const isActive = (link: typeof mainNavLinks[number]) => {
+    return pathname === link.href
+  }
 
   const isHomePage = pathname === "/"
   const currentYear = new Date().getFullYear()
@@ -114,16 +116,16 @@ export function Header() {
             {/* Desktop Navigation */}
             <nav className="hidden xl:flex items-center gap-1 h-full ml-8">
               {mainNavLinks.map((link) => (
-                <div key={link.href} className="relative group h-full flex items-center">
+                <div key={link.label} className="relative group h-full flex items-center">
                   <Link
                     href={link.href}
                     className={`relative flex items-center gap-2 px-4 py-2 text-sm font-bold transition-all duration-300 rounded-lg group/link ${
-                      pathname === link.href 
+                      isActive(link)
                         ? "text-primary bg-primary/5" 
                         : "text-gray-600 hover:text-primary hover:bg-gray-50/80"
                     }`}
                   >
-                    {link.icon && <link.icon size={15} className={`flex-shrink-0 transition-colors ${pathname === link.href ? "text-primary" : "text-gray-400 group-hover/link:text-primary"}`} />}
+                    {link.icon && <link.icon size={15} className={`flex-shrink-0 transition-colors ${isActive(link) ? "text-primary" : "text-gray-400 group-hover/link:text-primary"}`} />}
                     {link.label}
                     {link.submenu && (
                       <ChevronDown size={14} className="transition-transform duration-300 group-hover:rotate-180" />
@@ -132,7 +134,7 @@ export function Header() {
                     {/* Floating Indicator Bar */}
                     <span 
                       className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover/link:w-1/2 ${
-                        pathname === link.href ? "w-1/2" : ""
+                        isActive(link) ? "w-1/2" : ""
                       }`} 
                     />
                   </Link>
@@ -197,7 +199,7 @@ export function Header() {
 
         {/* Menu Panel */}
         <div
-          className={`absolute right-0 top-0 h-full w-[280px] bg-white shadow-2xl transition-transform duration-300 ease-out transform ${
+          className={`absolute right-0 top-0 h-full w-[340px] bg-white shadow-2xl transition-transform duration-300 ease-out transform ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -219,18 +221,18 @@ export function Header() {
             <div className="flex-1 overflow-y-auto py-4">
               <div className="flex flex-col">
                 {mainNavLinks.map((link) => (
-                  <div key={link.href} className="flex flex-col">
+                  <div key={link.label} className="flex flex-col">
                     <Link
                       href={link.href}
-                      className={`relative flex items-center justify-between px-6 py-4 text-base transition-all duration-300 border-l-4 group/item ${
-                        pathname === link.href
+                      className={`relative flex items-center justify-between px-6 py-2 text-sm transition-all duration-300 border-l-4 group/item ${
+                        isActive(link)
                           ? "bg-primary/5 border-primary text-primary font-bold"
                           : "border-transparent text-gray-700 hover:bg-gray-50/80 font-semibold hover:border-gray-200"
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <div className={`p-2 rounded-lg transition-colors ${
-                          pathname === link.href ? "bg-primary text-white" : "bg-gray-100 text-gray-400 group-hover/item:bg-gray-200"
+                          isActive(link) ? "bg-primary text-white" : "bg-gray-100 text-gray-400 group-hover/item:bg-gray-200"
                         }`}>
                           {link.icon && <link.icon size={18} />}
                         </div>
@@ -246,7 +248,7 @@ export function Header() {
                           <Link
                             key={sub.href}
                             href={sub.href}
-                            className="flex items-center gap-3 pl-8 pr-6 py-3 text-sm font-medium text-gray-500 hover:text-primary hover:bg-white/70 transition-colors"
+                            className="flex items-center gap-3 pl-8 pr-6 py-1.5 text-sm font-medium text-gray-500 hover:text-primary hover:bg-white/70 transition-colors"
                           >
                             <div className="w-7 h-7 flex items-center justify-center rounded-md bg-white border border-gray-100 text-gray-400 flex-shrink-0">
                               {sub.icon && <sub.icon size={13} />}
@@ -261,7 +263,7 @@ export function Header() {
                 
                 <Link
                   href="/contacto"
-                  className={`flex items-center gap-3 px-6 py-4 text-base transition-colors border-l-4 ${
+                  className={`flex items-center gap-3 px-6 py-2 text-sm transition-colors border-l-4 ${
                     pathname === "/contacto"
                       ? "bg-primary/5 border-primary text-primary font-bold"
                       : "border-transparent text-gray-700 hover:bg-gray-50 font-semibold"
