@@ -98,8 +98,8 @@ export function Contact() {
                   icon: Phone,
                   title: "Telefone",
                   lines: [
-                    { text: "+351 253 095 892", href: "tel:+351253095892" },
-                    { text: "+351 968 268 951", href: "tel:+351968268951" },
+                    { text: "+351 253 504 148", href: "tel:+351253504148" },
+                    { text: "+351 968 298 852", href: "tel:+351968298852" },
                   ],
                 },
                 {
@@ -113,8 +113,8 @@ export function Contact() {
                   icon: MapPin,
                   title: "Morada",
                   lines: [
-                    { text: "Rua da Cumieira, n.º 4820" },
-                    { text: "4820-000 Fafe, Portugal" },
+                    { text: "Rua da Curveira, Nº 6" },
+                    { text: "4820-179 Fafe, Portugal" },
                   ],
                 },
                 {

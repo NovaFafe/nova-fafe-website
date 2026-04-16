@@ -22,7 +22,7 @@ export function FloatingButtons() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
       {/* WhatsApp */}
       <a
-        href="https://wa.me/351968268951"
+        href="https://wa.me/351968298852"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"

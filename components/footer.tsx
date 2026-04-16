@@ -66,7 +66,7 @@ export function Footer() {
           <div className="flex items-start gap-3 bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3">
             <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
             <span className="text-xs text-gray-400 leading-relaxed">
-              Rua da Cumieira, n.º 4820 — 4820-000 Fafe, Portugal
+              Rua da Curveira, Nº 6 — 4820-179 Fafe, Portugal
             </span>
           </div>
 
@@ -201,14 +201,14 @@ export function Footer() {
               <li className="flex items-start gap-3 group">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5 group-hover:text-white transition-colors" />
                 <span className="text-gray-400 group-hover:text-white transition-colors">
-                  Rua da Cumieira, n.º 4820<br />4820-000 Fafe, Portugal
+                  Rua da Curveira, Nº 6<br />4820-179 Fafe, Portugal
                 </span>
               </li>
               <li className="flex items-start gap-3 group">
                 <Phone className="w-5 h-5 text-primary shrink-0 mt-0.5 group-hover:text-white transition-colors" />
                 <div className="flex flex-col">
-                  <a href="tel:+351253095892" className="text-gray-400 hover:text-primary transition-colors">+351 253 095 892</a>
-                  <a href="tel:+351968268951" className="text-gray-400 hover:text-primary transition-colors">+351 968 268 951</a>
+                  <a href="tel:+351253504148" className="text-gray-400 hover:text-primary transition-colors">+351 253 504 148</a>
+                  <a href="tel:+351968298852" className="text-gray-400 hover:text-primary transition-colors">+351 968 298 852</a>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
