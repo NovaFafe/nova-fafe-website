@@ -129,7 +129,7 @@ export default function PrivacidadePage() {
               <p>
                 Para qualquer questão relacionada com a privacidade dos teus dados, contacta-nos:<br />
                 <a href="mailto:novafafec@gmail.com" className="text-primary font-semibold hover:underline">novafafec@gmail.com</a><br />
-                <a href="tel:+351253504148" className="text-primary font-semibold hover:underline">+351 253 504 148</a>
+                <a href="tel:+351253504130" className="text-primary font-semibold hover:underline">+351 253 504 130</a>
               </p>
             </div>
 

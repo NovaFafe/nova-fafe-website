@@ -5,8 +5,11 @@ const CATEGORIES: Record<string, string> = {
   B:     "Categoria B — Ligeiros",
   A:     "Categoria A / A1 / A2 — Motociclos",
   AM:    "Categoria AM — Ciclomotores",
+  PES:   "Pesados / TCC / CAM",
+  TRA:   "Tratores Agrícolas",
   AVF:   "Recuperação de Pontos (AVF)",
-  REV:   "Revalidação de Título",
+  REV:   "Revalidação de Carta",
+  TROCA: "Troca de Carta Estrangeira",
   IMT:   "Apoio IMT",
   OTHER: "Outra / Dúvida geral",
 }

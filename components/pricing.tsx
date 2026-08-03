@@ -86,7 +86,7 @@ export function Pricing() {
               </ul>
 
               <a
-                href="https://wa.me/351968298852"
+                href="https://wa.me/351968268952"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center justify-center gap-2 w-full py-3 rounded font-semibold transition-colors ${

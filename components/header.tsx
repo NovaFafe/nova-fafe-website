@@ -71,9 +71,9 @@ export function Header() {
         }`}>
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center py-2.5">
             <div className="flex gap-6 items-center">
-              <a href="tel:+351253504148" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+              <a href="tel:+351253504130" className="flex items-center gap-1.5 hover:text-primary transition-colors">
                 <Phone size={14} className="text-primary" />
-                <span>+351 253 504 148</span>
+                <span>+351 253 504 130</span>
               </a>
               <div className="flex items-center gap-2 text-zinc-400">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
@@ -278,18 +278,18 @@ export function Header() {
             {/* Footer */}
             <div className="p-6 border-t border-gray-100 bg-gray-50">
               <a
-                href="tel:+351253504148"
+                href="tel:+351253504130"
                 className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white border border-gray-200 rounded-md text-gray-700 font-medium hover:bg-gray-50 transition-all shadow-sm mb-4"
               >
                 <Phone className="h-4 w-4" />
-                253 504 148
+                253 504 130
               </a>
               
               <div className="flex justify-center gap-4">
-                 <a href="https://instagram.com" target="_blank" className="text-gray-400 hover:text-primary transition-colors">
+                 <a href="https://www.instagram.com/ecnovafafe/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
                   <Instagram className="h-5 w-5" />
                 </a>
-                <a href="https://facebook.com" target="_blank" className="text-gray-400 hover:text-primary transition-colors">
+                <a href="https://www.facebook.com/NovaFafe" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">
                   <Facebook className="h-5 w-5" />
                 </a>
               </div>

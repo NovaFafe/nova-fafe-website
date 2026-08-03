@@ -7,13 +7,16 @@ import { MapPin, Phone, Mail, Clock, Send, User, Car, Gauge, Zap, RotateCcw, Bad
 import { toast } from "sonner"
 
 const CATEGORIES: { value: string; label: string; sub: string | null; Icon: LucideIcon }[] = [
-  { value: "B",     label: "Categoria B",           sub: "Ligeiros",    Icon: Car },
-  { value: "A",     label: "Categoria A / A1 / A2", sub: "Motociclos",   Icon: Gauge },
-  { value: "AM",    label: "Categoria AM",          sub: "Ciclomotores", Icon: Zap },
-  { value: "AVF",   label: "Recuperação de Pontos", sub: "AVF",          Icon: RotateCcw },
-  { value: "REV",   label: "Revalidação de Título", sub: null,           Icon: BadgeCheck },
-  { value: "IMT",   label: "Apoio IMT",             sub: null,           Icon: FileText },
-  { value: "OTHER", label: "Outra / Dúvida geral",  sub: null,           Icon: HelpCircle },
+  { value: "B",     label: "Categoria B",               sub: "Ligeiros",           Icon: Car },
+  { value: "A",     label: "Categoria A / A1 / A2",     sub: "Motociclos",         Icon: Gauge },
+  { value: "AM",    label: "Categoria AM",              sub: "Ciclomotores",       Icon: Zap },
+  { value: "PES",   label: "Pesados / TCC / CAM",       sub: "Parceria",           Icon: Car },
+  { value: "TRA",   label: "Tratores Agrícolas",        sub: null,                 Icon: Gauge },
+  { value: "AVF",   label: "Recuperação de Pontos",     sub: "AVF",                Icon: RotateCcw },
+  { value: "REV",   label: "Revalidação de Carta",      sub: null,                 Icon: BadgeCheck },
+  { value: "TROCA", label: "Troca de Carta Estrangeira", sub: null,                Icon: FileText },
+  { value: "IMT",   label: "Apoio IMT",                 sub: null,                 Icon: FileText },
+  { value: "OTHER", label: "Outra / Dúvida geral",      sub: null,                 Icon: HelpCircle },
 ]
 
 export function Contact() {
@@ -98,8 +101,8 @@ export function Contact() {
                   icon: Phone,
                   title: "Telefone",
                   lines: [
-                    { text: "+351 253 504 148", href: "tel:+351253504148" },
-                    { text: "+351 968 298 852", href: "tel:+351968298852" },
+                    { text: "+351 253 504 130", href: "tel:+351253504130" },
+                    { text: "+351 968 268 952", href: "tel:+351968268952" },
                   ],
                 },
                 {
@@ -113,16 +116,23 @@ export function Contact() {
                   icon: MapPin,
                   title: "Morada",
                   lines: [
-                    { text: "Rua da Curveira, Nº 6" },
+                    { text: "Rua da Cumieira, Nº 6" },
                     { text: "4820-179 Fafe, Portugal" },
                   ],
                 },
                 {
                   icon: Clock,
-                  title: "Horário",
+                  title: "Secretaria",
                   lines: [
-                    { text: "Seg–Sex: 09:30–13:00 / 14:00–19:30" },
-                    { text: "Sábado: 09:30–12:30" },
+                    { text: "Seg–Sex: 10:00–13:00 / 15:00–19:30" },
+                    { text: "Sábado: 10:00–13:00" },
+                  ],
+                },
+                {
+                  icon: Clock,
+                  title: "Apoio Teórico",
+                  lines: [
+                    { text: "Seg–Sex: 11:00–13:00 / 15:00–20:00" },
                   ],
                 },
               ].map((info, i) => (
@@ -133,7 +143,7 @@ export function Contact() {
                   <div>
                     <p className="text-xs font-black text-primary uppercase tracking-widest mb-2">{info.title}</p>
                     {info.lines.map((line, j) => (
-                      line.href
+                      "href" in line && line.href
                         ? <a key={j} href={line.href} className="block text-sm text-foreground font-medium hover:text-primary transition-colors">{line.text}</a>
                         : <p key={j} className="text-sm text-muted-foreground">{line.text}</p>
                     ))}
@@ -184,8 +194,6 @@ export function Contact() {
             {/* Right — Form */}
             <div className="lg:col-span-3">
               <div className="bg-card rounded-3xl border border-border shadow-lg">
-                {/* Accent strip */}
-                <div className="h-1.5 bg-gradient-to-r from-primary via-primary/70 to-primary/30 rounded-t-3xl" />
 
                 <div className="p-8 lg:p-10">
                   <div className="mb-8">

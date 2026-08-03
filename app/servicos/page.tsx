@@ -1,11 +1,11 @@
 import { Header } from "@/components/header"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
-import { Car, Bike, Zap, RotateCcw, RefreshCw, ClipboardList, ArrowRight, CheckCircle2, Clock, Euro, FileText } from "lucide-react"
+import { Car, Bike, Zap, RotateCcw, RefreshCw, ClipboardList, ArrowRight, CheckCircle2, Truck, Tractor, Globe } from "lucide-react"
 
 export const metadata = {
   title: "Serviços - NOVAFAFE Escola de Condução",
-  description: "Carta de ligeiros, motociclos, ciclomotores, recuperação de pontos e apoio IMT. Toda a formação de condução em Fafe.",
+  description: "Carta de ligeiros, motociclos, pesados, TCC/CAM, tratores, revalidação e troca de carta estrangeira em Fafe.",
 }
 
 const services = [
@@ -33,9 +33,9 @@ const services = [
     title: "Carta de Motociclo",
     description: "Para quem quer conduzir em duas rodas. Formamos para as três subcategorias com equipamento adequado e pistas de treino.",
     features: [
-      "A1 — motociclos até 125cc (16 anos)",
-      "A2 — motociclos até 35kW (18 anos)",
-      "A — sem limitações (≥ 24 anos ou 2 anos de A2)",
+      "A1 — até 125cc (16 anos)",
+      "A2 — até 35kW (18 anos)",
+      "A — 55kW (24 anos ou 2 anos de A2)",
       "Acesso direto ou progressivo",
       "Inclui equipa de proteção básica",
     ],
@@ -53,6 +53,35 @@ const services = [
       "Veículos até 45 km/h e 50cc",
       "Processo rápido e acessível",
       "Aulas teóricas e práticas incluídas",
+    ],
+    highlight: false,
+  },
+  {
+    id: "pesados-tcc-cam",
+    icon: Truck,
+    badge: "Parceria",
+    category: "Pesados / TCC / CAM",
+    title: "Pesados, Passageiros e Mercadorias",
+    description: "Formação em categorias de pesados e certificados profissionais, em parceria. Ideal para quem quer trabalhar no transporte rodoviário.",
+    features: [
+      "Pesados de passageiros e mercadorias",
+      "Formação TCC (Transporte Coletivo de Crianças)",
+      "Formação CAM (Certificado de Aptidão)",
+      "Acompanhamento no processo de inscrição",
+    ],
+    highlight: false,
+  },
+  {
+    id: "tratores",
+    icon: Tractor,
+    badge: null,
+    category: "Tratores",
+    title: "Tratores Agrícolas",
+    description: "Formação para condução de tratores agrícolas. Ideal para quem trabalha no setor agrícola e precisa da habilitação legal.",
+    features: [
+      "Formação teórica e prática",
+      "Apoio na documentação e exames",
+      "Horários flexíveis",
     ],
     highlight: false,
   },
@@ -76,13 +105,27 @@ const services = [
     icon: RefreshCw,
     badge: null,
     category: "Revalidação",
-    title: "Revalidação de Título",
+    title: "Revalidação de Cartas de Condução",
     description: "A carta precisa de revalidação periódica. Tratamos de todo o processo, incluindo aulas de atualização e agendamento de exame médico.",
     features: [
       "A cada 10 anos (até aos 60 anos)",
       "A cada 5 anos (60–70 anos)",
       "A cada 2 anos (após 70 anos)",
       "Apoio no agendamento e documentação",
+    ],
+    highlight: false,
+  },
+  {
+    id: "troca-carta",
+    icon: Globe,
+    badge: null,
+    category: "Carta Estrangeira",
+    title: "Troca de Carta Estrangeira",
+    description: "Já tens carta de condução emitida noutro país? Ajudamos-te a trocá-la pela carta portuguesa junto do IMT.",
+    features: [
+      "Orientação sobre elegibilidade",
+      "Tratamento da documentação",
+      "Acompanhamento no processo IMT",
     ],
     highlight: false,
   },
@@ -122,7 +165,7 @@ export default function ServicosPage() {
               <span className="text-primary">oferecemos.</span>
             </h1>
             <p className="text-base text-zinc-400 leading-relaxed max-w-xl font-light">
-              Desde a carta de carro à recuperação de pontos. Toda a formação rodoviária de que precisas, num só lugar em Fafe.
+              Ligeiros, motociclos, pesados, tratores, revalidação e troca de carta. Toda a formação rodoviária de que precisas, em Fafe.
             </p>
           </div>
         </div>

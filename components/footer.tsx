@@ -50,10 +50,10 @@ export function Footer() {
 
           {/* Acções rápidas de contacto */}
           <div className="grid grid-cols-2 gap-3">
-            <a href="tel:+351253095892"
+            <a href="tel:+351253504130"
               className="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 hover:border-primary/50 transition-colors">
               <Phone className="w-4 h-4 text-primary shrink-0" />
-              <span className="text-xs text-gray-300 font-medium">253 095 892</span>
+              <span className="text-xs text-gray-300 font-medium">253 504 130</span>
             </a>
             <a href="mailto:novafafec@gmail.com"
               className="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 hover:border-primary/50 transition-colors">
@@ -66,7 +66,7 @@ export function Footer() {
           <div className="flex items-start gap-3 bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3">
             <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />
             <span className="text-xs text-gray-400 leading-relaxed">
-              Rua da Curveira, Nº 6 — 4820-179 Fafe, Portugal
+              Rua da Cumieira, Nº 6 — 4820-179 Fafe, Portugal
             </span>
           </div>
 
@@ -96,13 +96,15 @@ export function Footer() {
               <p className="text-white text-xs font-bold uppercase tracking-widest mb-3">Horário</p>
               <ul className="space-y-2 text-xs text-gray-400">
                 <li>
-                  <span className="block text-gray-300 font-medium">Seg – Sex</span>
-                  <span>09:30 – 13:00</span><br />
-                  <span>14:00 – 19:30</span>
+                  <span className="block text-gray-300 font-medium">Secretaria</span>
+                  <span>Seg–Sex: 10:00 – 13:00</span><br />
+                  <span>15:00 – 19:30</span><br />
+                  <span>Sáb: 10:00 – 13:00</span>
                 </li>
                 <li className="pt-1">
-                  <span className="block text-gray-300 font-medium">Sábado</span>
-                  <span>09:30 – 12:30</span>
+                  <span className="block text-gray-300 font-medium">Apoio Teórico</span>
+                  <span>Seg–Sex: 11:00 – 13:00</span><br />
+                  <span>15:00 – 20:00</span>
                 </li>
                 <li className="pt-1">
                   <span className="block text-gray-300 font-medium">Domingo</span>
@@ -170,16 +172,16 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-white font-medium mb-1">Segunda a Sexta</span>
-                  <span className="block text-gray-400">09:30 – 13:00</span>
-                  <span className="block text-gray-400">14:00 – 19:30</span>
+                  <span className="block text-white font-medium mb-1">Secretaria</span>
+                  <span className="block text-gray-400">Seg–Sex: 10:00 – 13:00 / 15:00 – 19:30</span>
+                  <span className="block text-gray-400">Sábado: 10:00 – 13:00</span>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-white font-medium mb-1">Sábado</span>
-                  <span className="block text-gray-400">09:30 – 12:30</span>
+                  <span className="block text-white font-medium mb-1">Apoio Teórico</span>
+                  <span className="block text-gray-400">Seg–Sex: 11:00 – 13:00 / 15:00 – 20:00</span>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -201,14 +203,14 @@ export function Footer() {
               <li className="flex items-start gap-3 group">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5 group-hover:text-white transition-colors" />
                 <span className="text-gray-400 group-hover:text-white transition-colors">
-                  Rua da Curveira, Nº 6<br />4820-179 Fafe, Portugal
+                  Rua da Cumieira, Nº 6<br />4820-179 Fafe, Portugal
                 </span>
               </li>
               <li className="flex items-start gap-3 group">
                 <Phone className="w-5 h-5 text-primary shrink-0 mt-0.5 group-hover:text-white transition-colors" />
                 <div className="flex flex-col">
-                  <a href="tel:+351253504148" className="text-gray-400 hover:text-primary transition-colors">+351 253 504 148</a>
-                  <a href="tel:+351968298852" className="text-gray-400 hover:text-primary transition-colors">+351 968 298 852</a>
+                  <a href="tel:+351253504130" className="text-gray-400 hover:text-primary transition-colors">+351 253 504 130</a>
+                  <a href="tel:+351968268952" className="text-gray-400 hover:text-primary transition-colors">+351 968 268 952</a>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">

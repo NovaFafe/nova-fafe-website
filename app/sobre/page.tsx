@@ -249,8 +249,8 @@ export default function SobrePage() {
                           Fala Connosco
                           <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </a>
-                      <a href="tel:+351253504148" className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all active:scale-[0.98] text-base text-center">
-                          253 504 148
+                      <a href="tel:+351253504130" className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all active:scale-[0.98] text-base text-center">
+                          253 504 130
                       </a>
                   </div>
               </div>

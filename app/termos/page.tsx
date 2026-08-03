@@ -83,7 +83,7 @@ export default function TermosPage() {
             <div>
               <h2 className="text-2xl font-bold text-foreground mb-4">8. Contacto</h2>
               <p>
-                Para questões relacionadas com estes termos, contacta-nos através de <a href="mailto:novafafec@gmail.com" className="text-primary font-semibold hover:underline">novafafec@gmail.com</a> ou pelo telefone <a href="tel:+351253504148" className="text-primary font-semibold hover:underline">+351 253 504 148</a>.
+                Para questões relacionadas com estes termos, contacta-nos através de <a href="mailto:novafafec@gmail.com" className="text-primary font-semibold hover:underline">novafafec@gmail.com</a> ou pelo telefone <a href="tel:+351253504130" className="text-primary font-semibold hover:underline">+351 253 504 130</a>.
               </p>
             </div>
 

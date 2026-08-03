@@ -1,4 +1,4 @@
-import { FileText, Calendar, CheckCircle2, ArrowRight, ClipboardList, Stethoscope } from "lucide-react"
+import { FileText, Calendar, ArrowRight, ClipboardList, Stethoscope, AlertCircle, CreditCard } from "lucide-react"
 
 const docs = [
   {
@@ -29,17 +29,17 @@ const steps = [
   },
   {
     step: "02",
-    title: "Aulas de código",
-    description: "Frequenta as aulas teóricas em sala ou online e prepara-te para o exame.",
+    title: "Aulas de código e práticas",
+    description: "Frequenta as aulas teóricas e inicia a formação prática. As duas avançam em paralelo.",
   },
   {
     step: "03",
     title: "Exame teórico (IMT)",
-    description: "Realizas o exame de código no IMT. A nossa taxa de aprovação é elevada.",
+    description: "Após concluíres 16h de formação prática (Portaria 185/2015), podes ser submetido ao exame de código.",
   },
   {
     step: "04",
-    title: "Aulas práticas",
+    title: "Continuação das práticas",
     description: "Conduzes com instrutor certificado em viatura BMW ou Mercedes, ao teu ritmo.",
   },
   {
@@ -119,15 +119,41 @@ export function Requirements() {
             </div>
           </div>
 
+          {/* Student notices */}
+          <div className="mt-12 grid md:grid-cols-2 gap-6">
+            <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start">
+              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <AlertCircle className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-2 text-lg">Exame de código — Portaria 185/2015</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Só podes ser submetido a exame de código depois de concluíres metade da formação prática (<strong className="text-foreground">16 horas</strong>).
+                </p>
+              </div>
+            </div>
+            <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start">
+              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <CreditCard className="h-6 w-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-bold text-foreground mb-2 text-lg">Pagamento na marcação</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Na marcação do exame <strong className="text-foreground">teórico</strong> ou <strong className="text-foreground">prático</strong>, deve ser efetuado o respetivo pagamento.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Revalidation note */}
-          <div className="mt-12 bg-primary/5 border border-primary/20 rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start">
+          <div className="mt-6 bg-primary/5 border border-primary/20 rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start">
             <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
               <ClipboardList className="h-6 w-6 text-primary" />
             </div>
             <div>
               <h3 className="font-bold text-foreground mb-2 text-lg">Já tens carta? Verifica a revalidação</h3>
               <p className="text-muted-foreground leading-relaxed">
-                A carta de condução precisa de revalidação periódica — a cada 10 anos (até 60 anos), a cada 5 anos (60–70 anos) e a cada 2 anos após os 70. A NOVAFAFE trata de todo o processo, incluindo agendamento do exame médico.
+                A carta de condução precisa de revalidação periódica — a cada 10 anos (até 60 anos), a cada 5 anos (60–70 anos) e a cada 2 anos após os 70. A NOVAFAFE trata de todo o processo, incluindo agendamento do exame médico. Também apoiamos a troca de cartas estrangeiras.
               </p>
               <a href="/contacto" className="inline-flex items-center gap-2 mt-4 text-primary font-bold text-sm hover:gap-3 transition-all">
                 Saber mais <ArrowRight className="h-4 w-4" />

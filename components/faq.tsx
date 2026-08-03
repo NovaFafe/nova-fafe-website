@@ -14,7 +14,7 @@ const faqs = [
     category: "Inscrição",
     question: "Posso pagar em prestações?",
     answer:
-      "Sim. Trabalhamos com pagamento faseado para que o custo não seja um obstáculo. Definimos um plano à medida na inscrição, sem juros nem surpresas.",
+      "Sim. Trabalhamos com pagamento faseado para que o custo não seja um obstáculo. Definimos um plano à medida na inscrição, sem juros nem surpresas. Atenção: na marcação do exame teórico ou prático, o respetivo pagamento deve ser efetuado de imediato.",
   },
   {
     category: "Inscrição",
@@ -36,9 +36,15 @@ const faqs = [
   },
   {
     category: "Formação",
+    question: "Quando posso fazer o exame de código?",
+    answer:
+      "De acordo com a Portaria 185/2015, só podes ser submetido a exame de código depois de concluíres metade da formação prática — ou seja, 16 horas de aulas práticas.",
+  },
+  {
+    category: "Formação",
     question: "As aulas teóricas são em sala ou posso fazer online?",
     answer:
-      "Dispomos de sala de aulas equipada na escola, mas também tens acesso a plataforma online para estudar ao teu ritmo a partir de casa. Podes combinar os dois.",
+      "Dispomos de sala de aulas equipada na escola, mas também tens acesso a plataforma online para estudar ao teu ritmo a partir de casa. Podes combinar os dois. O apoio teórico está disponível de segunda a sexta das 11:00 às 13:00 e das 15:00 às 20:00.",
   },
   {
     category: "Outros Serviços",
@@ -50,7 +56,7 @@ const faqs = [
     category: "Outros Serviços",
     question: "Qual é o horário da escola?",
     answer:
-      "Estamos abertos de segunda a sexta das 09:30 às 13:00 e das 14:00 às 19:30, e ao sábado das 09:30 às 12:30. As aulas práticas podem ser agendadas fora deste horário, incluindo pós-laboral.",
+      "Secretaria: segunda a sexta das 10:00 às 13:00 e das 15:00 às 19:30; sábado das 10:00 às 13:00. Apoio teórico: segunda a sexta das 11:00 às 13:00 e das 15:00 às 20:00. As aulas práticas podem ser agendadas fora deste horário, incluindo pós-laboral.",
   },
 ]
 
@@ -166,10 +172,10 @@ export function FAQ() {
                 Enviar mensagem <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="tel:+351253504148"
+                href="tel:+351253504130"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all active:scale-[0.98] text-sm whitespace-nowrap"
               >
-                253 504 148
+                253 504 130
               </a>
             </div>
           </div>
