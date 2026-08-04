@@ -5,14 +5,17 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
+import { sectionButtonVariants } from "@/components/section-link"
+import { cn } from "@/lib/utils"
 import {
   Menu, X, Home, Users2, CarFront, FileCheck, Phone, Mail, MessageCircle,
-  ChevronDown, Instagram, Facebook, Car, Bike, Zap, Truck, Tractor, Globe,
-  RotateCcw, RefreshCw, ClipboardList, HelpCircle, type LucideIcon,
+  ChevronDown, Instagram, Facebook, Car, Bike, Truck, Tractor, Globe,
+  RotateCcw, RefreshCw, ClipboardList, HelpCircle, ArrowRight, ArrowUpRight,
+  type LucideIcon,
 } from "lucide-react"
 
 type SubMenuItem = { href: string; label: string; icon: LucideIcon }
-type SubMenuGroup = { title: string; items: SubMenuItem[] }
+type SubMenuGroup = { title: string; description: string; items: SubMenuItem[] }
 type NavLink = {
   href: string
   label: string
@@ -30,14 +33,16 @@ const mainNavLinks: NavLink[] = [
     submenu: [
       {
         title: "Formação",
+        description: "Cartas de ligeiros, motas e ciclomotor.",
         items: [
           { href: "/servicos#categoria-b", label: "Ligeiros (Cat. B)", icon: Car },
           { href: "/servicos#categoria-a", label: "Motociclos (A1 / A2 / A)", icon: Bike },
-          { href: "/servicos#categoria-am", label: "Ciclomotores (AM)", icon: Zap },
+          { href: "/servicos#categoria-am", label: "Ciclomotores (AM)", icon: Bike },
         ],
       },
       {
         title: "Parceria",
+        description: "Pesados, TCC, CAM e tratores agrícolas.",
         items: [
           { href: "/servicos#pesados-tcc-cam", label: "Pesados / TCC / CAM", icon: Truck },
           { href: "/servicos#tratores", label: "Tratores Agrícolas", icon: Tractor },
@@ -45,6 +50,7 @@ const mainNavLinks: NavLink[] = [
       },
       {
         title: "Outros",
+        description: "Revalidação, pontos, troca de carta e apoio IMT.",
         items: [
           { href: "/servicos#recuperacao-pontos", label: "Recuperação de Pontos (AVF)", icon: RotateCcw },
           { href: "/servicos#revalidacao", label: "Revalidação de Carta", icon: RefreshCw },
@@ -88,12 +94,15 @@ function MegaMenuItem({
     <Link
       href={href}
       onClick={onNavigate}
-      className="group/item flex items-center gap-3 py-2.5 px-3 -mx-3 rounded-xl hover:bg-primary/5 transition-colors"
+      className="group/item flex items-center gap-3 rounded-xl px-2 py-2 transition-colors hover:bg-white/90"
     >
-      <span className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-100 text-gray-500 group-hover/item:bg-primary/10 group-hover/item:text-primary transition-colors shrink-0">
-        <Icon size={16} strokeWidth={2} />
+      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-gray-500 shadow-sm ring-1 ring-black/[0.04] transition-all group-hover/item:bg-primary/10 group-hover/item:text-primary group-hover/item:ring-primary/15">
+        <Icon size={16} strokeWidth={1.75} />
       </span>
-      <span className="text-sm font-medium text-gray-700 group-hover/item:text-primary leading-snug">{label}</span>
+      <span className="min-w-0 flex-1 text-sm font-medium leading-snug text-gray-700 transition-colors group-hover/item:text-foreground">
+        {label}
+      </span>
+      <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-primary opacity-0 transition-all group-hover/item:translate-x-0.5 group-hover/item:-translate-y-0.5 group-hover/item:opacity-100" />
     </Link>
   )
 }
@@ -106,15 +115,86 @@ function ServicesMegaMenu({
   onClose: () => void
 }) {
   return (
-    <div className="hidden lg:block bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
-        <div className="grid grid-cols-3 gap-10">
-          {groups.map((group) => (
-            <div key={group.title} className="min-w-0">
-              <p className="text-[11px] font-bold uppercase tracking-widest text-primary mb-3 px-3">
-                {group.title}
+    <div className="hidden border-t border-gray-100 bg-white lg:block">
+      <div className="mx-auto max-w-7xl px-6 py-7 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-[minmax(0,17.5rem)_repeat(3,minmax(0,1fr))] gap-4">
+          <div className="relative flex min-h-full flex-col overflow-hidden rounded-3xl p-6">
+            <div className="absolute inset-0">
+              <Image
+                src="/NovaFafe-Facebook/Marketing/megamenu-servicos.png"
+                alt=""
+                fill
+                sizes="280px"
+                className="object-cover object-[center_40%] grayscale"
+              />
+              <div className="absolute inset-0 bg-[var(--brand-green)] mix-blend-multiply" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/75 to-black/45" />
+            </div>
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+
+            <div className="relative z-10 flex flex-1 flex-col">
+              <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-black/25 ring-1 ring-white/15 backdrop-blur-sm">
+                <CarFront className="h-5 w-5 text-primary" strokeWidth={1.75} />
+              </div>
+
+              <span className="inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
+                Todos os serviços
+              </span>
+              <h3 className="mt-3 text-xl font-black leading-[1.15] tracking-tight text-white">
+                O que queres tirar?
+              </h3>
+              <p className="mt-2.5 text-sm font-light leading-relaxed text-white/55">
+                Da primeira carta ao apoio IMT — tudo explicado sem rodeios.
               </p>
-              <ul>
+
+              <ul className="mt-5 space-y-2.5">
+                {[
+                  "9 categorias de formação",
+                  "Apoio administrativo incluído",
+                  "Pagamento faseado",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-xs font-medium text-white/65">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="relative z-10 mt-6 space-y-2.5">
+              <Link
+                href="/servicos"
+                onClick={onClose}
+                className={cn(sectionButtonVariants.primary, "w-full px-5 py-3.5 shadow-primary/25")}
+              >
+                Ver todos os serviços
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                href="/contacto"
+                onClick={onClose}
+                className={cn(sectionButtonVariants.outlineDark, "w-full px-5 py-3")}
+              >
+                <MessageCircle className="h-4 w-4" strokeWidth={2} />
+                Pedir informações
+              </Link>
+            </div>
+          </div>
+
+          {groups.map((group) => (
+            <div
+              key={group.title}
+              className="flex min-w-0 flex-col rounded-2xl bg-muted/50 p-4"
+            >
+              <div className="mb-3 border-b border-border/50 pb-3">
+                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-primary">
+                  {group.title}
+                </p>
+                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+                  {group.description}
+                </p>
+              </div>
+              <ul className="flex flex-1 flex-col gap-0.5">
                 {group.items.map((sub) => (
                   <li key={sub.href}>
                     <MegaMenuItem href={sub.href} label={sub.label} icon={sub.icon} onNavigate={onClose} />
@@ -123,16 +203,6 @@ function ServicesMegaMenu({
               </ul>
             </div>
           ))}
-        </div>
-        <div className="mt-5 pt-4 border-t border-gray-100">
-          <Link
-            href="/servicos"
-            onClick={onClose}
-            className="inline-flex items-center gap-2 px-3 text-sm font-semibold text-primary hover:underline"
-          >
-            <CarFront size={15} />
-            Ver todos os serviços
-          </Link>
         </div>
       </div>
     </div>
@@ -187,13 +257,7 @@ export function Header() {
 
   const megaMenuOpen = desktopDropdown === "Serviços"
   const headerPadding = "py-3"
-  const headerBackground =
-    megaMenuOpen || isScrolled ? "bg-white" : "bg-white/80 backdrop-blur-md"
-  const headerBorder = megaMenuOpen
-    ? "border-transparent"
-    : isScrolled
-      ? "border-gray-200"
-      : "border-white/30"
+  const headerBorder = megaMenuOpen ? "border-transparent" : "border-gray-200"
 
   return (
     <>
@@ -231,21 +295,21 @@ export function Header() {
 
         {/* Header + mega menu */}
         <div
-          className={`relative transition-[background-color,box-shadow] duration-300 ${
+          className={`relative bg-white transition-shadow duration-300 ${
             isScrolled || megaMenuOpen
-              ? "bg-white shadow-[0_14px_50px_-12px_rgba(0,0,0,0.22),0_8px_24px_-8px_rgba(0,0,0,0.12)]"
-              : "bg-transparent shadow-none"
+              ? "shadow-[0_14px_50px_-12px_rgba(0,0,0,0.22),0_8px_24px_-8px_rgba(0,0,0,0.12)]"
+              : "shadow-none"
           }`}
           onMouseLeave={() => setDesktopDropdown(null)}
         >
         <header
-          className={`border-b transition-[background-color,backdrop-filter] duration-300 ${headerPadding} ${headerBackground} ${headerBorder}`}
+          className={`border-b bg-white transition-colors duration-300 ${headerPadding} ${headerBorder}`}
         >
           <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
             <div className="flex items-center justify-between h-14">
               <Link href="/" className="flex items-center flex-shrink-0">
                 <Image
-                  src="/Nova-fafe-Logo-Emblema.png"
+                  src="/NovaFafe-Facebook/Brand/logo-emblema.png"
                   alt="NOVAFAFE Escola de Condução"
                   width={160}
                   height={53}

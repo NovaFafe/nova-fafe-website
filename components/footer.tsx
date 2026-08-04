@@ -79,7 +79,7 @@ export function Footer() {
             <div className="space-y-3 flex-1">
               <Link href="/">
                 <Image
-                  src="/Nova-fafe-Logo-Emblema.png"
+                  src="/NovaFafe-Facebook/Brand/logo-emblema.png"
                   alt="Nova Fafe"
                   width={140}
                   height={47}
@@ -154,7 +154,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-6">
             <Link href="/" className="block">
-              <Image src="/Nova-fafe-Logo-Emblema.png" alt="Nova Fafe" width={160} height={53}
+              <Image src="/NovaFafe-Facebook/Brand/logo-emblema.png" alt="Nova Fafe" width={160} height={53}
                 className="h-12 w-auto object-contain brightness-0 invert opacity-90 hover:opacity-100 transition-opacity" />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
