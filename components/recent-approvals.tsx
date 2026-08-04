@@ -1,158 +1,148 @@
 "use client"
 
-import { CheckCircle2 } from "lucide-react"
+import { useCallback, useEffect, useState } from "react"
+import useEmblaCarousel from "embla-carousel-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { SectionLink } from "@/components/section-link"
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Autoplay } from 'swiper/modules';
+import { cn } from "@/lib/utils"
 
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-
-// Generating the array based on the 15 images we found (1.jpg to 15.jpg)
-const approvedStudents = Array.from({ length: 15 }, (_, i) => ({
-  image: `/NovaFafe-Facebook/Aprovados/${i + 1}.jpg`
+const ITEMS = Array.from({ length: 15 }, (_, i) => ({
+  id: i + 1,
+  image: `/NovaFafe-Facebook/Aprovados/${i + 1}.jpg`,
 }))
 
+const AUTOPLAY_MS = 3000
+
 export function RecentApprovals() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    skipSnaps: false,
+    dragFree: false,
+    containScroll: false,
+  })
+
+  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedScrollSnap())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    onSelect()
+    emblaApi.on("select", onSelect)
+    emblaApi.on("reInit", onSelect)
+    return () => {
+      emblaApi.off("select", onSelect)
+      emblaApi.off("reInit", onSelect)
+    }
+  }, [emblaApi, onSelect])
+
+  useEffect(() => {
+    if (!emblaApi || isPaused) return
+    const id = window.setInterval(() => {
+      emblaApi.scrollNext()
+    }, AUTOPLAY_MS)
+    return () => window.clearInterval(id)
+  }, [emblaApi, isPaused])
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
   return (
-    <section className="py-24 lg:py-32 bg-muted/30 overflow-hidden relative border-t border-border">
-      
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl -mr-40 -mt-20 pointer-events-none" />
+    <section className="relative isolate overflow-x-clip border-t border-border bg-muted/30 py-20 lg:py-28">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mb-12 relative z-10">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-[1.1] mb-4 tracking-tight">
-             Os Nossos <span className="text-primary">Aprovados</span>
-          </h2>
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:mb-14">
+          <div>
+            <span className="mb-4 inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
+              Resultados
+            </span>
+            <h2 className="text-4xl font-black leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              Os nossos
+              <br />
+              <span className="text-primary">aprovados.</span>
+            </h2>
+          </div>
 
-          <p className="text-base text-muted-foreground leading-relaxed">
-            Todos os dias celebramos novas conquistas. Estes são alguns dos alunos que já garantiram a sua liberdade na estrada com a NOVAFAFE.
-          </p>
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={scrollPrev}
+                aria-label="Anterior"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                type="button"
+                onClick={scrollNext}
+                aria-label="Seguinte"
+                className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors hover:border-primary hover:text-primary"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+
+            <SectionLink
+              href="https://www.facebook.com/NovaFafe"
+              variant="facebook"
+              external
+              className="w-full shrink-0 px-8 py-3.5 sm:w-auto"
+            >
+              <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 fill-white" aria-hidden>
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+              Ver no Facebook
+            </SectionLink>
+          </div>
         </div>
       </div>
 
-      {/* Carousel Container */}
-      <div className="relative w-full mx-auto">
-        
-        {/* Soft Fade Edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-r from-muted/30 to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 lg:w-48 bg-gradient-to-l from-muted/30 to-transparent z-20 pointer-events-none" />
+      <div
+        className="relative"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onFocusCapture={() => setIsPaused(true)}
+        onBlurCapture={() => setIsPaused(false)}
+      >
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex touch-pan-y">
+            {ITEMS.map((student, index) => {
+              const isActive = index === selectedIndex
 
-        <Swiper
-            effect={'coverflow'}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={'auto'}
-            slideToClickedSlide={true}
-            coverflowEffect={{
-                rotate: 0,
-                stretch: -40,
-                depth: 150,
-                modifier: 1.2,
-                slideShadows: false,
-            }}
-            loop={true}
-            speed={800}
-            autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true
-            }}
-            modules={[EffectCoverflow, Autoplay]}
-            className="approved-swiper !pb-14 !pt-4"
-        >
-            {approvedStudents.map((student, index) => (
-                <SwiperSlide key={index} className="!w-[240px] !h-[340px] sm:!w-[280px] sm:!h-[400px] lg:!w-[340px] lg:!h-[480px] transition-all duration-300">
-                    <div className="slide-content w-full h-full rounded-2xl overflow-hidden bg-card transition-all duration-300 shadow-xl relative">
-                        <img
-                            src={student.image}
-                            alt={`Aluno aprovado ${index + 1}`}
-                            className="w-full h-full object-cover"
-                        />
-                        
-                        {/* Overlay - na base da foto e centralizado horizontalmente */}
-                        <div className="overlay absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 to-transparent pt-12 pb-6 opacity-0 transition-opacity duration-500 flex items-center justify-center">
-                            <div className="content-transform transform translate-y-4 transition-transform duration-500 flex items-center gap-2">
-                                <CheckCircle2 className="h-6 w-6 text-white stroke-[2.5px]" />
-                                <span className="text-white font-bold text-lg tracking-wider">APROVADO</span>
-                            </div>
-                        </div>
-                    </div>
-                </SwiperSlide>
-            ))}
-        </Swiper>
+              return (
+                <div
+                  key={student.id}
+                  className="min-w-0 shrink-0 grow-0 basis-[200px] px-2 sm:basis-[240px] sm:px-2.5 lg:basis-[280px] lg:px-3"
+                >
+                  <article
+                    className={cn(
+                      "h-[300px] overflow-hidden rounded-2xl border bg-zinc-200 shadow-sm transition-[opacity,box-shadow,transform] duration-500 sm:h-[360px] lg:h-[420px]",
+                      isActive
+                        ? "scale-100 border-transparent opacity-100 shadow-[0_12px_28px_-10px_rgba(0,0,0,0.2)]"
+                        : "scale-[0.94] border-black/[0.06] opacity-45",
+                    )}
+                  >
+                    <img
+                      src={student.image}
+                      alt={`Aluno aprovado ${student.id}`}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                      draggable={false}
+                    />
+                  </article>
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
-
-      {/* Button centered below */}
-      <div className="relative z-10 mt-12 text-center">
-        <SectionLink
-          href="https://www.facebook.com/NovaFafe"
-          variant="facebook"
-          external
-          className="px-8 py-3.5"
-        >
-          <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 fill-white" aria-hidden>
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-          </svg>
-          Ver mais fotos no Facebook
-        </SectionLink>
-      </div>
-
-    <style jsx global>{`
-        /* Active slide styling */
-        .swiper-slide-active .slide-content {
-            border: 2px solid hsl(var(--primary));
-            box-shadow: 0 30px 60px -10px rgba(0,0,0,0.4), 0 0 0 2px hsl(var(--primary));
-            transform: scale(1.05);
-            filter: grayscale(0) brightness(1);
-        }
-        
-        .swiper-slide-active .overlay {
-            opacity: 1;
-        }
-        
-        .swiper-slide-active .content-transform {
-            transform: translateY(0);
-        }
-
-        /* Perspective and layout fixes */
-        .approved-swiper {
-            padding-bottom: 80px !important;
-            padding-top: 40px !important;
-        }
-
-        .swiper-wrapper {
-            align-items: center;
-        }
-
-        .swiper-slide {
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: grayscale(0.6) brightness(0.95);
-        }
-
-        .swiper-slide-active {
-            filter: grayscale(0) brightness(1);
-            z-index: 50;
-        }
-
-        /* Refined shadow projection for the container */
-        .approved-swiper::after {
-            content: '';
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 20px;
-            background: rgba(0,0,0,0.1);
-            filter: blur(20px);
-            border-radius: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-    `}</style>
     </section>
   )
 }
