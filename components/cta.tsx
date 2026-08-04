@@ -1,4 +1,5 @@
-import { ArrowRight, Phone, MapPin } from "lucide-react"
+import { ArrowRight, MapPin } from "lucide-react"
+import { SectionLink } from "@/components/section-link"
 
 export function CTA() {
   return (
@@ -18,7 +19,6 @@ export function CTA() {
           
           <div className="space-y-8">
             <div>
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-6 border border-primary/20">Pronto para começar?</span>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.1] tracking-tight mb-6">
                  Tira a carta com <br className="hidden sm:block" /> quem <span className="text-primary italic font-serif">te entende.</span>
               </h2>
@@ -27,34 +27,11 @@ export function CTA() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <a
-                href="/contacto"
-                className="group flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-xl hover:-translate-y-0.5 active:scale-[0.98] text-base cursor-pointer"
-              >
+            <div className="pt-2">
+              <SectionLink href="/contacto">
                 Fala Connosco
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="tel:+351253504130"
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 backdrop-blur-md transition-all hover:-translate-y-0.5 active:scale-[0.98] text-base cursor-pointer"
-              >
-                <Phone className="h-4 w-4 text-primary" />
-                253 504 130
-              </a>
-            </div>
-            
-            <div className="flex items-center gap-4 pt-8 border-t border-white/10">
-               <div className="flex -space-x-3">
-                  {[1,2,3,4].map(i => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-primary/50 bg-muted overflow-hidden shadow-xl">
-                       <img src={`/NovaFafe-Facebook/Aprovados/${i}.jpg`} alt="Aluno Aprovado" className="w-full h-full object-cover" />
-                    </div>
-                  ))}
-               </div>
-               <p className="text-sm text-white/50 font-medium">
-                  Junta-te aos +1000 alunos aprovados em Fafe.
-               </p>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </SectionLink>
             </div>
           </div>
 

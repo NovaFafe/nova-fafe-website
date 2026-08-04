@@ -3,25 +3,21 @@ const advantages = [
     num: "01",
     title: "O Teu Ritmo, a Nossa Prioridade",
     description: "Na NovaFafe, o plano de aulas é desenhado à tua medida. Ajustamos o ensino à tua evolução para que te sintas 100% preparado.",
-    tag: "Ensino Personalizado",
   },
   {
     num: "02",
     title: "Instrutores que Inspiram Confiança",
     description: "Mais do que ensinar a conduzir, a nossa equipa foca-se em eliminar o stress e criar condutores seguros e decididos.",
-    tag: "Equipa Dedicada",
   },
   {
     num: "03",
     title: "Ambiente de Estudo Moderno",
-    description: "Esqueceá as salas de código abafadas. As nossas instalações na Rua da Cumieira oferecem o conforto ideal para a tua aprendizagem teórica.",
-    tag: "Instalações Modernas",
+    description: "Esquece as salas de código abafadas. As nossas instalações na Rua da Cumieira oferecem o conforto ideal para a tua aprendizagem teórica.",
   },
   {
     num: "04",
     title: "Suporte em Cada Etapa",
     description: "Do exame médico à marcação da prova prática, tratamos de toda a burocracia para te focares apenas na estrada.",
-    tag: "Apoio Total",
   },
 ]
 
@@ -69,11 +65,8 @@ export function Advantages() {
                 {item.num}
               </span>
 
-              {/* Title + Tag */}
-              <div className="relative flex flex-col gap-2 pt-2 lg:pt-0">
-                <span className="inline-block self-start text-[9px] font-black uppercase tracking-[0.2em] text-primary/70 border border-primary/20 px-2.5 py-1 rounded-full">
-                  {item.tag}
-                </span>
+              {/* Title */}
+              <div className="relative pt-2 lg:pt-0">
                 <h3 className="text-xl lg:text-2xl font-bold text-white leading-snug">
                   {item.title}
                 </h3>

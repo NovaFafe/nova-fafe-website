@@ -1,4 +1,5 @@
-import { Users, Shield, Award, CheckCircle2, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+import { SectionLink } from "@/components/section-link"
 
 export function About() {
   return (
@@ -49,14 +50,11 @@ export function About() {
               ))}
             </ul>
 
-            <div className="pt-4 border-t border-border">
-              <a
-                href="/sobre"
-                className="group inline-flex items-center gap-3 text-foreground font-bold text-lg hover:text-primary transition-colors"
-              >
+            <div className="border-t border-border pt-6">
+              <SectionLink href="/sobre" variant="ghost" className="px-0 text-base font-semibold text-foreground hover:bg-transparent hover:text-primary">
                 Conhece a nossa história
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </SectionLink>
             </div>
           </div>
         </div>
