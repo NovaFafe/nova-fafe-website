@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, Suspense } from "react"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import {
@@ -31,6 +32,7 @@ import {
   type LucideIcon,
 } from "lucide-react"
 import { toast } from "sonner"
+import { isContactCategory } from "@/lib/contact-categories"
 
 const CATEGORIES: { value: string; label: string; sub: string | null; Icon: LucideIcon }[] = [
   { value: "B", label: "Categoria B", sub: "Ligeiros", Icon: Car },
@@ -87,6 +89,15 @@ function ContactSchedule() {
 }
 
 export function Contact() {
+  return (
+    <Suspense fallback={null}>
+      <ContactContent />
+    </Suspense>
+  )
+}
+
+function ContactContent() {
+  const searchParams = useSearchParams()
   const [category, setCategory] = useState<string | null>(null)
   const [open, setOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -105,6 +116,24 @@ export function Contact() {
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
+
+  useEffect(() => {
+    const paramCategory = searchParams.get("categoria")
+    if (isContactCategory(paramCategory)) {
+      setCategory(paramCategory)
+    }
+
+    const paramMessage = searchParams.get("mensagem")
+    if (paramMessage) {
+      setMessage(paramMessage)
+    }
+
+    if (paramCategory || paramMessage) {
+      requestAnimationFrame(() => {
+        document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth", block: "start" })
+      })
+    }
+  }, [searchParams])
 
   const selected = CATEGORIES.find((c) => c.value === category)
 
@@ -293,7 +322,7 @@ export function Contact() {
             </aside>
 
             {/* Formulário */}
-            <div className="min-w-0">
+            <div id="formulario" className="min-w-0 scroll-mt-28">
               <div className="mb-8 lg:mb-10">
                 <span className="mb-3 inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
                   Mensagem
