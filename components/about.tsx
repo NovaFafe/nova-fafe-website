@@ -3,7 +3,8 @@ import { SectionLink } from "@/components/section-link"
 
 export function About() {
   return (
-    <section id="sobre" className="relative overflow-hidden bg-zinc-100 py-24 lg:py-32">
+    <section id="sobre" className="relative overflow-hidden bg-background pt-4 pb-20 lg:pt-6 lg:pb-28">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/25 via-primary/[0.08] to-transparent" />
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Image Column */}
