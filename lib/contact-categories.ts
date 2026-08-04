@@ -42,15 +42,6 @@ export function isContactCategory(value: string | null): value is ContactCategor
   return value !== null && CONTACT_CATEGORY_VALUES.includes(value as ContactCategoryValue)
 }
 
-const CONTACT_EMAIL = "novafafe@gmail.com"
-
-export function contactHref(category: ContactCategoryValue, serviceTitle?: string) {
-  const label = CONTACT_CATEGORY_LABELS[category]
-  const subject = encodeURIComponent(`Pedido de informações — ${label}`)
-  const body = encodeURIComponent(
-    serviceTitle
-      ? `Olá,\n\nTenho interesse em ${serviceTitle}.\n\n`
-      : `Olá,\n\nTenho interesse em ${label}.\n\n`,
-  )
-  return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
+export function contactHref(_category?: ContactCategoryValue, _serviceTitle?: string) {
+  return "/contacto"
 }
