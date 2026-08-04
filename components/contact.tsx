@@ -109,7 +109,7 @@ export function Contact() {
                   icon: Mail,
                   title: "Email",
                   lines: [
-                    { text: "novafafec@gmail.com", href: "mailto:novafafec@gmail.com" },
+                    { text: "novafafe@gmail.com", href: "mailto:novafafe@gmail.com" },
                   ],
                 },
                 {

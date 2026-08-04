@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       // Para produção com domínio verificado, muda para ex: "noreply@novafafe.pt"
       from: "NOVAFAFE Contacto <onboarding@resend.dev>",
-      to:   ["novafafec@gmail.com"],
+      to:   ["novafafe@gmail.com"],
       replyTo: data.email,
       subject: `Novo contacto: ${categoryLabel} — ${data.name}`,
       html: `

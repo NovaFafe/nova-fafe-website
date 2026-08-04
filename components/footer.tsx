@@ -55,10 +55,10 @@ export function Footer() {
               <Phone className="w-4 h-4 text-primary shrink-0" />
               <span className="text-xs text-gray-300 font-medium">253 504 130</span>
             </a>
-            <a href="mailto:novafafec@gmail.com"
+            <a href="mailto:novafafe@gmail.com"
               className="flex items-center gap-2 bg-neutral-900 border border-neutral-800 rounded-xl px-4 py-3 hover:border-primary/50 transition-colors">
               <Mail className="w-4 h-4 text-primary shrink-0" />
-              <span className="text-xs text-gray-300 font-medium truncate">novafafec@gmail.com</span>
+              <span className="text-xs text-gray-300 font-medium truncate">novafafe@gmail.com</span>
             </a>
           </div>
 
@@ -215,8 +215,8 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 group">
                 <Mail className="w-5 h-5 text-primary shrink-0 mt-0.5 group-hover:text-white transition-colors" />
-                <a href="mailto:novafafec@gmail.com" className="text-gray-400 hover:text-primary transition-colors break-all">
-                  novafafec@gmail.com
+                <a href="mailto:novafafe@gmail.com" className="text-gray-400 hover:text-primary transition-colors break-all">
+                  novafafe@gmail.com
                 </a>
               </li>
             </ul>
