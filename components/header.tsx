@@ -200,30 +200,30 @@ export function Header() {
       <div className="fixed top-0 left-0 right-0 z-50">
         <div
           className={`transition-transform duration-300 ease-out ${
-            isScrolled ? "lg:-translate-y-8" : "translate-y-0"
+            isScrolled ? "lg:-translate-y-9" : "translate-y-0"
           }`}
         >
         {/* Top Bar — altura fixa; o header principal sobrepõe-se ao scroll */}
-        <div className="hidden lg:block bg-zinc-900 h-8">
-          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center h-8 text-[11px] text-zinc-400">
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-1.5">
-                <Phone size={11} className="text-primary shrink-0" />
-                <a href="tel:+351253504130" className="hover:text-white transition-colors">253 504 130</a>
+        <div className="hidden lg:block bg-zinc-900 h-9">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center h-9 text-xs font-medium text-zinc-300">
+            <div className="flex items-center gap-5">
+              <div className="flex items-center gap-2">
+                <Phone size={13} className="text-primary shrink-0" strokeWidth={2.25} />
+                <a href="tel:+351253504130" className="tracking-wide hover:text-white transition-colors">253 504 130</a>
                 <span className="text-zinc-600">·</span>
-                <a href="tel:+351968268952" className="hover:text-white transition-colors">968 268 952</a>
+                <a href="tel:+351968268952" className="tracking-wide hover:text-white transition-colors">968 268 952</a>
               </div>
-              <div className="flex items-center gap-1.5">
-                <Mail size={11} className="text-primary shrink-0" />
+              <div className="flex items-center gap-2">
+                <Mail size={13} className="text-primary shrink-0" strokeWidth={2.25} />
                 <a href="mailto:novafafe@gmail.com" className="hover:text-white transition-colors">novafafe@gmail.com</a>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <Link href="https://www.facebook.com/NovaFafe" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-white transition-colors">
-                <Facebook size={12} />
+            <div className="flex items-center gap-3.5">
+              <Link href="https://www.facebook.com/NovaFafe" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-zinc-400 hover:text-white transition-colors">
+                <Facebook size={14} />
               </Link>
-              <Link href="https://www.instagram.com/ecnovafafe/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-white transition-colors">
-                <Instagram size={12} />
+              <Link href="https://www.instagram.com/ecnovafafe/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-zinc-400 hover:text-white transition-colors">
+                <Instagram size={14} />
               </Link>
             </div>
           </div>
