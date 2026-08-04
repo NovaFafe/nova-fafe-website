@@ -37,9 +37,9 @@ export default function SobrePage() {
 
               <div className="flex items-center gap-8 pt-8 border-t border-zinc-800">
                 {[
-                  { value: "+1000", label: "Aprovados" },
+                  { value: "89%", label: "Aprovação IMT" },
                   { value: "7+", label: "Anos" },
-                  { value: "3", label: "Categorias" },
+                  { value: "9+", label: "Categorias" },
                 ].map((s, i) => (
                   <div key={i}>
                     <div className="text-2xl font-black text-white leading-none">{s.value}</div>
@@ -138,9 +138,9 @@ export default function SobrePage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
             {[
               { year: "2018", label: "Abertura", desc: "Abrimos em Fafe com o objetivo de tornar o ensino da condução mais humano e acessível." },
-              { year: "2019", label: "Frota BMW & Mercedes", desc: "Investimos na melhor frota da região para oferecer condições de aprendizagem premium." },
-              { year: "2021", label: "Simulador", desc: "Adquirimos simulador de condução para reduzir a ansiedade dos alunos antes da primeira aula." },
-              { year: "2025", label: "+1000 Aprovados", desc: "Mais de mil alunos aprovados. Uma conquista que pertence a cada um deles." },
+              { year: "2019", label: "95% IMT", desc: "95% de aprovação no exame prático — melhor taxa entre escolas de Fafe (dados IMT)." },
+              { year: "2021", label: "Simulador & 89%", desc: "Simulador de condução e melhor taxa de aprovação prática em Fafe — 89% (dados IMT)." },
+              { year: "1416", label: "Licença IMT", desc: "Escola licenciada pelo IMT, com formação na Rua da Cumieira, Fafe." },
             ].map((item, i) => (
               <div key={i} className="relative flex flex-col items-center text-center px-4">
                 {/* Line connector (not on last) */}

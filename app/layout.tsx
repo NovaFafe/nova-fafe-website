@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "NOVAFAFE - Escola de Condução | Conduz o Teu Futuro",
   description:
-    "Escola de condução profissional em Fafe. Aprende a conduzir com instrutores certificados, veículos modernos e a maior taxa de aprovação da região.",
+    "Escola de condução profissional em Fafe. Instrutores certificados, veículos modernos e 89% de aprovação no exame prático (IMT, 2021).",
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",

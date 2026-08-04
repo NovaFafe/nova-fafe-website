@@ -1,74 +1,103 @@
-import { MapPin, Award, Users, TrendingUp, Star, ArrowRight, Wallet } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { MapPin, TrendingUp, Calendar, CarFront, Wallet, ArrowRight, MessageCircle } from "lucide-react"
+
+const stats = [
+  { value: "89%", label: "Aprovação IMT", hint: "exame prático · 2021", icon: TrendingUp },
+  { value: "2018", label: "Desde", hint: "em Fafe", icon: Calendar },
+  { value: "9+", label: "Categorias", hint: "B, A, AM e mais", icon: CarFront },
+  { value: "Faseado", label: "Pagamento", hint: "sem surpresas", icon: Wallet },
+]
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col">
-      {/* Background Image - Full Screen */}
+      {/* Background */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/NovaFafe-Facebook/Veiculos/Fundo_Banner.jpeg"
-          alt="Escola de condução NOVAFAFE"
-          className="w-full h-full object-cover"
+          alt="Escola de condução NOVAFAFE em Fafe"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/50 to-transparent h-32" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/65 to-transparent" />
       </div>
 
-      {/* Content */}
+      {/* Content — pt compensa header fixo (top bar + nav) */}
       <div className="relative z-10 flex-1 flex items-center">
-        <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-32 lg:py-40">
+        <div className="w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-28 pb-16 lg:pt-36 lg:pb-24">
           <div className="max-w-3xl">
-            {/* Title */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-8 tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6 tracking-tight">
               Conduz o teu futuro. <span className="text-primary">Começa na NOVAFAFE.</span>
             </h1>
 
-            {/* Description */}
-            <p className="text-xl text-muted-foreground leading-relaxed mb-12 max-w-2xl font-light">
-              Na Escola de Condução <strong>NOVAFAFE</strong>, em Fafe, acreditamos que tirar a carta deve ser um processo de confiança e segurança. Com uma abordagem moderna e personalizada, preparamos os nossos alunos para todos os desafios da estrada.
+            <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed mb-4 max-w-2xl font-light">
+              Ligeiros, motos, pesados e formação TCC/CAM — com horário flexível e acompanhamento personalizado em Fafe.
+            </p>
+            <p className="text-sm text-muted-foreground/80 mb-10">
+              Licenciada pelo IMT (n.º 1416), em Fafe desde 2018.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <a
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+              <Link
                 href="/contacto"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 hover:-translate-y-0.5 transition-all text-base shadow-xl shadow-primary/30 active:scale-[0.98]"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-colors text-sm"
               >
+                <MessageCircle size={16} strokeWidth={2} />
                 Fala Connosco
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
               <a
-                href="https://www.google.com/maps/search/?api=1&query=Escola+de+Condução+Novafafe+Rua+da+Cumieira+Fafe"
+                href="https://maps.app.goo.gl/mZE7x4AASsmaHKB4A"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/40 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-white hover:-translate-y-0.5 backdrop-blur-md transition-all text-base shadow-xl shadow-primary/10 active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold rounded-full border border-primary/30 text-primary bg-white/60 backdrop-blur-sm hover:bg-primary/5 hover:border-primary/50 transition-colors"
               >
-                <MapPin className="h-5 w-5" />
-                <span>Ver Localização</span>
+                <MapPin size={16} strokeWidth={2} />
+                Ver Localização
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Stats Bar - Bottom */}
-      <div className="relative z-10 border-t border-border/50 bg-white/60 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
-            {[
-              { value: "Faseado", label: "Pagamento Facilitado", icon: Wallet },
-              { value: "Elevada", label: "Taxa de Sucesso", icon: TrendingUp },
-              { value: "Flexível", label: "Horário Pós-Laboral", icon: Star },
-              { value: "Moderna", label: "Frota de Veículos", icon: Users },
-            ].map((stat, i) => (
-              <div key={i} className="flex items-center gap-4 py-6 px-4 lg:justify-center">
-                <stat.icon className="h-6 w-6 text-primary" />
-                <div>
-                  <div className="text-xl sm:text-2xl font-bold text-foreground tracking-tight leading-none mb-1">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground font-medium uppercase tracking-wide">{stat.label}</div>
+      {/* Stats */}
+      <div className="relative z-10 mt-auto">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/25 to-transparent" />
+        <div className="bg-white/95 backdrop-blur-xl border-t border-white/60 shadow-[0_-8px_32px_-8px_rgba(0,0,0,0.08)]">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4">
+              {stats.map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={[
+                    "group relative flex items-center gap-3 sm:gap-4 py-6 sm:py-7 px-4 sm:px-5 lg:px-6 transition-colors hover:bg-primary/[0.03]",
+                    index % 2 === 0 ? "border-r border-border/50" : "",
+                    index < 2 ? "border-b border-border/50 lg:border-b-0" : "",
+                    index < stats.length - 1 ? "lg:border-r lg:border-border/50" : "",
+                  ].join(" ")}
+                >
+                  <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/10 group-hover:bg-primary group-hover:text-white group-hover:ring-primary/20 transition-colors duration-300">
+                    <stat.icon className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xl sm:text-2xl lg:text-[1.65rem] font-black text-foreground tracking-tight leading-none">
+                      {stat.value}
+                    </div>
+                    <div className="mt-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-widest text-foreground/70">
+                      {stat.label}
+                    </div>
+                    {stat.hint && (
+                      <div className="mt-0.5 text-[10px] text-muted-foreground/80 truncate hidden sm:block">
+                        {stat.hint}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
