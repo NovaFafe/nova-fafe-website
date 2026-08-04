@@ -23,7 +23,16 @@ const advantages = [
 
 export function Advantages() {
   return (
-    <section id="vantagens" className="bg-gray-950 overflow-hidden relative">
+    <section id="vantagens" className="relative isolate">
+      {/* Background — fixed parallax */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-cover bg-center bg-fixed bg-no-repeat"
+        style={{ backgroundImage: "url('/NovaFafe-Facebook/Marketing/advantages-bg.png')" }}
+      />
+      <div className="absolute inset-0 bg-gray-950/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-950/55 via-gray-950/72 to-gray-950/82" />
+
       {/* Subtle glow accents */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
