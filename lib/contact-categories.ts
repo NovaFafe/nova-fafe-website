@@ -42,10 +42,15 @@ export function isContactCategory(value: string | null): value is ContactCategor
   return value !== null && CONTACT_CATEGORY_VALUES.includes(value as ContactCategoryValue)
 }
 
+const CONTACT_EMAIL = "novafafe@gmail.com"
+
 export function contactHref(category: ContactCategoryValue, serviceTitle?: string) {
-  const params = new URLSearchParams({ categoria: category })
-  if (serviceTitle) {
-    params.set("mensagem", `Tenho interesse em ${serviceTitle}.`)
-  }
-  return `/contacto?${params.toString()}#formulario`
+  const label = CONTACT_CATEGORY_LABELS[category]
+  const subject = encodeURIComponent(`Pedido de informações — ${label}`)
+  const body = encodeURIComponent(
+    serviceTitle
+      ? `Olá,\n\nTenho interesse em ${serviceTitle}.\n\n`
+      : `Olá,\n\nTenho interesse em ${label}.\n\n`,
+  )
+  return `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`
 }
