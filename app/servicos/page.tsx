@@ -7,7 +7,6 @@ import { contactHref, SERVICE_CONTACT_CATEGORY } from "@/lib/contact-categories"
 import {
   Car,
   Bike,
-  Zap,
   RotateCcw,
   RefreshCw,
   ClipboardList,
@@ -70,7 +69,7 @@ const formation: Service[] = [
   },
   {
     id: "categoria-am",
-    icon: Zap,
+    icon: Bike,
     category: "Categoria AM",
     title: "Carta de Ciclomotor",
     age: { label: "Idade mínima", value: "14 anos" },
@@ -96,6 +95,7 @@ const partnership: Service[] = [
       "Contacta-nos para datas e condições",
     ],
     badge: "Parceria",
+    image: "/NovaFafe-Facebook/Marketing/categoria-pesados.png",
   },
   {
     id: "tratores",
@@ -105,6 +105,7 @@ const partnership: Service[] = [
     description:
       "Habilitação para condução de tratores agrícolas — teórica, prática e apoio na documentação.",
     points: ["Formação teórica e prática", "Horários flexíveis", "Apoio nos exames"],
+    image: "/NovaFafe-Facebook/Marketing/categoria-tratores.png",
   },
 ]
 
@@ -121,6 +122,7 @@ const support: Service[] = [
       "Obrigatório em certas infrações rodoviárias",
       "Certificado emitido pelo IMT",
     ],
+    image: "/NovaFafe-Facebook/Marketing/categoria-pontos.png",
   },
   {
     id: "revalidacao",
@@ -134,6 +136,7 @@ const support: Service[] = [
       "60 a 70 anos — a cada 5 anos",
       "Após 70 anos — a cada 2 anos",
     ],
+    image: "/NovaFafe-Facebook/Marketing/categoria-revalidacao.png",
   },
   {
     id: "troca-carta",
@@ -143,6 +146,7 @@ const support: Service[] = [
     description:
       "Carta emitida noutro país? Analisamos se podes trocar e tratamos do processo junto do IMT.",
     points: ["Verificação de elegibilidade", "Tratamento da documentação", "Acompanhamento até à conclusão"],
+    image: "/NovaFafe-Facebook/Marketing/categoria-troca.png",
   },
   {
     id: "apoio-imt",
@@ -152,13 +156,14 @@ const support: Service[] = [
     description:
       "Apoio na burocracia junto do IMT — agendamentos, atestado médico eletrónico e submissão de documentos.",
     points: ["Agendamento de exames", "Atestado médico eletrónico", "Submissão online de documentos"],
+    image: "/NovaFafe-Facebook/Marketing/categoria-imt.png",
   },
 ]
 
 const quickGuide = [
   { label: "Quero tirar a carta de carro", href: "#categoria-b", icon: Car },
   { label: "Quero tirar carta de mota", href: "#categoria-a", icon: Bike },
-  { label: "Tenho 14 ou 15 anos", href: "#categoria-am", icon: Zap },
+  { label: "Tenho 14 ou 15 anos", href: "#categoria-am", icon: Bike },
 ]
 
 function ServicePanel({
@@ -189,7 +194,7 @@ function ServicePanel({
           fill
           sizes={isBanner ? "100vw" : "(max-width: 1024px) 50vw, 40vw"}
           className={[
-            "object-cover scale-105 grayscale brightness-[0.45] transition-all duration-700 group-hover:scale-100 group-hover:brightness-100 group-hover:grayscale-0",
+            "object-cover scale-105 grayscale transition-all duration-700 group-hover:scale-100 group-hover:grayscale-0",
             isBanner ? "object-[center_40%] lg:object-right" : "object-center",
           ].join(" ")}
         />
@@ -397,7 +402,7 @@ export default function ServicosPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center grayscale brightness-[0.55]"
+            className="object-cover object-center grayscale"
           />
           <div className="absolute inset-0 bg-[var(--brand-green)] mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" />
