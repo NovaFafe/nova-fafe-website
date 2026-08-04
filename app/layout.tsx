@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-PT" className="scroll-smooth">
-      <body className={`${inter.className} font-sans antialiased`}>
+      <body className={`${inter.className} overflow-x-clip font-sans antialiased`}>
         {children}
         <FloatingButtons />
         <Toaster richColors position="top-center" theme="light" />

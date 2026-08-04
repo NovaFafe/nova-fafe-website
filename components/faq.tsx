@@ -1,7 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronDown, HelpCircle, ArrowRight, MessageCircle } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
+import { ChevronDown, HelpCircle, ArrowRight } from "lucide-react"
 
 const faqs = [
   {
@@ -90,19 +92,35 @@ export function FAQ() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-zinc-950 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="pt-36 lg:pt-44 pb-16 lg:pb-24 max-w-3xl">
-            <div className="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-8 uppercase tracking-widest">
-              <a href="/" className="hover:text-white transition-colors">Início</a>
-              <span>·</span>
+      <section className="relative overflow-hidden bg-zinc-950">
+        <div className="absolute inset-0">
+          <Image
+            src="/NovaFafe-Facebook/Marketing/faq-hero.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[center_35%] grayscale"
+          />
+          <div className="absolute inset-0 bg-[var(--brand-green)] mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" />
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="max-w-3xl pb-16 pt-36 lg:pb-24 lg:pt-44">
+            <nav className="mb-8 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-400">
+              <Link href="/" className="transition-colors hover:text-white">
+                Início
+              </Link>
+              <span aria-hidden>·</span>
               <span className="text-primary">FAQ</span>
-            </div>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.0] tracking-tighter mb-6">
-              Tens<br />
+            </nav>
+            <h1 className="mb-6 text-5xl font-black leading-[1.0] tracking-tighter text-white sm:text-6xl lg:text-7xl">
+              Tens
+              <br />
               <span className="text-primary">dúvidas?</span>
             </h1>
-            <p className="text-base text-zinc-400 leading-relaxed max-w-xl font-light">
+            <p className="max-w-xl text-base font-light leading-relaxed text-zinc-300">
               As perguntas que nos fazem todos os dias — respondidas de forma direta e honesta.
             </p>
           </div>

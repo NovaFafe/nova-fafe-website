@@ -112,7 +112,7 @@ export function Requirements() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center grayscale brightness-[0.55]"
+            className="object-cover object-center grayscale"
           />
           <div className="absolute inset-0 bg-[var(--brand-green)] mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" />
