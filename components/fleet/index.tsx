@@ -1,4 +1,4 @@
-import { Car, Bike, Zap, Leaf } from "lucide-react"
+import { Car, Bike, Leaf } from "lucide-react"
 import { FleetCard, type FleetItem } from "./fleet-card"
 
 const ligeiros: FleetItem = {
@@ -29,19 +29,19 @@ const eletricos: FleetItem[] = [
     title: "Volvo EX30",
     description: "Compacto elétrico premium com design escandinavo e máxima segurança.",
     icon: Leaf,
-    imageDefault: "/NovaFafe-Facebook/Veiculos/Volvo-EX30-frente.jpg",
-    imageHover: "/NovaFafe-Facebook/Veiculos/Volvo-EX30-tras.jpg",
+    imageDefault: "/NovaFafe-Facebook/Veiculos/volvo-ex30-frente.jpg",
+    imageHover: "/NovaFafe-Facebook/Veiculos/volvo-ex30-tras.jpg",
     subLabel: "Cat. B Elétrico",
     link: "/servicos#categoria-b",
   },
   {
-    id: "ami",
-    title: "Citroën AMI",
-    description: "100% elétrico — o futuro da condução urbana, disponível já hoje.",
-    icon: Zap,
-    imageDefault: "/NovaFafe-Facebook/Veiculos/citroen-ami-tras.jpeg",
-    imageHover: "/NovaFafe-Facebook/Veiculos/interior-carro-citroen.jpeg",
-    subLabel: "Quadriciclos / AM",
+    id: "yoyo",
+    title: "XEV Yoyo",
+    description: "100% elétrico — formação para quadriciclos (B1) e ciclomotores (AM).",
+    icon: Bike,
+    imageDefault: "/NovaFafe-Facebook/Veiculos/xev-yoyo-tras.jpeg",
+    imageHover: "/NovaFafe-Facebook/Veiculos/xev-yoyo-interior.jpeg",
+    subLabel: "Quadriciclos (B1) / ciclomotores (AM)",
     link: "/servicos#categoria-am",
   },
 ]

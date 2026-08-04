@@ -10,7 +10,7 @@ const testimonials = [
     content:
       "Ambiente organizado, métodos de ensino fantásticos, receção e instrutores empenhados e uma excelente dinâmica de ensino. Fui aprovado <span class='underline decoration-foreground/30 underline-offset-4 text-foreground font-medium'>de primeira</span> com <strong class='text-foreground font-bold'>38/40</strong> no exame de código de A+B em cerca de 1 mês e meio de dedicação. Excelente escola de condução",
     rating: 5,
-    image: "/NovaFafe-Facebook/Aprovados/484167430_1220491633412570_3802731146145604473_n.jpg",
+    image: "/NovaFafe-Facebook/Aprovados/1.jpg",
   },
   {
     name: "Rui Silva",
@@ -18,7 +18,7 @@ const testimonials = [
     content:
       "Sempre quis tirar a carta e a NOVAFAFE tornou isso possível. Instalações de topo e equipamento moderno.",
     rating: 5,
-    image: "/NovaFafe-Facebook/Aprovados/484791568_1222777326517334_2676344098590537487_n.jpg",
+    image: "/NovaFafe-Facebook/Aprovados/2.jpg",
   },
   {
     name: "Aluno Aprovado",
@@ -26,28 +26,28 @@ const testimonials = [
     content:
       "Recomendo a todos! A flexibilidade de horários permitiu-me conciliar com o trabalho. Aprovei à primeira tentativa!",
     rating: 5,
-    image: "/NovaFafe-Facebook/Aprovados/484904058_1223005213161212_7315186108385549423_n.jpg",
+    image: "/NovaFafe-Facebook/Aprovados/3.jpg",
   },
   {
     name: "Aluno Aprovado",
     role: "Categoria B",
     content: "Formação profissional de excelência. A equipa da NOVAFAFE é muito competente e prestável.",
     rating: 5,
-    image: "/NovaFafe-Facebook/Aprovados/484973895_1222141863247547_126044672148157663_n.jpg",
+    image: "/NovaFafe-Facebook/Aprovados/4.jpg",
   },
   {
     name: "Aluno Aprovado",
     role: "Categoria B",
     content: "Muito satisfeito com a formação recebida. Passei ao exame à primeira tentativa!",
     rating: 5,
-    image: "/NovaFafe-Facebook/Aprovados/485094362_1220474053414328_1756039607779438777_n.jpg",
+    image: "/NovaFafe-Facebook/Aprovados/5.jpg",
   },
   {
     name: "Aluno Aprovado",
     role: "Categoria B",
     content: "Os instrutores são excelentes e as aulas práticas são muito bem organizadas.",
     rating: 5,
-    image: "/NovaFafe-Facebook/Aprovados/485759199_1228500849278315_6058945461725989885_n.jpg",
+    image: "/NovaFafe-Facebook/Aprovados/6.jpg",
   },
 ]
 

@@ -45,14 +45,14 @@ export function FleetCard({
         alt={title}
         fill
         sizes={featured ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 100vw, 25vw"}
-        className="object-cover brightness-90 saturate-90 scale-105 opacity-100 group-hover:scale-100 group-hover:opacity-0 transition-all duration-700"
+        className="object-cover saturate-90 scale-105 opacity-100 group-hover:scale-100 group-hover:opacity-0 transition-all duration-700"
       />
       <Image
         src={imageHover}
         alt={title}
         fill
         sizes={featured ? "(max-width: 1024px) 100vw, 50vw" : "(max-width: 1024px) 100vw, 25vw"}
-        className="object-cover brightness-90 saturate-90 scale-100 opacity-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700"
+        className="object-cover saturate-90 scale-100 opacity-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700"
       />
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
