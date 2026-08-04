@@ -1,22 +1,9 @@
 import Link from "next/link"
 import Image from "next/image"
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Car,
-  Truck,
-  Tractor,
-  RefreshCw,
-  Globe,
-  RotateCcw,
-  ClipboardList,
-  type LucideIcon,
-} from "lucide-react"
-import { Motorbike, Ciclomotor } from "@/components/icons/category-icons"
+import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { SectionLink } from "@/components/section-link"
 
 type Category = {
-  icon: LucideIcon
   label: string
   title: string
   age: string
@@ -28,7 +15,6 @@ type Category = {
 
 const categories: Category[] = [
   {
-    icon: Car,
     label: "Categoria B",
     title: "Carta de Ligeiros",
     age: "17½ anos",
@@ -38,7 +24,6 @@ const categories: Category[] = [
     featured: true,
   },
   {
-    icon: Motorbike,
     label: "A / A1 / A2",
     title: "Motociclos",
     age: "16+ anos",
@@ -47,7 +32,6 @@ const categories: Category[] = [
     image: "/NovaFafe-Facebook/Marketing/categoria-a-s1000rr.png",
   },
   {
-    icon: Ciclomotor,
     label: "Categoria AM",
     title: "Ciclomotor",
     age: "14+ anos",
@@ -57,44 +41,79 @@ const categories: Category[] = [
   },
 ]
 
-const otherServices: { icon: LucideIcon; label: string; tag: string; href: string }[] = [
+const otherServices: { image: string; label: string; tag: string; href: string }[] = [
   {
-    icon: Truck,
+    image: "/NovaFafe-Facebook/Marketing/categoria-pesados.png",
     label: "Pesados / TCC / CAM",
     tag: "Parceria",
     href: "/servicos#pesados-tcc-cam",
   },
   {
-    icon: Tractor,
+    image: "/NovaFafe-Facebook/Marketing/categoria-tratores.png",
     label: "Tratores Agrícolas",
     tag: "Parceria",
     href: "/servicos#tratores",
   },
   {
-    icon: RefreshCw,
+    image: "/NovaFafe-Facebook/Marketing/categoria-revalidacao.png",
     label: "Revalidação de Carta",
     tag: "Complementar",
     href: "/servicos#revalidacao",
   },
   {
-    icon: Globe,
+    image: "/NovaFafe-Facebook/Marketing/categoria-troca.png",
     label: "Troca de Carta Estrangeira",
     tag: "Complementar",
     href: "/servicos#troca-carta",
   },
   {
-    icon: RotateCcw,
+    image: "/NovaFafe-Facebook/Marketing/categoria-pontos.png",
     label: "Recuperação de Pontos",
     tag: "Complementar",
     href: "/servicos#recuperacao-pontos",
   },
   {
-    icon: ClipboardList,
+    image: "/NovaFafe-Facebook/Marketing/categoria-imt.png",
     label: "Apoio IMT",
     tag: "Administrativo",
     href: "/servicos#apoio-imt",
   },
 ]
+
+function OtherServiceCard({ service }: { service: (typeof otherServices)[number] }) {
+  return (
+    <Link
+      href={service.href}
+      className="group flex h-[4.75rem] overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-[0_10px_28px_-12px_rgba(0,0,0,0.12)] sm:h-20"
+    >
+      <div className="relative h-full w-[4.75rem] shrink-0 overflow-hidden border-r border-border/50 sm:w-20">
+        <Image
+          src={service.image}
+          alt=""
+          fill
+          sizes="80px"
+          className="object-cover scale-110 grayscale transition-all duration-500 group-hover:scale-100 group-hover:grayscale-0"
+        />
+        <div className="absolute inset-0 bg-black/15 transition-opacity duration-500 group-hover:opacity-0" />
+      </div>
+
+      <div className="flex min-w-0 flex-1 items-center justify-between gap-2.5 px-3.5 sm:px-4">
+        <div className="min-w-0 flex-1">
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary leading-none">
+            {service.tag}
+          </p>
+          <p className="mt-1.5 line-clamp-2 text-[13px] font-semibold leading-snug tracking-tight text-foreground">
+            {service.label}
+          </p>
+        </div>
+        <ArrowUpRight
+          className="h-3.5 w-3.5 shrink-0 text-muted-foreground/35 transition-all duration-300 group-hover:-translate-y-px group-hover:translate-x-px group-hover:text-primary"
+          strokeWidth={2}
+        />
+      </div>
+    </Link>
+  )
+}
 
 function CategoryCard({ item }: { item: Category }) {
   const featured = item.featured
@@ -106,7 +125,7 @@ function CategoryCard({ item }: { item: Category }) {
         "group relative block overflow-hidden rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)] transition-shadow duration-500 hover:shadow-[0_28px_60px_-14px_rgba(0,0,0,0.45)]",
         featured
           ? "min-h-[340px] sm:min-h-[380px] sm:col-span-2 lg:col-span-3 lg:row-span-2 lg:min-h-[560px]"
-          : "min-h-[240px] sm:min-h-[260px] lg:col-span-2 lg:min-h-[270px]",
+          : "min-h-[190px] sm:min-h-[200px] lg:col-span-2 lg:min-h-0 lg:h-full",
       ].join(" ")}
     >
       <Image
@@ -114,27 +133,18 @@ function CategoryCard({ item }: { item: Category }) {
         alt={item.title}
         fill
         sizes={featured ? "(max-width: 1024px) 100vw, 60vw" : "(max-width: 1024px) 50vw, 40vw"}
-        className="object-cover scale-105 grayscale brightness-[0.45] transition-all duration-700 group-hover:scale-100 group-hover:brightness-100 group-hover:grayscale-0"
+        className="object-cover scale-105 grayscale transition-all duration-700 group-hover:scale-100 group-hover:grayscale-0"
       />
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/45 to-black/15 transition-all duration-700 group-hover:from-black/82 group-hover:via-black/30 group-hover:to-black/5" />
 
-      {/* Topo — utilitários */}
+      {/* Topo — idade */}
       <div
         className={[
-          "absolute inset-x-0 top-0 z-10 flex items-start justify-between",
-          featured ? "pl-6 pt-5 pr-4 sm:pl-7 sm:pt-5 sm:pr-4 lg:pl-8" : "pl-5 pt-4 pr-3.5 sm:pl-5 sm:pt-4 sm:pr-3.5",
+          "absolute inset-x-0 top-0 z-10 flex items-start justify-end",
+          featured ? "px-6 pt-5 sm:px-7 sm:pt-5 lg:px-8" : "px-4 pt-3 sm:px-4 sm:pt-3",
         ].join(" ")}
       >
-        <div
-          className={[
-            "flex items-center justify-center rounded-2xl bg-black/30 text-white backdrop-blur-md transition-colors duration-300 group-hover:bg-primary",
-            featured ? "h-12 w-12 sm:h-14 sm:w-14" : "h-11 w-11",
-          ].join(" ")}
-        >
-          <item.icon className={featured ? "h-6 w-6 sm:h-7 sm:w-7" : "h-5 w-5"} strokeWidth={1.75} />
-        </div>
-
         <span
           className={[
             "rounded-full bg-black/30 px-3 py-1.5 font-bold tabular-nums text-white ring-1 ring-white/10 backdrop-blur-md transition-opacity duration-300 group-hover:opacity-0",
@@ -158,7 +168,7 @@ function CategoryCard({ item }: { item: Category }) {
       <div
         className={[
           "absolute inset-x-0 bottom-0 z-10",
-          featured ? "p-7 sm:p-8 lg:p-10" : "p-5 sm:p-6",
+          featured ? "p-7 sm:p-8 lg:p-10" : "p-4 sm:p-5",
         ].join(" ")}
       >
         <p className="mb-2 text-[10px] font-black uppercase tracking-[0.25em] text-primary">
@@ -168,7 +178,7 @@ function CategoryCard({ item }: { item: Category }) {
         <h3
           className={[
             "font-black leading-[1.05] tracking-tight text-white",
-            featured ? "mb-3 text-3xl sm:text-4xl lg:text-[2.75rem]" : "mb-1 text-xl sm:text-2xl",
+            featured ? "mb-3 text-3xl sm:text-4xl lg:text-[2.75rem]" : "mb-0.5 text-lg sm:text-xl",
           ].join(" ")}
         >
           {item.title}
@@ -188,14 +198,14 @@ function CategoryCard({ item }: { item: Category }) {
         <div
           className={[
             "h-px bg-primary transition-all duration-500 ease-out",
-            featured ? "mt-6 w-10 group-hover:w-full" : "mt-4 w-6 group-hover:w-full",
+            featured ? "mt-6 w-10 group-hover:w-full" : "mt-2.5 w-5 group-hover:w-full",
           ].join(" ")}
         />
 
         <span
           className={[
             "inline-flex items-center gap-2 font-semibold text-primary transition-all duration-300 group-hover:gap-3",
-            featured ? "mt-5 text-sm" : "mt-3 text-xs sm:text-sm",
+            featured ? "mt-5 text-sm" : "mt-2 text-xs",
           ].join(" ")}
         >
           Ver formação
@@ -227,14 +237,14 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5 lg:grid-rows-2">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:grid-rows-2 lg:items-stretch">
           {categories.map((item) => (
             <CategoryCard key={item.href} item={item} />
           ))}
         </div>
 
         <div className="mt-12 lg:mt-14">
-          <div className="rounded-3xl bg-muted/50 p-6 sm:p-8 lg:p-10">
+          <div className="rounded-3xl border border-border/40 bg-muted/40 p-5 sm:p-7 lg:p-9">
             <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <span className="mb-3 inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
@@ -253,26 +263,9 @@ export function Services() {
               </SectionLink>
             </div>
 
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
               {otherServices.map((service) => (
-                <Link
-                  key={service.href}
-                  href={service.href}
-                  className="group flex items-center gap-4 rounded-2xl bg-background p-4 shadow-[0_4px_20px_-6px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_rgba(0,0,0,0.12)] sm:p-5"
-                >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
-                    <service.icon className="h-5 w-5" strokeWidth={1.75} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">
-                      {service.tag}
-                    </p>
-                    <p className="mt-0.5 text-sm font-bold leading-snug text-foreground sm:text-base">
-                      {service.label}
-                    </p>
-                  </div>
-                  <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground/50 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
-                </Link>
+                <OtherServiceCard key={service.href} service={service} />
               ))}
             </div>
           </div>
