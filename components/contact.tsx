@@ -193,7 +193,7 @@ export function Contact() {
           <div className="mt-4 overflow-hidden rounded-3xl bg-muted/50">
             <iframe
               title="Localização NOVAFAFE em Fafe"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.0!2d-8.1770!3d41.4513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sEscola+de+Condu%C3%A7%C3%A3o+Nova+Fafe!5e0!3m2!1spt!2spt!4v1"
+              src="https://www.google.com/maps?q=Escola+de+Condu%C3%A7%C3%A3o+Nova+Fafe,+Rua+da+Cumieira+6,+4820-179+Fafe&output=embed"
               width="100%"
               height="280"
               style={{ border: 0 }}
