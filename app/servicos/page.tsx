@@ -1,7 +1,9 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SectionLink } from "@/components/section-link"
+import { contactHref, SERVICE_CONTACT_CATEGORY } from "@/lib/contact-categories"
 import {
   Car,
   Bike,
@@ -31,6 +33,7 @@ type Service = {
   description: string
   points: string[]
   badge?: string
+  image?: string
 }
 
 const formation: Service[] = [
@@ -48,6 +51,7 @@ const formation: Service[] = [
       "Marcação e apoio nos exames IMT",
       "Pagamento faseado",
     ],
+    image: "/NovaFafe-Facebook/Marketing/categoria-b-bmw.png",
   },
   {
     id: "categoria-a",
@@ -62,6 +66,7 @@ const formation: Service[] = [
       "A2 — 18 anos, motociclos até 35 kW",
       "A — 24 anos, ou 20 anos com 2 anos de A2",
     ],
+    image: "/NovaFafe-Facebook/Marketing/categoria-a-s1000rr.png",
   },
   {
     id: "categoria-am",
@@ -72,6 +77,7 @@ const formation: Service[] = [
     description:
       "Primeira habilitação para muitos jovens — ciclomotores e triciclos até 50 cc e 45 km/h.",
     points: ["Aulas teóricas e práticas incluídas", "Acompanhamento em todo o processo"],
+    image: "/NovaFafe-Facebook/Marketing/categoria-am-sym.png",
   },
 ]
 
@@ -155,7 +161,128 @@ const quickGuide = [
   { label: "Tenho 14 ou 15 anos", href: "#categoria-am", icon: Zap },
 ]
 
-function ServicePanel({ service, featured = false }: { service: Service; featured?: boolean }) {
+function ServicePanel({
+  service,
+  featured = false,
+  layout,
+}: {
+  service: Service
+  featured?: boolean
+  layout?: "banner" | "tile"
+}) {
+  const contactCategory = SERVICE_CONTACT_CATEGORY[service.id]
+
+  if (service.image) {
+    const isBanner = layout === "banner"
+
+    return (
+      <article
+        id={service.id}
+        className={[
+          "group relative flex scroll-mt-28 flex-col overflow-hidden rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)]",
+          isBanner ? "min-h-[380px] lg:col-span-2 lg:min-h-[420px]" : "h-full min-h-[460px]",
+        ].join(" ")}
+      >
+        <Image
+          src={service.image}
+          alt={service.title}
+          fill
+          sizes={isBanner ? "100vw" : "(max-width: 1024px) 50vw, 40vw"}
+          className={[
+            "object-cover scale-105 grayscale brightness-[0.45] transition-all duration-700 group-hover:scale-100 group-hover:brightness-100 group-hover:grayscale-0",
+            isBanner ? "object-[center_40%] lg:object-right" : "object-center",
+          ].join(" ")}
+        />
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[42%] bg-gradient-to-b from-black/85 via-black/50 to-transparent transition-all duration-700 group-hover:from-black/70 group-hover:via-black/35" />
+        <div
+          className={[
+            "absolute inset-0 transition-all duration-700",
+            isBanner
+              ? "bg-gradient-to-r from-black/90 via-black/65 to-black/25 group-hover:from-black/82 group-hover:via-black/50 group-hover:to-black/15"
+              : "bg-gradient-to-t from-black/95 via-black/55 to-transparent group-hover:from-black/85 group-hover:via-black/40",
+          ].join(" ")}
+        />
+
+        <div
+          className={[
+            "relative z-10 flex flex-1 flex-col p-7 sm:p-8",
+            isBanner ? "lg:p-10" : "",
+          ].join(" ")}
+        >
+          {/* Cabeçalho */}
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-black/30 text-white backdrop-blur-md transition-colors group-hover:bg-primary">
+                <service.icon className="h-5 w-5" strokeWidth={1.75} />
+              </div>
+              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-primary sm:text-xs">
+                {service.category}
+              </span>
+            </div>
+
+            {service.age && isBanner && service.age.note && (
+              <div className="hidden shrink-0 rounded-2xl bg-black/30 px-5 py-4 text-right backdrop-blur-md lg:block">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-white/40">{service.age.label}</p>
+                <p className="mt-0.5 text-xl font-black leading-tight text-white">{service.age.value}</p>
+                <p className="mt-1 text-xs font-medium text-white/50">{service.age.note}</p>
+              </div>
+            )}
+
+            {service.age && !isBanner && service.id !== "categoria-a" && (
+              <span className="shrink-0 rounded-full bg-black/30 px-3.5 py-1.5 text-xs font-bold text-white backdrop-blur-md">
+                {service.age.value}
+              </span>
+            )}
+
+            {service.age && isBanner && service.age.note && (
+              <span className="shrink-0 rounded-full bg-black/30 px-3.5 py-1.5 text-xs font-bold text-white backdrop-blur-md lg:hidden">
+                {service.age.value}
+              </span>
+            )}
+          </div>
+
+          {/* Corpo */}
+          <div className="mt-5 flex flex-1 flex-col">
+            <h3
+              className={[
+                "font-black tracking-tight text-white",
+                isBanner ? "text-3xl sm:text-4xl" : "text-xl sm:text-2xl",
+              ].join(" ")}
+            >
+              {service.title}
+            </h3>
+            <p
+              className={[
+                "mt-2 font-light leading-relaxed text-white/70",
+                isBanner ? "max-w-2xl text-base" : "text-sm",
+              ].join(" ")}
+            >
+              {service.description}
+            </p>
+
+            <ul className={["mt-5 flex-1", isBanner ? "space-y-2.5" : "space-y-2"].join(" ")}>
+              {service.points.map((point) => (
+                <li key={point} className="flex items-start gap-2.5 text-sm text-white/80">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.5} />
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            {contactCategory && (
+              <div className="mt-6 border-t border-white/10 pt-6">
+                <SectionLink href={contactHref(contactCategory, service.title)} variant="outlineDark">
+                  Pedir informações
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </SectionLink>
+              </div>
+            )}
+          </div>
+        </div>
+      </article>
+    )
+  }
+
   if (featured) {
     return (
       <article
@@ -177,6 +304,14 @@ function ServicePanel({ service, featured = false }: { service: Service; feature
                 </li>
               ))}
             </ul>
+            {contactCategory && (
+              <div className="mt-8">
+                <SectionLink href={contactHref(contactCategory, service.title)} variant="outlineDark">
+                  Pedir informações
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </SectionLink>
+              </div>
+            )}
           </div>
           {service.age && (
             <div className="shrink-0 rounded-2xl bg-white/5 px-6 py-5 text-center lg:min-w-[160px]">
@@ -225,6 +360,14 @@ function ServicePanel({ service, featured = false }: { service: Service; feature
           </li>
         ))}
       </ul>
+      {contactCategory && (
+        <div className="mt-6 border-t border-border/60 pt-6">
+          <SectionLink href={contactHref(contactCategory, service.title)}>
+            Pedir informações
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+          </SectionLink>
+        </div>
+      )}
     </article>
   )
 }
@@ -246,11 +389,23 @@ export default function ServicosPage() {
       <Header />
 
       {/* Hero */}
-      <section className="relative bg-zinc-950">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <section className="relative overflow-hidden bg-zinc-950">
+        <div className="absolute inset-0">
+          <Image
+            src="/NovaFafe-Facebook/Marketing/servicos-hero.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center grayscale brightness-[0.55]"
+          />
+          <div className="absolute inset-0 bg-[var(--brand-green)] mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" />
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="pb-12 pt-36 lg:pb-16 lg:pt-44">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-500">
+            <nav className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-400">
               <Link href="/" className="transition-colors hover:text-white">Início</Link>
               <span aria-hidden>·</span>
               <span className="text-primary">Serviços</span>
@@ -262,7 +417,7 @@ export default function ServicosPage() {
                 certa para&nbsp;ti.
               </span>
             </h1>
-            <p className="max-w-lg text-base font-light leading-relaxed text-zinc-400">
+            <p className="max-w-lg text-base font-light leading-relaxed text-zinc-300">
               Carro, mota, pesados ou serviços para quem já tem carta — explicamos cada opção de forma clara.
             </p>
           </div>
@@ -295,10 +450,10 @@ export default function ServicosPage() {
       <section className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <SectionHeader eyebrow="Formação" title="Cartas de condução" id="formacao" />
-          <div className="grid gap-5 lg:grid-cols-2">
-            <ServicePanel service={formation[0]} featured />
-            <ServicePanel service={formation[1]} />
-            <ServicePanel service={formation[2]} />
+          <div className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
+            <ServicePanel service={formation[0]} layout="banner" />
+            <ServicePanel service={formation[1]} layout="tile" />
+            <ServicePanel service={formation[2]} layout="tile" />
           </div>
           <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
             Documentos, prazos e passo a passo da inscrição estão em{" "}
