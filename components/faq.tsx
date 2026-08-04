@@ -6,12 +6,6 @@ import { ChevronDown, HelpCircle, ArrowRight, MessageCircle } from "lucide-react
 const faqs = [
   {
     category: "Inscrição",
-    question: "Quanto custa tirar a carta?",
-    answer:
-      "O preço varia consoante a categoria e o número de aulas práticas necessárias. É impossível dizer um valor exato sem conhecer o teu perfil. Contacta-nos via WhatsApp e respondemos em minutos com um orçamento personalizado e sem compromisso.",
-  },
-  {
-    category: "Inscrição",
     question: "Posso pagar em prestações?",
     answer:
       "Sim. Trabalhamos com pagamento faseado para que o custo não seja um obstáculo. Definimos um plano à medida na inscrição, sem juros nem surpresas. Atenção: na marcação do exame teórico ou prático, o respetivo pagamento deve ser efetuado de imediato.",

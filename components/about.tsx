@@ -41,7 +41,7 @@ export function About() {
               {[
                 "Pedagogia paciente e adaptada ao teu ritmo",
                 "Ambiente familiar e profissional",
-                "Transparência total em preços e processos",
+                "Clareza em todo o processo de formação",
               ].map((item, i) => (
                 <li key={i} className="flex items-center gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary" />

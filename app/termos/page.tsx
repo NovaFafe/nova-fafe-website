@@ -33,7 +33,7 @@ const sections = [
     title: "Serviços e Contratação",
     content: (
       <p>
-        A inscrição nos cursos de condução da NOVAFAFE implica a aceitação das condições específicas comunicadas no momento da matrícula, incluindo tabela de preços, calendário e regulamento interno. Os preços divulgados no website são indicativos e podem variar conforme a categoria e as necessidades individuais do aluno.
+        A inscrição nos cursos de condução da NOVAFAFE implica a aceitação das condições específicas comunicadas no momento da matrícula, incluindo calendário e regulamento interno. Os valores e condições são acordados na inscrição, consoante a categoria e as necessidades individuais do aluno.
       </p>
     ),
   },
