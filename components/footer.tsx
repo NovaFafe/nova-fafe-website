@@ -4,6 +4,60 @@ import Image from "next/image"
 import Link from "next/link"
 import { Facebook, Instagram, MapPin, Phone, Mail, Clock, ChevronRight } from "lucide-react"
 
+const navLinks = [
+  { label: "Início", href: "/" },
+  { label: "A Escola", href: "/sobre" },
+  { label: "Serviços", href: "/servicos" },
+  { label: "Requisitos", href: "/requisitos" },
+  { label: "Contactos", href: "/contacto" },
+  { label: "FAQ", href: "/faq" },
+]
+
+const schedules = [
+  {
+    title: "Secretaria",
+    rows: [
+      { days: "Segunda – Sexta", hours: "10:00 – 13:00 · 15:00 – 19:30" },
+      { days: "Sábado", hours: "10:00 – 13:00" },
+    ],
+  },
+  {
+    title: "Apoio teórico",
+    rows: [{ days: "Segunda – Sexta", hours: "11:00 – 13:00 · 15:00 – 20:00" }],
+  },
+  {
+    title: "Domingo",
+    closed: true,
+  },
+] as const
+
+function FooterSchedule({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={compact ? "space-y-4" : "space-y-5"}>
+      {schedules.map((block, index) => (
+        <div
+          key={block.title}
+          className={index > 0 ? (compact ? "border-t border-neutral-800 pt-4" : "border-t border-neutral-800/80 pt-5") : ""}
+        >
+          <p className={`font-medium text-white ${compact ? "mb-2 text-xs" : "mb-3 text-sm"}`}>{block.title}</p>
+          {"closed" in block && block.closed ? (
+            <p className={`italic text-gray-500 ${compact ? "text-xs" : "text-sm"}`}>Encerrado</p>
+          ) : (
+            <dl className={compact ? "space-y-2" : "space-y-2.5"}>
+              {block.rows.map((row) => (
+                <div key={row.days}>
+                  <dt className={`text-gray-400 ${compact ? "text-xs" : "text-sm"}`}>{row.days}</dt>
+                  <dd className={`text-gray-300 ${compact ? "mt-0.5 text-xs" : "mt-0.5 text-sm"}`}>{row.hours}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+        </div>
+      ))}
+    </div>
+  )
+}
+
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
@@ -70,48 +124,27 @@ export function Footer() {
             </span>
           </div>
 
-          {/* Navegação + Horário lado a lado */}
-          <div className="grid grid-cols-2 gap-6 border-t border-neutral-800 pt-6">
-            {/* Navegação */}
-            <div>
-              <p className="text-white text-xs font-bold uppercase tracking-widest mb-3">Navegação</p>
-              <ul className="space-y-2 text-xs text-gray-400">
-                {[
-                  { label: "Início", href: "/" },
-                  { label: "A Escola", href: "/sobre" },
-                  { label: "Serviços", href: "/servicos" },
-                  { label: "Requisitos", href: "/requisitos" },
-                  { label: "Contactos", href: "/contacto" },
-                  { label: "FAQ", href: "/faq" },
-                ].map((link) => (
-                  <li key={link.label}>
-                    <Link href={link.href} className="hover:text-primary transition-colors">{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Navegação */}
+          <div className="border-t border-neutral-800 pt-6">
+            <p className="mb-3 text-xs font-bold uppercase tracking-widest text-white">Navegação</p>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs text-gray-400">
+              {navLinks.map((link) => (
+                <li key={link.label}>
+                  <Link href={link.href} className="transition-colors hover:text-primary">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Horário */}
-            <div>
-              <p className="text-white text-xs font-bold uppercase tracking-widest mb-3">Horário</p>
-              <ul className="space-y-2 text-xs text-gray-400">
-                <li>
-                  <span className="block text-gray-300 font-medium">Secretaria</span>
-                  <span>Seg–Sex: 10:00 – 13:00</span><br />
-                  <span>15:00 – 19:30</span><br />
-                  <span>Sáb: 10:00 – 13:00</span>
-                </li>
-                <li className="pt-1">
-                  <span className="block text-gray-300 font-medium">Apoio Teórico</span>
-                  <span>Seg–Sex: 11:00 – 13:00</span><br />
-                  <span>15:00 – 20:00</span>
-                </li>
-                <li className="pt-1">
-                  <span className="block text-gray-300 font-medium">Domingo</span>
-                  <span className="italic text-gray-500">Encerrado</span>
-                </li>
-              </ul>
+          {/* Horário */}
+          <div className="rounded-xl border border-neutral-800 bg-neutral-900/80 p-4">
+            <div className="mb-4 flex items-center gap-2">
+              <Clock className="h-4 w-4 text-primary" />
+              <p className="text-xs font-bold uppercase tracking-widest text-white">Horário</p>
             </div>
+            <FooterSchedule compact />
           </div>
         </div>
 
@@ -145,18 +178,11 @@ export function Footer() {
               Navegação
             </h3>
             <ul className="space-y-3 text-sm">
-              {[
-                { label: "Início", href: "/" },
-                { label: "A Escola", href: "/sobre" },
-                { label: "Serviços", href: "/servicos" },
-                { label: "Requisitos", href: "/requisitos" },
-                { label: "Contactos", href: "/contacto" },
-                { label: "FAQ", href: "/faq" },
-              ].map((link) => (
+              {navLinks.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="flex items-center gap-2 hover:text-primary transition-colors duration-200 group">
-                    <ChevronRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all -ml-4 group-hover:ml-0" />
-                    <span className="group-hover:translate-x-1 transition-transform">{link.label}</span>
+                  <Link href={link.href} className="group flex items-center gap-2 transition-colors duration-200 hover:text-primary">
+                    <ChevronRight className="-ml-4 h-4 w-4 text-primary opacity-0 transition-all group-hover:ml-0 group-hover:opacity-100" />
+                    <span className="transition-transform group-hover:translate-x-1">{link.label}</span>
                   </Link>
                 </li>
               ))}
@@ -165,33 +191,13 @@ export function Footer() {
 
           {/* Horário */}
           <div>
-            <h3 className="text-white font-semibold text-lg mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-primary after:rounded-full">
+            <h3 className="relative mb-6 inline-block text-lg font-semibold text-white after:absolute after:-bottom-2 after:left-0 after:h-1 after:w-12 after:rounded-full after:bg-primary after:content-['']">
               Horário
             </h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <div>
-                  <span className="block text-white font-medium mb-1">Secretaria</span>
-                  <span className="block text-gray-400">Seg–Sex: 10:00 – 13:00 / 15:00 – 19:30</span>
-                  <span className="block text-gray-400">Sábado: 10:00 – 13:00</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <div>
-                  <span className="block text-white font-medium mb-1">Apoio Teórico</span>
-                  <span className="block text-gray-400">Seg–Sex: 11:00 – 13:00 / 15:00 – 20:00</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-5 h-5" />
-                <div>
-                  <span className="block text-white font-medium mb-1">Domingo</span>
-                  <span className="block text-gray-500 italic">Encerrado</span>
-                </div>
-              </li>
-            </ul>
+            <div className="flex items-start gap-3">
+              <Clock className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+              <FooterSchedule />
+            </div>
           </div>
 
           {/* Contactos */}
