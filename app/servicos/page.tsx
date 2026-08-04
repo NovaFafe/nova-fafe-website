@@ -1,242 +1,358 @@
+import Link from "next/link"
 import { Header } from "@/components/header"
-import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
-import { Car, Bike, Zap, RotateCcw, RefreshCw, ClipboardList, ArrowRight, CheckCircle2, Truck, Tractor, Globe } from "lucide-react"
+import { SectionLink } from "@/components/section-link"
+import {
+  Car,
+  Bike,
+  Zap,
+  RotateCcw,
+  RefreshCw,
+  ClipboardList,
+  ArrowRight,
+  Truck,
+  Tractor,
+  Globe,
+  Check,
+  type LucideIcon,
+} from "lucide-react"
 
 export const metadata = {
   title: "Serviços - NOVAFAFE Escola de Condução",
   description: "Carta de ligeiros, motociclos, pesados, TCC/CAM, tratores, revalidação e troca de carta estrangeira em Fafe.",
 }
 
-const services = [
+type Service = {
+  id: string
+  icon: LucideIcon
+  category: string
+  title: string
+  age?: { label: string; value: string; note?: string }
+  description: string
+  points: string[]
+  badge?: string
+}
+
+const formation: Service[] = [
   {
     id: "categoria-b",
     icon: Car,
-    badge: "Mais Procurado",
     category: "Categoria B",
     title: "Carta de Ligeiros",
-    description: "O percurso completo para tirar a carta de carro. Aulas teóricas e práticas em paralelo, exame de código após 16h de formação prática, e exame final — acompanhado em cada etapa.",
-    features: [
-      "Aulas de código em sala e online",
-      "Frota BMW e Mercedes Classe A",
-      "Instrutores certificados e pacientes",
-      "Apoio total nos exames IMT",
-      "Pagamento faseado disponível",
+    age: { label: "Inscrição", value: "17 anos e 6 meses", note: "Exame prático aos 18 anos" },
+    description:
+      "Aulas de código e condução em paralelo, ao teu ritmo. Acompanhamos-te desde a inscrição até ao exame final.",
+    points: [
+      "Código em sala e preparação em computador",
+      "Formação prática com instrutor certificado",
+      "Marcação e apoio nos exames IMT",
+      "Pagamento faseado",
     ],
-    highlight: true,
   },
   {
     id: "categoria-a",
     icon: Bike,
-    badge: null,
-    category: "Categoria A / A1 / A2",
+    category: "A / A1 / A2",
     title: "Carta de Motociclo",
-    description: "Para quem quer conduzir em duas rodas. Formamos para as três subcategorias com equipamento adequado e pistas de treino.",
-    features: [
-      "A1 — até 125cc (16 anos)",
-      "A2 — até 35kW (18 anos)",
-      "A — 55kW (24 anos ou 2 anos de A2)",
-      "Acesso direto ou progressivo",
-      "Inclui equipa de proteção básica",
+    age: { label: "Desde", value: "16 anos" },
+    description:
+      "Três subcategorias — A1, A2 e A — com idades e potências diferentes. Acesso direto ou progressivo, consoante o teu perfil.",
+    points: [
+      "A1 — 16 anos, motociclos até 125 cc",
+      "A2 — 18 anos, motociclos até 35 kW",
+      "A — 24 anos, ou 20 anos com 2 anos de A2",
     ],
-    highlight: false,
   },
   {
     id: "categoria-am",
     icon: Zap,
-    badge: null,
     category: "Categoria AM",
     title: "Carta de Ciclomotor",
-    description: "A partir dos 14 anos. Ideal para jovens que querem ingressar na estrada em segurança com ciclomotores e triciclos de baixa potência.",
-    features: [
-      "A partir dos 14 anos de idade",
-      "Veículos até 45 km/h e 50cc",
-      "Processo rápido e acessível",
-      "Aulas teóricas e práticas incluídas",
-    ],
-    highlight: false,
+    age: { label: "Idade mínima", value: "14 anos" },
+    description:
+      "Primeira habilitação para muitos jovens — ciclomotores e triciclos até 50 cc e 45 km/h.",
+    points: ["Aulas teóricas e práticas incluídas", "Acompanhamento em todo o processo"],
   },
+]
+
+const partnership: Service[] = [
   {
     id: "pesados-tcc-cam",
     icon: Truck,
-    badge: "Parceria",
-    category: "Pesados / TCC / CAM",
-    title: "Pesados, Passageiros e Mercadorias",
-    description: "Formação em categorias de pesados e certificados profissionais, em parceria. Ideal para quem quer trabalhar no transporte rodoviário.",
-    features: [
+    category: "Parceria",
+    title: "Pesados / TCC / CAM",
+    description:
+      "Formação profissional em parceria para quem quer trabalhar no transporte rodoviário.",
+    points: [
       "Pesados de passageiros e mercadorias",
-      "Formação TCC (Transporte Coletivo de Crianças)",
-      "Formação CAM (Certificado de Aptidão)",
-      "Acompanhamento no processo de inscrição",
+      "TCC — transporte coletivo de crianças",
+      "CAM — certificado de aptidão de motorista",
+      "Contacta-nos para datas e condições",
     ],
-    highlight: false,
+    badge: "Parceria",
   },
   {
     id: "tratores",
     icon: Tractor,
-    badge: null,
     category: "Tratores",
     title: "Tratores Agrícolas",
-    description: "Formação para condução de tratores agrícolas. Ideal para quem trabalha no setor agrícola e precisa da habilitação legal.",
-    features: [
-      "Formação teórica e prática",
-      "Apoio na documentação e exames",
-      "Horários flexíveis",
-    ],
-    highlight: false,
+    description:
+      "Habilitação para condução de tratores agrícolas — teórica, prática e apoio na documentação.",
+    points: ["Formação teórica e prática", "Horários flexíveis", "Apoio nos exames"],
   },
+]
+
+const support: Service[] = [
   {
     id: "recuperacao-pontos",
     icon: RotateCcw,
-    badge: null,
-    category: "Recuperação de Pontos",
-    title: "Curso AVF",
-    description: "Perdeste pontos na tua carta? O Curso de Atualização e Valorização de Formandos (AVF) permite recuperar até 3 pontos.",
-    features: [
-      "Recupera até 3 pontos por curso",
-      "Obrigatório após certos crimes rodoviários",
-      "Turmas reduzidas para melhor aprendizagem",
+    category: "AVF",
+    title: "Recuperação de Pontos",
+    description:
+      "Curso de Atualização e Valorização de Formandos — recupera até 3 pontos na carta de condução.",
+    points: [
+      "Até 3 pontos por curso",
+      "Obrigatório em certas infrações rodoviárias",
       "Certificado emitido pelo IMT",
     ],
-    highlight: false,
   },
   {
     id: "revalidacao",
     icon: RefreshCw,
-    badge: null,
     category: "Revalidação",
-    title: "Revalidação de Cartas de Condução",
-    description: "A carta precisa de revalidação periódica. Tratamos de todo o processo, incluindo aulas de atualização e agendamento de exame médico.",
-    features: [
-      "A cada 10 anos (até aos 60 anos)",
-      "A cada 5 anos (60–70 anos)",
-      "A cada 2 anos (após 70 anos)",
-      "Apoio no agendamento e documentação",
+    title: "Revalidação de Carta",
+    description:
+      "Renovação periódica do título de condução — tratamos das aulas, exame médico e submissão junto do IMT.",
+    points: [
+      "Até 60 anos — a cada 10 anos",
+      "60 a 70 anos — a cada 5 anos",
+      "Após 70 anos — a cada 2 anos",
     ],
-    highlight: false,
   },
   {
     id: "troca-carta",
     icon: Globe,
-    badge: null,
-    category: "Carta Estrangeira",
+    category: "Internacional",
     title: "Troca de Carta Estrangeira",
-    description: "Já tens carta de condução emitida noutro país? Ajudamos-te a trocá-la pela carta portuguesa junto do IMT.",
-    features: [
-      "Orientação sobre elegibilidade",
-      "Tratamento da documentação",
-      "Acompanhamento no processo IMT",
-    ],
-    highlight: false,
+    description:
+      "Carta emitida noutro país? Analisamos se podes trocar e tratamos do processo junto do IMT.",
+    points: ["Verificação de elegibilidade", "Tratamento da documentação", "Acompanhamento até à conclusão"],
   },
   {
     id: "apoio-imt",
     icon: ClipboardList,
-    badge: null,
-    category: "Apoio Administrativo",
+    category: "Administrativo",
     title: "Apoio IMT",
-    description: "Toda a burocracia do IMT tratada por nós. Agendamentos, submissão de documentos, atestados médicos eletrónicos e muito mais.",
-    features: [
-      "Agendamento de exames no IMT",
-      "Tratamento do Atestado Médico Eletrónico",
-      "Submissão de documentos online",
-      "Acompanhamento personalizado",
-    ],
-    highlight: false,
+    description:
+      "Apoio na burocracia junto do IMT — agendamentos, atestado médico eletrónico e submissão de documentos.",
+    points: ["Agendamento de exames", "Atestado médico eletrónico", "Submissão online de documentos"],
   },
 ]
+
+const quickGuide = [
+  { label: "Quero tirar a carta de carro", href: "#categoria-b", icon: Car },
+  { label: "Quero tirar carta de mota", href: "#categoria-a", icon: Bike },
+  { label: "Tenho 14 ou 15 anos", href: "#categoria-am", icon: Zap },
+]
+
+function ServicePanel({ service, featured = false }: { service: Service; featured?: boolean }) {
+  if (featured) {
+    return (
+      <article
+        id={service.id}
+        className="scroll-mt-28 rounded-3xl bg-zinc-950 p-8 sm:p-10 lg:col-span-2"
+      >
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+          <div className="max-w-xl">
+            <span className="mb-4 inline-block text-xs font-black uppercase tracking-[0.2em] text-primary sm:text-sm">
+              {service.category}
+            </span>
+            <h3 className="mb-3 text-3xl font-black tracking-tight text-white sm:text-4xl">{service.title}</h3>
+            <p className="mb-6 text-base font-light leading-relaxed text-white/65">{service.description}</p>
+            <ul className="space-y-2.5">
+              {service.points.map((point) => (
+                <li key={point} className="flex items-start gap-2.5 text-sm text-white/80">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.5} />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {service.age && (
+            <div className="shrink-0 rounded-2xl bg-white/5 px-6 py-5 text-center lg:min-w-[160px]">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-white/40">{service.age.label}</p>
+              <p className="mt-1 text-2xl font-black text-white">{service.age.value}</p>
+              {service.age.note && (
+                <p className="mt-2 text-xs font-medium text-white/45">{service.age.note}</p>
+              )}
+            </div>
+          )}
+        </div>
+      </article>
+    )
+  }
+
+  return (
+    <article id={service.id} className="scroll-mt-28 rounded-3xl bg-muted/50 p-7 sm:p-8">
+      <div className="mb-5 flex items-center justify-between gap-4">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+          <service.icon className="h-6 w-6 text-primary" strokeWidth={1.75} />
+        </div>
+        {service.age && (
+          <div className="flex shrink-0 flex-col items-end gap-1.5">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground leading-none">
+              {service.age.label}
+            </span>
+            <span className="inline-flex items-center rounded-full bg-background px-3 py-1 text-xs font-bold leading-none text-foreground whitespace-nowrap">
+              {service.age.value}
+            </span>
+          </div>
+        )}
+        {service.badge && !service.age && (
+          <span className="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-black uppercase tracking-widest text-primary">
+            {service.badge}
+          </span>
+        )}
+      </div>
+      <p className="mb-1 text-xs font-black uppercase tracking-[0.2em] text-primary sm:text-sm">{service.category}</p>
+      <h3 className="mb-2 text-xl font-bold text-foreground">{service.title}</h3>
+      <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+      <ul className="space-y-2">
+        {service.points.map((point) => (
+          <li key={point} className="flex items-start gap-2 text-sm text-muted-foreground">
+            <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" strokeWidth={2.5} />
+            {point}
+          </li>
+        ))}
+      </ul>
+    </article>
+  )
+}
+
+function SectionHeader({ eyebrow, title, id }: { eyebrow: string; title: string; id?: string }) {
+  return (
+    <header id={id} className="mb-10 scroll-mt-28">
+      <span className="mb-3 inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
+        {eyebrow}
+      </span>
+      <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">{title}</h2>
+    </header>
+  )
+}
 
 export default function ServicosPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
 
-      {/* Page Hero */}
-      <section className="relative bg-zinc-950 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="pt-36 lg:pt-44 pb-16 lg:pb-24 max-w-3xl">
-            <div className="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-8 uppercase tracking-widest">
-              <a href="/" className="hover:text-white transition-colors">Início</a>
-              <span>·</span>
+      {/* Hero */}
+      <section className="relative bg-zinc-950">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="pb-12 pt-36 lg:pb-16 lg:pt-44">
+            <nav className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-500">
+              <Link href="/" className="transition-colors hover:text-white">Início</Link>
+              <span aria-hidden>·</span>
               <span className="text-primary">Serviços</span>
-            </div>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.0] tracking-tighter mb-6">
-              O que<br />
-              <span className="text-primary">oferecemos.</span>
+            </nav>
+            <h1 className="mb-4 max-w-2xl text-5xl font-black leading-[1.0] tracking-tighter text-white sm:text-6xl lg:text-7xl">
+              Encontra a formação
+              <span className="text-primary"> certa para ti.</span>
             </h1>
-            <p className="text-base text-zinc-400 leading-relaxed max-w-xl font-light">
-              Ligeiros, motociclos, pesados, tratores, revalidação e troca de carta. Toda a formação rodoviária de que precisas, em Fafe.
+            <p className="max-w-lg text-base font-light leading-relaxed text-zinc-400">
+              Carro, mota, pesados ou serviços para quem já tem carta — explicamos cada opção de forma clara.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                id={service.id}
-                className={`group relative rounded-3xl p-8 border transition-all duration-300 flex flex-col scroll-mt-32 ${
-                  service.highlight
-                    ? "bg-primary border-primary shadow-2xl shadow-primary/20 text-white"
-                    : "bg-card border-border shadow-sm hover:shadow-xl hover:-translate-y-1"
-                }`}
+      {/* Guia rápido */}
+      <section className="border-b border-border/60 bg-muted/30 py-10 lg:py-12">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <p className="mb-5 text-[10px] font-black uppercase tracking-[0.25em] text-primary">Por onde começar?</p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {quickGuide.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="group flex items-center gap-4 rounded-2xl bg-background px-5 py-4 shadow-sm transition-all hover:shadow-md"
               >
-                {service.badge && (
-                  <div className="absolute -top-3 right-8 bg-zinc-900 text-white text-[10px] font-black px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
-                    {service.badge}
-                  </div>
-                )}
-
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${
-                  service.highlight ? "bg-white/20" : "bg-primary/5 group-hover:bg-primary group-hover:text-white transition-all duration-300"
-                }`}>
-                  <service.icon className={`h-7 w-7 ${
-                    service.highlight ? "text-white" : "text-primary group-hover:text-white transition-colors"
-                  }`} />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary">
+                  <item.icon className="h-5 w-5 text-primary transition-colors group-hover:text-white" strokeWidth={1.75} />
                 </div>
-
-                <p className={`text-xs font-black uppercase tracking-[0.2em] mb-2 ${
-                  service.highlight ? "text-white/70" : "text-primary"
-                }`}>{service.category}</p>
-                <h2 className={`text-2xl font-bold mb-3 tracking-tight ${
-                  service.highlight ? "text-white" : "text-foreground"
-                }`}>{service.title}</h2>
-                <p className={`text-sm leading-relaxed mb-6 flex-1 ${
-                  service.highlight ? "text-white/80" : "text-muted-foreground"
-                }`}>{service.description}</p>
-
-                <ul className="space-y-2 mb-8">
-                  {service.features.map((f, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className={`h-4 w-4 flex-shrink-0 mt-0.5 ${
-                        service.highlight ? "text-white/70" : "text-primary"
-                      }`} />
-                      <span className={`text-sm ${
-                        service.highlight ? "text-white/80" : "text-muted-foreground"
-                      }`}>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="/contacto"
-                  className={`inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all mt-auto ${
-                    service.highlight ? "text-white" : "text-primary"
-                  }`}
-                >
-                  Pedir informações <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
+                <span className="flex-1 text-sm font-semibold text-foreground">{item.label}</span>
+                <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary" />
+              </a>
             ))}
           </div>
         </div>
       </section>
 
-      <CTA />
+      {/* Formação */}
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <SectionHeader eyebrow="Formação" title="Cartas de condução" id="formacao" />
+          <div className="grid gap-5 lg:grid-cols-2">
+            <ServicePanel service={formation[0]} featured />
+            <ServicePanel service={formation[1]} />
+            <ServicePanel service={formation[2]} />
+          </div>
+          <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
+            Documentos, prazos e passo a passo da inscrição estão em{" "}
+            <Link href="/requisitos" className="font-semibold text-primary hover:underline">
+              Requisitos
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* Parceria */}
+      <section className="bg-muted/30 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <SectionHeader eyebrow="Parceria" title="Pesados e agrícola" id="parceria" />
+          <div className="grid gap-5 md:grid-cols-2">
+            {partnership.map((service) => (
+              <ServicePanel key={service.id} service={service} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Complementar */}
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <SectionHeader eyebrow="Complementar" title="Já tens carta?" id="complementar" />
+          <p className="-mt-6 mb-10 max-w-xl text-muted-foreground">
+            Para condutores que precisam de revalidar, trocar carta, recuperar pontos ou tratar de assuntos no IMT.
+          </p>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {support.map((service) => (
+              <ServicePanel key={service.id} service={service} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="relative bg-zinc-950 py-16 lg:py-20">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+            <div>
+              <h2 className="mb-2 text-2xl font-black text-white sm:text-3xl">Ainda com dúvidas?</h2>
+              <p className="max-w-md font-light leading-relaxed text-white/60">
+                Explicamos qual formação precisas e como te inscrever — sem compromisso.
+              </p>
+            </div>
+            <SectionLink href="/contacto">
+              Fala Connosco
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </SectionLink>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   )
