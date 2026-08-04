@@ -106,7 +106,7 @@ function ServicesMegaMenu({
   onClose: () => void
 }) {
   return (
-    <div className="hidden lg:block absolute left-0 right-0 top-full bg-white border-t border-gray-100">
+    <div className="hidden lg:block bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
         <div className="grid grid-cols-3 gap-10">
           {groups.map((group) => (
