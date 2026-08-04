@@ -1,18 +1,19 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { SectionLink } from "@/components/section-link"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowRight, CheckCircle2, ArrowUpRight } from "lucide-react"
 
 export const metadata = {
   title: "A Escola - NOVAFAFE Escola de Condução",
   description: "Conhece a história e valores da NOVAFAFE, a escola de condução de referência em Fafe desde 2018.",
 }
 
-const heroStats = [
-  { value: "89%", label: "Aprovação IMT" },
-  { value: "7+", label: "Anos" },
-  { value: "9+", label: "Categorias" },
+const serviceTeasers = [
+  { label: "Carta de Ligeiros", tag: "Cat. B · 17½ anos", href: "/servicos#categoria-b" },
+  { label: "Motociclos", tag: "A / A1 / A2 · 16+ anos", href: "/servicos#categoria-a" },
+  { label: "Ciclomotor", tag: "Cat. AM · 14+ anos", href: "/servicos#categoria-am" },
 ]
 
 const differentiators = [
@@ -74,60 +75,37 @@ export default function SobrePage() {
       <Header />
 
       {/* Page Hero */}
-      <section className="relative bg-zinc-950 overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <section className="relative overflow-hidden bg-zinc-950">
+        <div className="absolute inset-0">
+          <Image
+            src="/NovaFafe-Facebook/Marketing/sobre-hero.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center grayscale brightness-[0.55]"
+          />
+          <div className="absolute inset-0 bg-[var(--brand-green)] mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" />
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="pb-12 pt-36 lg:pb-16 lg:pt-44">
+            <nav className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-400">
+              <Link href="/" className="transition-colors hover:text-white">Início</Link>
+              <span aria-hidden>·</span>
+              <span className="text-primary">A Escola</span>
+            </nav>
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center pt-36 lg:pt-44 pb-16 lg:pb-24">
+            <h1 className="mb-4 max-w-2xl text-5xl font-black leading-[1.0] tracking-tighter text-white sm:text-6xl lg:text-7xl">
+              A escola que
+              <br />
+              <span className="text-primary">te entende.</span>
+            </h1>
 
-            {/* Left — Copy */}
-            <div>
-              {/* Breadcrumb */}
-              <nav className="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-6 uppercase tracking-widest">
-                <Link href="/" className="hover:text-white transition-colors">Início</Link>
-                <span aria-hidden>·</span>
-                <span className="text-primary">A Escola</span>
-              </nav>
-
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.0] tracking-tighter mb-6">
-                A escola que<br />
-                <span className="text-primary">te entende.</span>
-              </h1>
-
-              <p className="text-base text-zinc-400 leading-relaxed max-w-md font-light mb-10">
-                Fundada em Fafe em 2018, somos uma equipa que conhece o teu nome, respeita o teu ritmo e celebra contigo cada conquista na estrada.
-              </p>
-
-              <div className="flex items-center gap-8 pt-8 border-t border-zinc-800">
-                {heroStats.map((s) => (
-                  <div key={s.label}>
-                    <div className="text-2xl font-black text-white leading-none">{s.value}</div>
-                    <div className="text-[10px] text-zinc-500 font-medium uppercase tracking-widest mt-1">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — Image */}
-            <div className="relative hidden lg:block">
-              <div className="relative rounded-2xl overflow-hidden h-[500px]">
-                <img
-                  src="/NovaFafe-Facebook/Escola/mural.jpg"
-                  alt="Escola NOVAFAFE"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/50 to-transparent" />
-              </div>
-              {/* Small floating image */}
-              <div className="absolute -bottom-6 -left-6 w-40 h-28 rounded-xl overflow-hidden border-4 border-zinc-950 shadow-2xl">
-                <img
-                  src="/NovaFafe-Facebook/Escola/sala-de-aula.jpg"
-                  alt="Sala de aula"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-
+            <p className="max-w-lg text-base font-light leading-relaxed text-zinc-300">
+              Fundada em Fafe em 2018, somos uma equipa que conhece o teu nome, respeita o teu ritmo e celebra contigo cada conquista na estrada.
+            </p>
           </div>
         </div>
       </section>
@@ -173,6 +151,68 @@ export default function SobrePage() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Marketing — ponte para serviços */}
+      <section className="relative overflow-hidden bg-zinc-950 py-16 lg:py-20">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-primary/10 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center lg:gap-16">
+            <div>
+              <span className="mb-4 inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
+                Próximo passo
+              </span>
+              <h2 className="text-3xl font-black leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-[2.75rem]">
+                Já sabes quem somos.
+                <br />
+                <span className="text-white/35">Vê o que podes tirar.</span>
+              </h2>
+              <p className="mt-4 max-w-md text-base font-light leading-relaxed text-white/55">
+                Nove categorias e serviços complementares — do ciclomotor ao pesado, com tudo explicado sem rodeios.
+              </p>
+              <div className="mt-8 hidden lg:block">
+                <SectionLink href="/servicos">
+                  Ver todos os serviços
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </SectionLink>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {serviceTeasers.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group flex items-center justify-between gap-4 rounded-2xl bg-white/[0.04] px-5 py-4 transition-colors duration-200 hover:bg-white/[0.08] sm:px-6 sm:py-5"
+                >
+                  <div className="min-w-0">
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">{item.tag}</p>
+                    <p className="mt-1 text-base font-bold text-white sm:text-lg">{item.label}</p>
+                  </div>
+                  <ArrowUpRight className="h-5 w-5 shrink-0 text-white/30 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                </Link>
+              ))}
+              <Link
+                href="/servicos#complementar"
+                className="group flex items-center justify-between gap-4 rounded-2xl border border-dashed border-white/10 px-5 py-4 transition-colors hover:border-primary/30 hover:bg-primary/[0.06] sm:px-6 sm:py-5"
+              >
+                <p className="text-sm font-semibold text-white/70 transition-colors group-hover:text-white">
+                  Já tens carta? Revalidação, pontos, troca e apoio IMT
+                </p>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-white/30 transition-all group-hover:text-primary" />
+              </Link>
+            </div>
+
+            <div className="lg:hidden">
+              <SectionLink href="/servicos" className="w-full sm:w-auto">
+                Ver todos os serviços
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </SectionLink>
             </div>
           </div>
         </div>
