@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { SectionLink } from "@/components/section-link"
 import {
   FileText,
@@ -103,11 +104,23 @@ export function Requirements() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-zinc-950 overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+      <section className="relative overflow-hidden bg-zinc-950">
+        <div className="absolute inset-0">
+          <Image
+            src="/NovaFafe-Facebook/Marketing/requisitos-hero.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center grayscale brightness-[0.55]"
+          />
+          <div className="absolute inset-0 bg-[var(--brand-green)] mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" />
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="max-w-2xl pb-14 pt-36 lg:pb-20 lg:pt-44">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-500">
+            <nav className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-400">
               <Link href="/" className="transition-colors hover:text-white">
                 Início
               </Link>
@@ -118,7 +131,7 @@ export function Requirements() {
               Como
               <span className="text-primary"> funciona.</span>
             </h1>
-            <p className="max-w-lg text-base font-light leading-relaxed text-zinc-400">
+            <p className="max-w-lg text-base font-light leading-relaxed text-zinc-300">
               Documentos, idades e processo passo a passo — tudo o que precisas para te inscrever sem surpresas.
             </p>
           </div>
