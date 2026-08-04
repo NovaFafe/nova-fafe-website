@@ -257,7 +257,10 @@ export default function ServicosPage() {
             </nav>
             <h1 className="mb-4 max-w-2xl text-5xl font-black leading-[1.0] tracking-tighter text-white sm:text-6xl lg:text-7xl">
               Encontra a formação
-              <span className="text-primary"> certa para ti.</span>
+              <br />
+              <span className="text-primary">
+                certa para&nbsp;ti.
+              </span>
             </h1>
             <p className="max-w-lg text-base font-light leading-relaxed text-zinc-400">
               Carro, mota, pesados ou serviços para quem já tem carta — explicamos cada opção de forma clara.
