@@ -1,6 +1,5 @@
 import { Header } from "@/components/header"
 import { Requirements } from "@/components/requirements"
-import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
@@ -13,7 +12,6 @@ export default function RequisitosPage() {
     <main className="min-h-screen bg-background">
       <Header />
       <Requirements />
-      <CTA />
       <Footer />
     </main>
   )

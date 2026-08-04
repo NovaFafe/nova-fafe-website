@@ -1,23 +1,34 @@
-import { FileText, Calendar, ArrowRight, ClipboardList, Stethoscope, AlertCircle, CreditCard } from "lucide-react"
+import Link from "next/link"
+import { SectionLink } from "@/components/section-link"
+import {
+  FileText,
+  Calendar,
+  ArrowRight,
+  ClipboardList,
+  Stethoscope,
+  AlertCircle,
+  CreditCard,
+  type LucideIcon,
+} from "lucide-react"
 
 const docs = [
   {
     icon: Calendar,
-    title: "Idade Mínima",
-    detail: "17 anos e 6 meses",
-    description: "Para inscrição e aulas teóricas na Categoria B. O exame prático só pode ser feito aos 18 anos.",
+    title: "Idade mínima",
+    value: "17 anos e 6 meses",
+    description: "Para te inscreveres e começares as aulas teóricas (Cat. B). O exame prático só aos 18 anos.",
   },
   {
     icon: FileText,
     title: "Cartão de Cidadão",
-    detail: "Documento válido",
-    description: "Identificação nacional válida e atualizada. Cidadãos estrangeiros devem apresentar título de residência.",
+    value: "Documento válido",
+    description: "Identificação atualizada. Estrangeiros: título ou autorização de residência válidos.",
   },
   {
     icon: Stethoscope,
     title: "Atestado Médico",
-    detail: "Via SNS / Médico de família",
-    description: "Atestado Médico Eletrónico transmitido ao IMT. Podemos orientar-te no processo de obtenção.",
+    value: "Via SNS",
+    description: "Atestado Médico Eletrónico transmitido ao IMT. Orientamos-te na obtenção, se precisares.",
   },
 ]
 
@@ -30,135 +41,188 @@ const steps = [
   {
     step: "02",
     title: "Aulas de código e práticas",
-    description: "Frequenta as aulas teóricas e inicia a formação prática. As duas avançam em paralelo.",
+    description: "Frequenta as aulas teóricas e inicia a formação prática — avançam em paralelo.",
   },
   {
     step: "03",
     title: "Exame teórico (IMT)",
-    description: "Após concluíres 16h de formação prática (Portaria 185/2015), podes ser submetido ao exame de código.",
+    description: "Após 16 h de formação prática (Portaria 185/2015), podes ser submetido ao exame de código.",
   },
   {
     step: "04",
     title: "Continuação das práticas",
-    description: "Conduzes com instrutor certificado em viatura BMW ou Mercedes, ao teu ritmo.",
+    description: "Conduzes com instrutor certificado ao teu ritmo, até estares pronto para o exame.",
   },
   {
     step: "05",
     title: "Exame prático",
-    description: "O exame final com examinador do IMT. Celebramos contigo a aprovação.",
+    description: "Exame final com examinador do IMT. Acompanhamos-te até à aprovação.",
   },
 ]
+
+const notices: {
+  icon: LucideIcon
+  title: string
+  description: string
+  link?: { href: string; label: string }
+}[] = [
+  {
+    icon: AlertCircle,
+    title: "Exame de código",
+    description:
+      "Só podes ser submetido ao exame de código depois de concluíres 16 horas de formação prática (Portaria 185/2015).",
+  },
+  {
+    icon: CreditCard,
+    title: "Pagamento na marcação",
+    description:
+      "Na marcação do exame teórico ou prático, deve ser efetuado o respetivo pagamento junto do IMT.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Já tens carta?",
+    description:
+      "Revalidação, troca de carta estrangeira e recuperação de pontos — consulta os serviços complementares.",
+    link: { href: "/servicos#complementar", label: "Ver serviços complementares" },
+  },
+]
+
+function SectionHeader({ eyebrow, title, intro }: { eyebrow: string; title: string; intro?: string }) {
+  return (
+    <header className="mb-10 lg:mb-12">
+      <span className="mb-3 inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
+        {eyebrow}
+      </span>
+      <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">{title}</h2>
+      {intro && <p className="mt-3 max-w-2xl text-base font-light leading-relaxed text-muted-foreground">{intro}</p>}
+    </header>
+  )
+}
 
 export function Requirements() {
   return (
     <>
       {/* Hero */}
       <section className="relative bg-zinc-950 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="pt-36 lg:pt-44 pb-16 lg:pb-24 max-w-3xl">
-            <div className="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-8 uppercase tracking-widest">
-              <a href="/" className="hover:text-white transition-colors">Início</a>
-              <span>·</span>
-              <span className="text-primary">Requisitos & Inscrição</span>
-            </div>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.0] tracking-tighter mb-6">
-              Como<br />
-              <span className="text-primary">funciona.</span>
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="max-w-2xl pb-14 pt-36 lg:pb-20 lg:pt-44">
+            <nav className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-500">
+              <Link href="/" className="transition-colors hover:text-white">
+                Início
+              </Link>
+              <span aria-hidden>·</span>
+              <span className="text-primary">Requisitos</span>
+            </nav>
+            <h1 className="mb-4 text-5xl font-black leading-[1.0] tracking-tighter text-white sm:text-6xl lg:text-7xl">
+              Como
+              <span className="text-primary"> funciona.</span>
             </h1>
-            <p className="text-base text-zinc-400 leading-relaxed max-w-xl font-light">
-              O que precisas para te inscrever e como é o processo, passo a passo. Sem burocracia complicada.
+            <p className="max-w-lg text-base font-light leading-relaxed text-zinc-400">
+              Documentos, idades e processo passo a passo — tudo o que precisas para te inscrever sem surpresas.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Documents */}
-      <section className="py-20 lg:py-28 bg-background">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-14">
-            <p className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-3">Documentação</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-foreground tracking-tight">O que precisas para te inscrever</h2>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-8">
-            {docs.map((doc, i) => (
-              <div key={i} className="group p-8 bg-muted/50 rounded-3xl border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <div className="w-14 h-14 bg-primary/5 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary transition-colors duration-300">
-                  <doc.icon className="h-7 w-7 text-primary group-hover:text-white transition-colors duration-300" />
+      {/* Documentação */}
+      <section id="documentos" className="scroll-mt-28 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <SectionHeader
+            eyebrow="Documentação"
+            title="O que trazer na inscrição"
+            intro="Três documentos bastam para dar o primeiro passo na NOVAFAFE."
+          />
+          <div className="grid gap-5 md:grid-cols-3">
+            {docs.map((doc) => (
+              <article key={doc.title} className="rounded-3xl bg-muted/50 p-7 sm:p-8">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                  <doc.icon className="h-6 w-6 text-primary" strokeWidth={1.75} />
                 </div>
-                <p className="text-xs font-black text-primary uppercase tracking-widest mb-1">{doc.detail}</p>
-                <h3 className="text-xl font-bold text-foreground mb-3">{doc.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{doc.description}</p>
-              </div>
+                <p className="mb-1 text-xs font-black uppercase tracking-[0.2em] text-primary sm:text-sm">
+                  {doc.value}
+                </p>
+                <h3 className="mb-2 text-xl font-bold text-foreground">{doc.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{doc.description}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-20 lg:py-28 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="mb-14">
-            <p className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-3">Processo</p>
-            <h2 className="text-3xl sm:text-4xl font-black text-foreground tracking-tight">Da inscrição à aprovação</h2>
-          </div>
+      {/* Processo */}
+      <section id="processo" className="scroll-mt-28 bg-muted/30 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <SectionHeader
+            eyebrow="Processo"
+            title="Da inscrição à aprovação"
+            intro="Cinco etapas — da primeira visita à escola à carta na mão."
+          />
 
-          <div className="relative">
-            {/* Connecting line (desktop) */}
-            <div className="hidden lg:block absolute top-8 left-8 right-8 h-px bg-border" style={{zIndex: 0}} />
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 relative" style={{zIndex: 1}}>
-              {steps.map((step, i) => (
-                <div key={i} className="bg-card rounded-2xl p-6 border border-border shadow-sm hover:shadow-lg transition-all duration-300">
-                  <div className="w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center font-black text-lg mb-5 shadow-lg shadow-primary/20">
-                    {step.step}
-                  </div>
-                  <h4 className="font-bold text-foreground mb-2">{step.title}</h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+          <ol className="max-w-3xl">
+            {steps.map((step, index) => (
+              <li key={step.step} className="relative flex gap-5 pb-10 last:pb-0 sm:gap-6">
+                {index < steps.length - 1 && (
+                  <span
+                    aria-hidden
+                    className="absolute left-[19px] top-10 bottom-0 w-px bg-border sm:left-[21px]"
+                  />
+                )}
+                <span className="relative z-[1] flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-black text-white sm:h-11 sm:w-11">
+                  {step.step}
+                </span>
+                <div className="min-w-0 pt-1">
+                  <h3 className="mb-1.5 text-lg font-bold text-foreground">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
                 </div>
-              ))}
-            </div>
-          </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
-          {/* Student notices */}
-          <div className="mt-12 grid md:grid-cols-2 gap-6">
-            <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start">
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                <AlertCircle className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-bold text-foreground mb-2 text-lg">Exame de código — Portaria 185/2015</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Só podes ser submetido a exame de código depois de concluíres metade da formação prática (<strong className="text-foreground">16 horas</strong>).
-                </p>
-              </div>
-            </div>
-            <div className="bg-primary/5 border border-primary/20 rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start">
-              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-                <CreditCard className="h-6 w-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="font-bold text-foreground mb-2 text-lg">Pagamento na marcação</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Na marcação do exame <strong className="text-foreground">teórico</strong> ou <strong className="text-foreground">prático</strong>, deve ser efetuado o respetivo pagamento.
-                </p>
-              </div>
-            </div>
+      {/* A saber */}
+      <section id="a-saber" className="scroll-mt-28 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <SectionHeader eyebrow="Importante" title="A saber antes dos exames" />
+          <div className="grid gap-5 md:grid-cols-3">
+            {notices.map((notice) => (
+              <article key={notice.title} className="flex flex-col rounded-3xl bg-primary/[0.04] p-6 sm:p-7">
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+                  <notice.icon className="h-5 w-5 text-primary" strokeWidth={1.75} />
+                </div>
+                <h3 className="mb-2 font-bold text-foreground">{notice.title}</h3>
+                <p className="flex-1 text-sm leading-relaxed text-muted-foreground">{notice.description}</p>
+                {notice.link && (
+                  <Link
+                    href={notice.link.href}
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                  >
+                    {notice.link.label}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                )}
+              </article>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* Revalidation note */}
-          <div className="mt-6 bg-primary/5 border border-primary/20 rounded-3xl p-8 flex flex-col sm:flex-row gap-6 items-start">
-            <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
-              <ClipboardList className="h-6 w-6 text-primary" />
-            </div>
+      {/* CTA */}
+      <section className="relative bg-zinc-950 py-16 lg:py-20">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-center">
             <div>
-              <h3 className="font-bold text-foreground mb-2 text-lg">Já tens carta? Verifica a revalidação</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                A carta de condução precisa de revalidação periódica — a cada 10 anos (até 60 anos), a cada 5 anos (60–70 anos) e a cada 2 anos após os 70. A NOVAFAFE trata de todo o processo, incluindo agendamento do exame médico. Também apoiamos a troca de cartas estrangeiras.
+              <h2 className="mb-2 text-2xl font-black text-white sm:text-3xl">Pronto para te inscrever?</h2>
+              <p className="max-w-md font-light leading-relaxed text-white/60">
+                Traz os documentos e tratamos do resto. Dúvidas sobre categorias ou inscrição? Fala connosco.
               </p>
-              <a href="/contacto" className="inline-flex items-center gap-2 mt-4 text-primary font-bold text-sm hover:gap-3 transition-all">
-                Saber mais <ArrowRight className="h-4 w-4" />
-              </a>
             </div>
+            <SectionLink href="/contacto">
+              Fala Connosco
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </SectionLink>
           </div>
         </div>
       </section>
