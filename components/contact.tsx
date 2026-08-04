@@ -193,13 +193,13 @@ export function Contact() {
           <div className="mt-4 overflow-hidden rounded-3xl bg-muted/50">
             <iframe
               title="Localização NOVAFAFE em Fafe"
-              src="https://www.google.com/maps?q=Escola+de+Condu%C3%A7%C3%A3o+Nova+Fafe,+Rua+da+Cumieira+6,+4820-179+Fafe&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.9813616137194!2d-8.162563023439246!3d41.46131957129064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24e970bbe5bd3b%3A0x7635b5187d7b0984!2sEscola%20de%20Condu%C3%A7%C3%A3o%20Novafafe!5e0!3m2!1spt-PT!2sus!4v1785829911902!5m2!1spt-PT!2sus"
               width="100%"
               height="280"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
               className="h-64 w-full grayscale transition-all duration-500 hover:grayscale-0 lg:h-72"
             />
           </div>
