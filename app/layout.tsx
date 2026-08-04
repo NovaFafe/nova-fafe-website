@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
+  openGraph: {
+    locale: "pt_PT",
+  },
 }
 
 export default function RootLayout({
@@ -28,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt" className="scroll-smooth">
+    <html lang="pt-PT" className="scroll-smooth">
       <body className={`${inter.className} font-sans antialiased`}>
         {children}
         <FloatingButtons />
