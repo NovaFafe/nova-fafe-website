@@ -7,15 +7,15 @@ const plans = [
     subtitle: "Carta de Ligeiros",
     price: "600€",
     period: "/total",
-    features: ["28 aulas práticas", "Aulas teóricas ilimitadas", "Material de estudo digital", "Taxas de exame incluídas"],
+    features: ["32 aulas práticas", "Aulas teóricas ilimitadas", "Material de estudo digital", "Taxas de exame incluídas"],
     popular: true,
   },
   {
-    name: "Categoria A",
+    name: "A / A1 / A2",
     subtitle: "Carta de Motociclo",
     price: "500€",
     period: "/total",
-    features: ["20 aulas práticas", "Equipamento de proteção", "Pista de treino privada", "Seguro incluído"],
+    features: ["A1 — 16 anos / 125cc", "A2 — 18 anos / 35 kW", "A — 24 anos / 55 kW (ou 2 anos de A2)", "Equipamento de proteção"],
     popular: false,
   },
   {
@@ -34,6 +34,13 @@ const plans = [
     features: ["Recupera até 3 pontos", "Turmas reduzidas", "Certificado IMT emitido", "Horários flexíveis"],
     popular: false,
   },
+]
+
+const extraServices = [
+  "Pesados / TCC / CAM (em parceria)",
+  "Tratores Agrícolas",
+  "Revalidação de Carta",
+  "Troca de Carta Estrangeira",
 ]
 
 export function PricingPreview() {
@@ -103,6 +110,13 @@ export function PricingPreview() {
               </a>
             </div>
           ))}
+        </div>
+
+        <div className="mb-10 rounded-2xl border border-border/60 bg-card px-6 py-5 text-center">
+          <p className="text-sm font-bold text-foreground mb-2">Também disponível — Sob Consulta</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            {extraServices.join(" · ")}
+          </p>
         </div>
 
         <div className="text-center">

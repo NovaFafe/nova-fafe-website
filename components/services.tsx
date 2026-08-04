@@ -1,4 +1,4 @@
-import { Car, Bike, RefreshCw, ArrowRight } from "lucide-react"
+import { Car, Bike, Truck, Tractor, Globe, RefreshCw, ArrowRight } from "lucide-react"
 
 const services = [
   {
@@ -12,14 +12,35 @@ const services = [
     icon: Bike,
     title: "Carta de Motociclo",
     subtitle: "Cat. A, A1, A2",
-    description: "Aprende a conduzir em duas rodas com confiança. Aprende com segurança máxima e instrutores experientes.",
+    description: "A1 (16 anos/125cc), A2 (18 anos/35 kW) e A (24 anos/55 kW ou 2 anos de A2). Segurança e confiança em duas rodas.",
+    highlight: null,
+  },
+  {
+    icon: Truck,
+    title: "Pesados / TCC / CAM",
+    subtitle: "Em parceria",
+    description: "Formação para pesados de passageiros e mercadorias, TCC e CAM. Ideal para quem quer trabalhar no transporte rodoviário.",
+    highlight: null,
+  },
+  {
+    icon: Tractor,
+    title: "Tratores Agrícolas",
+    subtitle: "Habilitação agrícola",
+    description: "Formação teórica e prática para condução de tratores. Apoio na documentação e nos exames.",
+    highlight: null,
+  },
+  {
+    icon: Globe,
+    title: "Troca de Carta",
+    subtitle: "Carta estrangeira",
+    description: "Já tens carta emitida noutro país? Ajudamos-te a trocá-la pela portuguesa junto do IMT.",
     highlight: null,
   },
   {
     icon: RefreshCw,
-    title: "Outros Serviços",
-    subtitle: "Apoio IMT",
-    description: "Aulas de código, revalidação de títulos e apoio administrativo IMT. Tratamos da burocracia por si.",
+    title: "Revalidação",
+    subtitle: "Títulos de condução",
+    description: "Revalidação periódica da carta, com aulas de atualização e agendamento de exame médico tratados por nós.",
     highlight: null,
   },
 ]
@@ -41,7 +62,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, i) => (
             <div
               key={i}

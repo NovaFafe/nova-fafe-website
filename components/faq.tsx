@@ -54,6 +54,30 @@ const faqs = [
   },
   {
     category: "Outros Serviços",
+    question: "Quais as categorias de motociclo que posso tirar?",
+    answer:
+      "Formamos para A1, A2 e A. A1: a partir dos 16 anos, motociclos até 125cc. A2: a partir dos 18 anos, até 35 kW. A: a partir dos 24 anos (ou com 2 anos de experiência em A2), motociclos a partir de 55 kW. Podes optar por acesso direto ou progressivo — contacta-nos e indicamos o percurso certo para ti.",
+  },
+  {
+    category: "Outros Serviços",
+    question: "Fazem formação de pesados, TCC ou CAM?",
+    answer:
+      "Sim. Em parceria, oferecemos formação para pesados de passageiros e mercadorias, bem como TCC (Transporte Coletivo de Crianças) e CAM (Certificado de Aptidão). Ideal se queres trabalhar no transporte rodoviário. Fala connosco para saberes datas e condições.",
+  },
+  {
+    category: "Outros Serviços",
+    question: "Posso tirar a carta de trator agrícola?",
+    answer:
+      "Sim. Damos formação teórica e prática para condução de tratores agrícolas, com apoio na documentação e nos exames. Ideal para quem trabalha no setor agrícola e precisa da habilitação legal.",
+  },
+  {
+    category: "Outros Serviços",
+    question: "Posso trocar a minha carta estrangeira pela portuguesa?",
+    answer:
+      "Sim. Se já tens carta de condução emitida noutro país, ajudamos-te a trocá-la pela carta portuguesa junto do IMT — orientação sobre elegibilidade, tratamento da documentação e acompanhamento do processo.",
+  },
+  {
+    category: "Outros Serviços",
     question: "Qual é o horário da escola?",
     answer:
       "Secretaria: segunda a sexta das 10:00 às 13:00 e das 15:00 às 19:30; sábado das 10:00 às 13:00. Apoio teórico: segunda a sexta das 11:00 às 13:00 e das 15:00 às 20:00. As aulas práticas podem ser agendadas fora deste horário, incluindo pós-laboral.",

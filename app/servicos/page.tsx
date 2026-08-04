@@ -15,7 +15,7 @@ const services = [
     badge: "Mais Procurado",
     category: "Categoria B",
     title: "Carta de Ligeiros",
-    description: "O percurso completo para tirar a carta de carro. Aulas teóricas, exame de código, aulas práticas e exame final — acompanhado em cada etapa.",
+    description: "O percurso completo para tirar a carta de carro. Aulas teóricas e práticas em paralelo, exame de código após 16h de formação prática, e exame final — acompanhado em cada etapa.",
     features: [
       "Aulas de código em sala e online",
       "Frota BMW e Mercedes Classe A",
@@ -179,7 +179,7 @@ export default function ServicosPage() {
               <div
                 key={service.id}
                 id={service.id}
-                className={`group relative rounded-3xl p-8 border transition-all duration-300 flex flex-col ${
+                className={`group relative rounded-3xl p-8 border transition-all duration-300 flex flex-col scroll-mt-32 ${
                   service.highlight
                     ? "bg-primary border-primary shadow-2xl shadow-primary/20 text-white"
                     : "bg-card border-border shadow-sm hover:shadow-xl hover:-translate-y-1"
