@@ -341,14 +341,7 @@ function ServicesMegaMenu({
             <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
             <div className="relative z-10 flex flex-1 flex-col">
-              <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-black/25 ring-1 ring-white/15 backdrop-blur-sm">
-                <CarFront className="h-5 w-5 text-primary" strokeWidth={1.75} />
-              </div>
-
-              <span className="inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
-                Todos os serviços
-              </span>
-              <h3 className="mt-3 text-xl font-black leading-[1.15] tracking-tight text-white">
+              <h3 className="text-xl font-black leading-[1.15] tracking-tight text-white">
                 O que queres tirar?
               </h3>
               <p className="mt-2.5 text-sm font-light leading-relaxed text-white/55">
