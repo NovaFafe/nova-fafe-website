@@ -12,9 +12,7 @@ export default function TestemunhosPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <div className="pt-20">
-        <Testimonials />
-      </div>
+      <Testimonials />
       <CTA />
       <Footer />
     </main>

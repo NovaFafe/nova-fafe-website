@@ -84,30 +84,29 @@ function OtherServiceCard({ service }: { service: (typeof otherServices)[number]
   return (
     <Link
       href={service.href}
-      className="group flex h-[4.75rem] overflow-hidden rounded-2xl border border-border/60 bg-background shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-primary/30 hover:shadow-[0_10px_28px_-12px_rgba(0,0,0,0.12)] sm:h-20"
+      className="group flex flex-col overflow-hidden rounded-xl bg-background shadow-[0_8px_24px_-10px_rgba(0,0,0,0.18)] transition-shadow duration-300 hover:shadow-[0_12px_28px_-10px_rgba(0,0,0,0.22)] sm:h-20 sm:flex-row sm:rounded-2xl"
     >
-      <div className="relative h-full w-[4.75rem] shrink-0 overflow-hidden border-r border-border/50 sm:w-20">
+      <div className="relative aspect-[5/3] w-full shrink-0 overflow-hidden sm:aspect-auto sm:h-full sm:w-20">
         <Image
           src={service.image}
           alt=""
           fill
-          sizes="80px"
-          className="object-cover scale-110 grayscale transition-all duration-500 group-hover:scale-100 group-hover:grayscale-0"
+          sizes="(max-width: 640px) 50vw, 80px"
+          className="object-cover grayscale"
         />
-        <div className="absolute inset-0 bg-black/15 transition-opacity duration-500 group-hover:opacity-0" />
       </div>
 
-      <div className="flex min-w-0 flex-1 items-center justify-between gap-2.5 px-3.5 sm:px-4">
+      <div className="flex min-w-0 flex-1 items-center justify-between gap-2 px-2.5 py-2.5 sm:px-4">
         <div className="min-w-0 flex-1">
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary leading-none">
+          <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-zinc-500 leading-none">
             {service.tag}
           </p>
-          <p className="mt-1.5 line-clamp-2 text-[13px] font-semibold leading-snug tracking-tight text-foreground">
+          <p className="mt-1 line-clamp-2 text-xs font-semibold leading-snug text-zinc-800 sm:text-[13px]">
             {service.label}
           </p>
         </div>
         <ArrowUpRight
-          className="h-3.5 w-3.5 shrink-0 text-muted-foreground/35 transition-all duration-300 group-hover:-translate-y-px group-hover:translate-x-px group-hover:text-primary"
+          className="hidden h-3.5 w-3.5 shrink-0 text-zinc-400 sm:block"
           strokeWidth={2}
         />
       </div>
@@ -124,8 +123,8 @@ function CategoryCard({ item }: { item: Category }) {
       className={[
         "group relative block overflow-hidden rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)] transition-shadow duration-500 hover:shadow-[0_28px_60px_-14px_rgba(0,0,0,0.45)]",
         featured
-          ? "min-h-[340px] sm:min-h-[380px] sm:col-span-2 lg:col-span-3 lg:row-span-2 lg:min-h-[560px]"
-          : "min-h-[190px] sm:min-h-[200px] lg:col-span-2 lg:min-h-0 lg:h-full",
+          ? "min-h-[300px] sm:min-h-[380px] sm:col-span-2 lg:col-span-3 lg:row-span-2 lg:min-h-[560px]"
+          : "min-h-[220px] sm:min-h-[200px] lg:col-span-2 lg:min-h-0 lg:h-full",
       ].join(" ")}
     >
       <Image
@@ -168,17 +167,17 @@ function CategoryCard({ item }: { item: Category }) {
       <div
         className={[
           "absolute inset-x-0 bottom-0 z-10",
-          featured ? "p-7 sm:p-8 lg:p-10" : "p-4 sm:p-5",
+          featured ? "p-5 sm:p-8 lg:p-10" : "p-4 sm:p-5",
         ].join(" ")}
       >
-        <p className="mb-2 text-[10px] font-black uppercase tracking-[0.25em] text-primary">
+        <p className="mb-1.5 text-xs font-black uppercase tracking-[0.2em] text-primary sm:mb-2 sm:text-[10px] sm:tracking-[0.25em]">
           {item.label}
         </p>
 
         <h3
           className={[
             "font-black leading-[1.05] tracking-tight text-white",
-            featured ? "mb-3 text-3xl sm:text-4xl lg:text-[2.75rem]" : "mb-0.5 text-lg sm:text-xl",
+            featured ? "mb-2 text-2xl sm:mb-3 sm:text-4xl lg:text-[2.75rem]" : "mb-1 text-lg sm:mb-0.5 sm:text-xl",
           ].join(" ")}
         >
           {item.title}
@@ -189,7 +188,7 @@ function CategoryCard({ item }: { item: Category }) {
             "font-light leading-relaxed text-white/70 transition-all duration-500",
             featured
               ? "max-w-sm text-sm sm:text-base"
-              : "max-h-0 overflow-hidden text-sm opacity-0 group-hover:mt-2 group-hover:max-h-16 group-hover:opacity-100",
+              : "mt-1.5 line-clamp-2 text-sm opacity-100 sm:mt-0 sm:max-h-0 sm:overflow-hidden sm:opacity-0 sm:group-hover:mt-2 sm:group-hover:max-h-16 sm:group-hover:opacity-100",
           ].join(" ")}
         >
           {item.description}
@@ -198,14 +197,14 @@ function CategoryCard({ item }: { item: Category }) {
         <div
           className={[
             "h-px bg-primary transition-all duration-500 ease-out",
-            featured ? "mt-6 w-10 group-hover:w-full" : "mt-2.5 w-5 group-hover:w-full",
+            featured ? "mt-4 w-10 group-hover:w-full sm:mt-6" : "mt-2.5 w-5 group-hover:w-full",
           ].join(" ")}
         />
 
         <span
           className={[
             "inline-flex items-center gap-2 font-semibold text-primary transition-all duration-300 group-hover:gap-3",
-            featured ? "mt-5 text-sm" : "mt-2 text-xs",
+            featured ? "mt-3 text-sm sm:mt-5" : "mt-2 text-xs",
           ].join(" ")}
         >
           Ver formação
@@ -218,21 +217,18 @@ function CategoryCard({ item }: { item: Category }) {
 
 export function Services() {
   return (
-    <section id="servicos" className="relative bg-background py-24 lg:py-32">
+    <section id="servicos" className="relative bg-background py-16 sm:py-24 lg:py-32">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-        <div className="mb-10 flex flex-col gap-6 lg:mb-12 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-2xl">
-            <span className="mb-4 inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
-              Formação
-            </span>
-            <h2 className="text-4xl font-black leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+      <div className="mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
+        <div className="mb-8 flex flex-col gap-4 lg:mb-12 lg:flex-row lg:items-end lg:justify-between lg:gap-6">
+          <div className="section-heading max-w-2xl">
+            <h2 className="text-3xl font-black leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               O que queres
               <span className="text-primary"> tirar?</span>
             </h2>
           </div>
-          <p className="max-w-sm text-base font-light leading-relaxed text-muted-foreground lg:text-right">
+          <p className="section-heading-desc max-w-sm text-base font-light leading-relaxed text-muted-foreground lg:mx-0 lg:text-right">
             Ligeiros, motas e ciclomotor — escolhe a categoria e vê o detalhe na página de serviços.
           </p>
         </div>
@@ -246,24 +242,21 @@ export function Services() {
         <div className="mt-12 lg:mt-14">
           <div className="rounded-3xl border border-border/40 bg-muted/40 p-5 sm:p-7 lg:p-9">
             <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <div>
-                <span className="mb-3 inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
-                  Também fazemos
-                </span>
+              <div className="section-heading">
                 <h3 className="text-2xl font-black tracking-tight text-foreground sm:text-3xl">
                   Outras formações e serviços
                 </h3>
-                <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                <p className="section-heading-desc mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
                   Pesados, tratores, revalidação, troca de carta e apoio administrativo — tudo num só lugar.
                 </p>
               </div>
-              <SectionLink href="/servicos" className="shrink-0 self-start lg:self-auto">
+              <SectionLink href="/servicos" className="shrink-0 self-center lg:self-start">
                 Ver todos os serviços
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </SectionLink>
             </div>
 
-            <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-2 gap-2 lg:grid-cols-3">
               {otherServices.map((service) => (
                 <OtherServiceCard key={service.href} service={service} />
               ))}

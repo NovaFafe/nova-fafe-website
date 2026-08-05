@@ -23,73 +23,72 @@ const advantages = [
 
 export function Advantages() {
   return (
-    <section id="vantagens" className="relative isolate">
-      {/* Background — fixed parallax */}
+    <section id="vantagens" className="relative isolate overflow-hidden">
       <div
         aria-hidden
-        className="absolute inset-0 bg-cover bg-center bg-fixed bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-scroll bg-no-repeat md:bg-fixed"
         style={{ backgroundImage: "url('/NovaFafe-Facebook/Marketing/advantages-bg.png')" }}
       />
       <div className="absolute inset-0 bg-gray-950/70" />
       <div className="absolute inset-0 bg-gradient-to-b from-gray-950/55 via-gray-950/72 to-gray-950/82" />
 
-      {/* Subtle glow accents */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      <div className="absolute -top-32 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-
-        {/* Header */}
-        <div className="pt-20 lg:pt-28 pb-16 lg:pb-20 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-          <div className="max-w-2xl">
-            <span className="inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary mb-5">
-              Porque escolher a NovaFafe
-            </span>
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[0.95] tracking-tighter">
+      <div className="relative z-10 mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
+        <div className="flex flex-col gap-5 pb-10 pt-16 sm:gap-8 sm:pb-16 sm:pt-20 lg:flex-row lg:items-end lg:justify-between lg:pb-20 lg:pt-28">
+          <div className="section-heading max-w-2xl">
+            <h2 className="text-3xl font-black leading-[0.95] tracking-tighter text-white sm:text-6xl lg:text-7xl">
               Feitos para o<br />
-              <span className="text-white/25 italic font-light">teu sucesso.</span>
+              <span className="font-light italic text-white/25">teu sucesso.</span>
             </h2>
           </div>
-          <p className="text-white/50 text-lg leading-relaxed max-w-sm font-light lg:text-right">
+          <p className="section-heading-desc max-w-sm text-base font-light leading-relaxed text-white/50 sm:text-lg lg:mx-0 lg:text-right">
             Mais do que tirar a carta — tornamos o processo simples, humano e sem stress.
           </p>
         </div>
 
-        {/* Divider */}
-        <div className="w-full h-px bg-white/8" />
+        <div className="h-px w-full bg-white/8" />
 
-        {/* Items */}
-        <div className="divide-y divide-white/8">
+        {/* Mobile cards */}
+        <div className="space-y-3 py-6 md:hidden">
           {advantages.map((item) => (
-            <div
-              key={item.num}
-              className="group relative grid grid-cols-[auto_1fr] lg:grid-cols-[120px_1fr_1fr] gap-x-8 lg:gap-x-16 gap-y-3 py-10 lg:py-12 items-start lg:items-center -mx-6 px-6 sm:-mx-8 sm:px-8 lg:-mx-12 lg:px-12 overflow-hidden"
-            >
-              {/* Green glow background on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none bg-[radial-gradient(ellipse_80%_120%_at_50%_50%,rgba(34,139,34,0.18)_0%,rgba(34,139,34,0.07)_45%,transparent_75%)]" />
-
-              {/* Number */}
-              <span className="relative text-[3.5rem] lg:text-[5rem] font-black leading-none text-white/10 transition-colors duration-500 tabular-nums select-none">
+            <div key={item.num} className="rounded-2xl bg-white/5 p-5">
+              <span className="text-3xl font-black tabular-nums leading-none text-white/15">
                 {item.num}
               </span>
-
-              {/* Title */}
-              <div className="relative pt-2 lg:pt-0">
-                <h3 className="text-xl lg:text-2xl font-bold text-white leading-snug">
-                  {item.title}
-                </h3>
-              </div>
-
-              {/* Description — on desktop, 3rd column; on mobile, spans both columns */}
-              <p className="relative col-span-2 lg:col-span-1 text-white/50 text-base leading-relaxed font-light lg:pt-0 pl-[calc(3.5rem+2rem)] lg:pl-0">
+              <h3 className="mt-3 text-lg font-bold leading-snug text-white">
+                {item.title}
+              </h3>
+              <p className="mt-2 text-sm font-light leading-relaxed text-white/50">
                 {item.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="pb-20 lg:pb-28" />
+        {/* Desktop rows */}
+        <div className="hidden divide-y divide-white/8 md:block">
+          {advantages.map((item) => (
+            <div
+              key={item.num}
+              className="group relative grid grid-cols-[120px_1fr_1fr] items-center gap-x-16 overflow-hidden px-0 py-10 lg:-mx-12 lg:px-12 lg:py-12"
+            >
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_120%_at_50%_50%,rgba(34,139,34,0.18)_0%,rgba(34,139,34,0.07)_45%,transparent_75%)] opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+              <span className="relative text-[3.5rem] font-black tabular-nums leading-none text-white/10 select-none lg:text-[5rem]">
+                {item.num}
+              </span>
+              <h3 className="relative text-xl font-bold leading-snug text-white lg:text-2xl">
+                {item.title}
+              </h3>
+              <p className="relative text-base font-light leading-relaxed text-white/50">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="pb-16 lg:pb-28" />
       </div>
     </section>
   )

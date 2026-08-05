@@ -31,6 +31,8 @@ type SectionLinkProps = {
   className?: string
   children: ReactNode
   external?: boolean
+  fullWidth?: boolean
+  size?: "default" | "mobile"
 }
 
 export function SectionLink({
@@ -39,8 +41,15 @@ export function SectionLink({
   className,
   children,
   external,
+  fullWidth = false,
+  size = "default",
 }: SectionLinkProps) {
-  const classes = cn(sectionButtonVariants[variant], className)
+  const classes = cn(
+    sectionButtonVariants[variant],
+    fullWidth && "w-full sm:w-auto",
+    size === "mobile" && "min-h-11 py-4 text-base",
+    className,
+  )
   const isExternal =
     external || href.startsWith("http") || href.startsWith("tel:") || href.startsWith("mailto:")
 

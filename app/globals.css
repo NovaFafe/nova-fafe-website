@@ -32,6 +32,9 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --header-offset: 3.5rem;
+  --section-pt-mobile: 1rem;
+  --page-px: 1.75rem; /* 28px — respiro lateral mobile */
 }
 
 @theme inline {
@@ -155,4 +158,98 @@
 
 .animate-ken-burns {
   animation: ken-burns 30s ease-in-out infinite;
+}
+
+/* Mobile foundation utilities */
+@layer utilities {
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .fixed-safe-bottom {
+    bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Visible by default on touch; hover enhancement on fine pointers */
+  .hover-reveal {
+    max-height: 4rem;
+    opacity: 1;
+    overflow: hidden;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover-reveal {
+      max-height: 0;
+      opacity: 0;
+    }
+
+    .group:hover .hover-reveal,
+    .group:focus-within .hover-reveal {
+      max-height: 4rem;
+      opacity: 1;
+    }
+  }
+
+  .hover-only {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover-only {
+      opacity: 0;
+    }
+
+    .group:hover .hover-only,
+    .group:focus-within .hover-only {
+      opacity: 1;
+    }
+  }
+
+  .snap-x-mandatory {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .snap-start {
+    scroll-snap-align: start;
+  }
+
+  /* Section labels + titles: centered on mobile, left from sm */
+  .section-heading {
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .section-heading {
+      text-align: left;
+    }
+  }
+
+  .section-heading-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 640px) {
+    .section-heading-desc {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-ken-burns {
+    animation: none;
+  }
 }

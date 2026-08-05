@@ -1,18 +1,18 @@
 import { Header } from "@/components/header"
-import { FAQ } from "@/components/faq"
+import { DuvidasFrequentes } from "@/components/duvidas-frequentes"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "Perguntas Frequentes - NOVAFAFE Escola de Condução",
+  title: "Dúvidas Frequentes - NOVAFAFE Escola de Condução",
   description: "Respostas às dúvidas mais comuns sobre a formação de condução na NOVAFAFE em Fafe.",
 }
 
-export default function FAQPage() {
+export default function DuvidasFrequentesPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <FAQ />
+      <DuvidasFrequentes />
       <CTA />
       <Footer />
     </main>

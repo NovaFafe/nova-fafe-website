@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { LegalMobileToc } from "@/components/legal-mobile-toc"
 import { FileText, Mail, Phone, MapPin } from "lucide-react"
 
 export const metadata = {
@@ -92,9 +93,9 @@ export default function TermosPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-zinc-950">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="max-w-3xl pb-16 pt-36 lg:pb-20 lg:pt-44">
-            <nav className="mb-8 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-500">
+        <div className="mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
+          <div className="mx-auto max-w-3xl pb-16 pt-36 text-center sm:mx-0 sm:text-left lg:pb-20 lg:pt-44">
+            <nav className="mb-8 flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-500 sm:justify-start">
               <Link href="/" className="transition-colors hover:text-white">
                 Início
               </Link>
@@ -117,7 +118,7 @@ export default function TermosPage() {
 
       {/* Content */}
       <section className="bg-muted/30 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
           <div className="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-14 xl:grid-cols-[240px_minmax(0,1fr)]">
 
             {/* Table of contents — desktop */}
@@ -153,6 +154,7 @@ export default function TermosPage() {
 
             {/* Main article */}
             <article className="min-w-0">
+              <LegalMobileToc items={sections.map((s) => ({ id: s.id, title: s.title }))} />
               <div className="overflow-hidden rounded-2xl border border-border/70 bg-background shadow-sm">
                 <div className="space-y-0 divide-y divide-border/60">
                   {sections.map((section, index) => (

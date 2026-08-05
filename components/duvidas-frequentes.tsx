@@ -4,8 +4,9 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronDown, HelpCircle, ArrowRight } from "lucide-react"
+import { cn } from "@/lib/utils"
 
-const faqs = [
+const duvidas = [
   {
     category: "Inscrição",
     question: "Posso pagar em prestações?",
@@ -80,14 +81,22 @@ const faqs = [
   },
 ]
 
-const categories = [...new Set(faqs.map(f => f.category))]
+const categories = [...new Set(duvidas.map((item) => item.category))]
 
-export function FAQ() {
+const categoryLabels: Record<string, string> = {
+  Todos: "Todos",
+  Inscrição: "Inscrição",
+  Formação: "Formação",
+  "Outros Serviços": "Outros",
+}
+
+export function DuvidasFrequentes() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
   const [activeCategory, setActiveCategory] = useState<string>("Todos")
 
   const allCategories = ["Todos", ...categories]
-  const filtered = activeCategory === "Todos" ? faqs : faqs.filter(f => f.category === activeCategory)
+  const filtered =
+    activeCategory === "Todos" ? duvidas : duvidas.filter((item) => item.category === activeCategory)
 
   return (
     <>
@@ -106,84 +115,110 @@ export function FAQ() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" />
         </div>
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="max-w-3xl pb-16 pt-36 lg:pb-24 lg:pt-44">
-            <nav className="mb-8 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-400">
+        <div className="relative z-10 mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
+          <div className="mx-auto max-w-3xl pb-12 pt-32 text-center sm:mx-0 sm:pb-16 sm:pt-36 sm:text-left lg:pb-24 lg:pt-44">
+            <nav className="mb-5 flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-400 sm:mb-8 sm:justify-start">
               <Link href="/" className="transition-colors hover:text-white">
                 Início
               </Link>
               <span aria-hidden>·</span>
-              <span className="text-primary">FAQ</span>
+              <span className="text-primary">Dúvidas Frequentes</span>
             </nav>
-            <h1 className="mb-6 text-5xl font-black leading-[1.0] tracking-tighter text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mb-4 text-balance text-4xl font-black leading-[1.05] tracking-tighter text-white sm:mb-6 sm:text-5xl lg:text-7xl">
               Tens
               <br />
               <span className="text-primary">dúvidas?</span>
             </h1>
-            <p className="max-w-xl text-base font-light leading-relaxed text-zinc-300">
+            <p className="mx-auto max-w-xl text-base font-light leading-relaxed text-zinc-300 sm:mx-0">
               As perguntas que nos fazem todos os dias — respondidas de forma direta e honesta.
             </p>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 lg:py-28 bg-muted/30">
-        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
-
+      {/* Dúvidas */}
+      <section className="bg-muted/30 py-14 sm:py-16 lg:py-28">
+        <div className="mx-auto max-w-3xl px-7 sm:px-8 lg:px-12">
           {/* Category Filter */}
-          <div className="flex flex-wrap gap-2 mb-10">
+          <div className="mb-8 grid grid-cols-2 gap-2 sm:mb-10 sm:flex sm:flex-wrap sm:gap-2">
             {allCategories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => { setActiveCategory(cat); setOpenIndex(null) }}
-                className={`px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
+                type="button"
+                onClick={() => {
+                  setActiveCategory(cat)
+                  setOpenIndex(null)
+                }}
+                className={cn(
+                  "min-h-11 rounded-full px-3 py-2.5 text-xs font-bold transition-all duration-200 sm:px-4 sm:text-sm",
                   activeCategory === cat
                     ? "bg-primary text-white shadow-lg shadow-primary/20"
-                    : "bg-card border border-border text-muted-foreground hover:border-primary/40 hover:text-primary"
-                }`}
+                    : "border border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-primary",
+                )}
               >
-                {cat}
+                {categoryLabels[cat] ?? cat}
               </button>
             ))}
           </div>
 
           {/* Accordion */}
-          <div className="space-y-3">
-            {filtered.map((faq, i) => {
-              const globalIndex = faqs.indexOf(faq)
+          <div className="space-y-2.5 sm:space-y-3">
+            {filtered.map((item) => {
+              const globalIndex = duvidas.indexOf(item)
               const isOpen = openIndex === globalIndex
               return (
                 <div
                   key={globalIndex}
-                  className={`bg-card rounded-2xl border overflow-hidden shadow-sm transition-all duration-200 ${
-                    isOpen ? "border-primary/30 shadow-md shadow-primary/5" : "border-border hover:border-border/70"
-                  }`}
+                  className={cn(
+                    "overflow-hidden rounded-2xl border bg-card shadow-sm transition-all duration-200",
+                    isOpen
+                      ? "border-primary/30 shadow-md shadow-primary/5"
+                      : "border-border hover:border-border/70",
+                  )}
                 >
                   <button
+                    type="button"
                     onClick={() => setOpenIndex(isOpen ? null : globalIndex)}
-                    className="w-full flex items-center justify-between p-6 text-left"
+                    className="flex w-full items-start gap-3 p-4 text-left sm:items-center sm:gap-4 sm:p-6"
+                    aria-expanded={isOpen}
                   >
-                    <div className="flex items-center gap-4 pr-4">
-                      <span className={`hidden sm:block text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full flex-shrink-0 ${
-                        isOpen ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
-                      }`}>
-                        {faq.category}
+                    <div className="min-w-0 flex-1">
+                      <span
+                        className={cn(
+                          "mb-2 inline-block rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-widest",
+                          isOpen ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground",
+                        )}
+                      >
+                        {item.category}
                       </span>
-                      <span className="font-bold text-foreground text-base">{faq.question}</span>
+                      <span className="block text-base font-bold leading-snug text-foreground">
+                        {item.question}
+                      </span>
                     </div>
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                      isOpen ? "bg-primary text-white rotate-180" : "bg-muted text-muted-foreground"
-                    }`}>
+                    <div
+                      className={cn(
+                        "flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300",
+                        isOpen
+                          ? "rotate-180 bg-primary text-white"
+                          : "bg-muted text-muted-foreground",
+                      )}
+                    >
                       <ChevronDown className="h-4 w-4" />
                     </div>
                   </button>
 
-                  <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+                  <div
+                    className={cn(
+                      "grid transition-all duration-300 ease-in-out",
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                    )}
+                  >
                     <div className="overflow-hidden">
-                      <div className="px-6 pb-6 pt-0">
-                        <div className="h-px bg-border mb-4" />
-                        <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                      <div className="px-4 pb-4 pt-0 sm:px-6 sm:pb-6">
+                        <div className="mb-4 h-px bg-border" />
+                        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                          {item.answer}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -193,32 +228,36 @@ export function FAQ() {
           </div>
 
           {/* Bottom CTA */}
-          <div className="mt-14 bg-zinc-950 rounded-3xl p-7 flex flex-col sm:flex-row items-center gap-5">
-            <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0">
+          <div className="mt-10 flex flex-col items-center gap-5 rounded-3xl bg-zinc-950 p-5 text-center sm:mt-14 sm:flex-row sm:items-center sm:p-7 sm:text-left">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/20">
               <HelpCircle className="h-5 w-5 text-primary" />
             </div>
-            <div className="flex-1 text-center sm:text-left">
-              <p className="text-white font-bold">Não encontraste a resposta? <span className="text-zinc-400 font-normal">Respondemos em minutos.</span></p>
+            <div className="min-w-0 flex-1">
+              <p className="font-bold text-white">
+                Não encontraste a resposta?{" "}
+                <span className="block font-normal text-zinc-400 sm:inline">
+                  Respondemos em minutos.
+                </span>
+              </p>
             </div>
-            <div className="flex gap-3 flex-shrink-0">
+            <div className="flex w-full flex-col gap-2.5 sm:w-auto sm:flex-row">
               <a
                 href="/contacto"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 active:scale-[0.98] text-sm whitespace-nowrap"
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary/90 active:scale-[0.98] sm:w-auto"
               >
-                Enviar mensagem <ArrowRight className="h-4 w-4" />
+                Enviar mensagem
+                <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="tel:+351253504130"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all active:scale-[0.98] text-sm whitespace-nowrap"
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-white/10 active:scale-[0.98] sm:w-auto"
               >
                 253 504 130
               </a>
             </div>
           </div>
-
         </div>
       </section>
     </>
   )
 }
-

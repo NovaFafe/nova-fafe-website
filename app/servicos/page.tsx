@@ -185,7 +185,9 @@ function ServicePanel({
         id={service.id}
         className={[
           "group relative flex scroll-mt-28 flex-col overflow-hidden rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.35)]",
-          isBanner ? "min-h-[380px] lg:col-span-2 lg:min-h-[420px]" : "h-full min-h-[460px]",
+          isBanner
+            ? "min-h-[340px] sm:min-h-[380px] lg:col-span-2 lg:min-h-[420px]"
+            : "h-full min-h-[340px] sm:min-h-[400px] lg:min-h-[460px]",
         ].join(" ")}
       >
         <Image
@@ -275,7 +277,7 @@ function ServicePanel({
             </ul>
 
             {contactCategory && (
-              <div className="mt-6 border-t border-white/10 pt-6">
+              <div className="mt-6 flex justify-center border-t border-white/10 pt-6 lg:justify-start">
                 <SectionLink href={contactHref(contactCategory, service.title)} variant="outlineDark">
                   Pedir informações
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -310,7 +312,7 @@ function ServicePanel({
               ))}
             </ul>
             {contactCategory && (
-              <div className="mt-8">
+              <div className="mt-8 flex justify-center lg:justify-start">
                 <SectionLink href={contactHref(contactCategory, service.title)} variant="outlineDark">
                   Pedir informações
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -343,7 +345,7 @@ function ServicePanel({
             <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground leading-none">
               {service.age.label}
             </span>
-            <span className="inline-flex items-center rounded-full bg-background px-3 py-1 text-xs font-bold leading-none text-foreground whitespace-nowrap">
+            <span className="inline-flex items-center rounded-full bg-background px-3 py-1 text-xs font-bold leading-snug text-foreground text-balance">
               {service.age.value}
             </span>
           </div>
@@ -366,7 +368,7 @@ function ServicePanel({
         ))}
       </ul>
       {contactCategory && (
-        <div className="mt-6 border-t border-border/60 pt-6">
+        <div className="mt-6 flex justify-center border-t border-border/60 pt-6 sm:justify-start">
           <SectionLink href={contactHref(contactCategory, service.title)}>
             Pedir informações
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -377,12 +379,9 @@ function ServicePanel({
   )
 }
 
-function SectionHeader({ eyebrow, title, id }: { eyebrow: string; title: string; id?: string }) {
+function SectionHeader({ title, id }: { title: string; id?: string }) {
   return (
-    <header id={id} className="mb-10 scroll-mt-28">
-      <span className="mb-3 inline-block text-[10px] font-black uppercase tracking-[0.25em] text-primary">
-        {eyebrow}
-      </span>
+    <header id={id} className="section-heading mb-10 scroll-mt-28">
       <h2 className="text-3xl font-black tracking-tight text-foreground sm:text-4xl">{title}</h2>
     </header>
   )
@@ -408,21 +407,21 @@ export default function ServicosPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35" />
         </div>
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
-        <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="pb-12 pt-36 lg:pb-16 lg:pt-44">
-            <nav className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-400">
+        <div className="relative z-10 mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
+          <div className="pb-12 pt-36 text-center sm:text-left lg:pb-16 lg:pt-44">
+            <nav className="mb-6 flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-widest text-zinc-400 sm:justify-start">
               <Link href="/" className="transition-colors hover:text-white">Início</Link>
               <span aria-hidden>·</span>
               <span className="text-primary">Serviços</span>
             </nav>
-            <h1 className="mb-4 max-w-2xl text-5xl font-black leading-[1.0] tracking-tighter text-white sm:text-6xl lg:text-7xl">
+            <h1 className="mx-auto mb-4 max-w-2xl text-5xl font-black leading-[1.0] tracking-tighter text-white sm:mx-0 sm:text-6xl lg:text-7xl">
               Encontra a formação
               <br />
               <span className="text-primary">
                 certa para&nbsp;ti.
               </span>
             </h1>
-            <p className="max-w-lg text-base font-light leading-relaxed text-zinc-300">
+            <p className="mx-auto max-w-lg text-base font-light leading-relaxed text-zinc-300 sm:mx-0">
               Carro, mota, pesados ou serviços para quem já tem carta — explicamos cada opção de forma clara.
             </p>
           </div>
@@ -431,9 +430,11 @@ export default function ServicosPage() {
 
       {/* Guia rápido */}
       <section className="border-b border-border/60 bg-muted/30 py-10 lg:py-12">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <p className="mb-5 text-[10px] font-black uppercase tracking-[0.25em] text-primary">Por onde começar?</p>
-          <div className="grid gap-3 sm:grid-cols-3">
+        <div className="mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
+          <h2 className="section-heading mb-5 text-2xl font-black tracking-tight text-foreground sm:text-3xl">
+            Por onde começar?
+          </h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             {quickGuide.map((item) => (
               <a
                 key={item.href}
@@ -453,8 +454,8 @@ export default function ServicosPage() {
 
       {/* Formação */}
       <section className="py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <SectionHeader eyebrow="Formação" title="Cartas de condução" id="formacao" />
+        <div className="mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
+          <SectionHeader title="Cartas de condução" id="formacao" />
           <div className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
             <ServicePanel service={formation[0]} layout="banner" />
             <ServicePanel service={formation[1]} layout="tile" />
@@ -472,8 +473,8 @@ export default function ServicosPage() {
 
       {/* Parceria */}
       <section className="bg-muted/30 py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <SectionHeader eyebrow="Parceria" title="Pesados e agrícola" id="parceria" />
+        <div className="mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
+          <SectionHeader title="Pesados e agrícola" id="parceria" />
           <div className="grid gap-5 md:grid-cols-2">
             {partnership.map((service) => (
               <ServicePanel key={service.id} service={service} />
@@ -484,8 +485,8 @@ export default function ServicosPage() {
 
       {/* Complementar */}
       <section className="py-16 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <SectionHeader eyebrow="Complementar" title="Já tens carta?" id="complementar" />
+        <div className="mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
+          <SectionHeader title="Já tens carta?" id="complementar" />
           <p className="-mt-6 mb-10 max-w-xl text-muted-foreground">
             Para condutores que precisam de revalidar, trocar carta, recuperar pontos ou tratar de assuntos no IMT.
           </p>
@@ -500,7 +501,7 @@ export default function ServicosPage() {
       {/* CTA */}
       <section className="relative bg-zinc-950 py-16 lg:py-20">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+        <div className="mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
               <h2 className="mb-2 text-2xl font-black text-white sm:text-3xl">Ainda com dúvidas?</h2>
@@ -508,10 +509,12 @@ export default function ServicosPage() {
                 Explicamos qual formação precisas e como te inscrever — sem compromisso.
               </p>
             </div>
-            <SectionLink href="/contacto">
-              Fala Connosco
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </SectionLink>
+            <div className="flex w-full justify-center lg:w-auto lg:justify-start">
+              <SectionLink href="/contacto">
+                Fala Connosco
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </SectionLink>
+            </div>
           </div>
         </div>
       </section>

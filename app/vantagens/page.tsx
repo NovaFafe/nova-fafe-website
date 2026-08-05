@@ -12,9 +12,7 @@ export default function VantagensPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
-      <div className="pt-20">
-        <Advantages />
-      </div>
+      <Advantages />
       <CTA />
       <Footer />
     </main>
