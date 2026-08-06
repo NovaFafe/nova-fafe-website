@@ -26,7 +26,7 @@ export function Advantages() {
     <section id="vantagens" className="relative isolate overflow-hidden">
       <div
         aria-hidden
-        className="absolute inset-0 bg-cover bg-center bg-scroll bg-no-repeat md:bg-fixed"
+        className="absolute inset-0 bg-cover bg-center bg-fixed bg-no-repeat"
         style={{ backgroundImage: "url('/NovaFafe-Facebook/Marketing/advantages-bg.png')" }}
       />
       <div className="absolute inset-0 bg-gray-950/70" />

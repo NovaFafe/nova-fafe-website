@@ -41,21 +41,47 @@ export function RecentApprovals() {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
 
-  const onSelect = useCallback(() => {
+  const updateActiveIndex = useCallback(() => {
     if (!emblaApi) return
-    setSelectedIndex(emblaApi.selectedScrollSnap())
+
+    const root = emblaApi.rootNode()
+    const rootRect = root.getBoundingClientRect()
+    const center = rootRect.left + rootRect.width / 2
+
+    const slides = emblaApi.slideNodes()
+    const snapCount = emblaApi.scrollSnapList().length
+
+    let closestIndex = 0
+    let closestDistance = Infinity
+
+    slides.forEach((slide, slideIndex) => {
+      const rect = slide.getBoundingClientRect()
+      const slideCenter = rect.left + rect.width / 2
+      const distance = Math.abs(slideCenter - center)
+
+      if (distance < closestDistance) {
+        closestDistance = distance
+        closestIndex = slideIndex % snapCount
+      }
+    })
+
+    setSelectedIndex(closestIndex)
   }, [emblaApi])
 
   useEffect(() => {
     if (!emblaApi) return
-    onSelect()
-    emblaApi.on("select", onSelect)
-    emblaApi.on("reInit", onSelect)
+
+    updateActiveIndex()
+    emblaApi.on("scroll", updateActiveIndex)
+    emblaApi.on("select", updateActiveIndex)
+    emblaApi.on("reInit", updateActiveIndex)
+
     return () => {
-      emblaApi.off("select", onSelect)
-      emblaApi.off("reInit", onSelect)
+      emblaApi.off("scroll", updateActiveIndex)
+      emblaApi.off("select", updateActiveIndex)
+      emblaApi.off("reInit", updateActiveIndex)
     }
-  }, [emblaApi, onSelect])
+  }, [emblaApi, updateActiveIndex])
 
   useEffect(() => {
     if (!emblaApi || isPaused) return
@@ -147,7 +173,7 @@ export function RecentApprovals() {
                 >
                   <article
                     className={cn(
-                      "h-[300px] overflow-hidden rounded-2xl border bg-zinc-200 shadow-sm transition-[opacity,box-shadow,transform] duration-500 sm:h-[360px] lg:h-[420px]",
+                      "h-[300px] overflow-hidden rounded-2xl border bg-zinc-200 shadow-sm transition-[opacity,box-shadow,transform,filter] duration-500 sm:h-[360px] lg:h-[420px]",
                       isActive
                         ? "scale-100 border-transparent opacity-100 shadow-[0_12px_28px_-10px_rgba(0,0,0,0.2)]"
                         : "scale-[0.94] border-black/[0.06] opacity-45",
@@ -156,7 +182,10 @@ export function RecentApprovals() {
                     <img
                       src={student.image}
                       alt={`Aluno aprovado ${student.id}`}
-                      className="h-full w-full object-cover"
+                      className={cn(
+                        "h-full w-full object-cover transition-[filter,transform] duration-500",
+                        isActive ? "grayscale-0" : "grayscale",
+                      )}
                       loading="lazy"
                       draggable={false}
                     />
