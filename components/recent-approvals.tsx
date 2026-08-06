@@ -91,8 +91,8 @@ export function RecentApprovals() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
-        <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:gap-6 lg:mb-14">
-          <div className="section-heading">
+        <div className="mb-8 flex flex-col gap-4 sm:mb-10 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-8">
+          <div className="section-heading min-w-0">
             <h2 className="text-3xl font-black leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               Os nossos
               <br />
@@ -100,8 +100,7 @@ export function RecentApprovals() {
             </h2>
           </div>
 
-          {/* Desktop — navegação + Facebook */}
-          <div className="hidden flex-wrap items-center gap-3 sm:flex">
+          <div className="hidden shrink-0 items-center gap-3 sm:flex">
             <div className="flex items-center gap-2">
               <button
                 type="button"
@@ -119,7 +118,7 @@ export function RecentApprovals() {
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
-              <span className="ml-1 text-xs font-medium tabular-nums text-muted-foreground">
+              <span className="ml-1 min-w-[3.25rem] text-xs font-medium tabular-nums text-muted-foreground">
                 {selectedIndex + 1} / {ITEMS.length}
               </span>
             </div>

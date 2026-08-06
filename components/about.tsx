@@ -5,7 +5,21 @@ import { SectionLink } from "@/components/section-link"
 export function About() {
   return (
     <section id="sobre" className="relative overflow-hidden bg-background pt-4 pb-16 sm:pb-20 lg:pt-6 lg:pb-28">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-primary/25 via-primary/[0.08] to-transparent" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[min(480px,58%)]"
+      >
+        <div
+          className="absolute inset-0 bg-[length:14px_14px] opacity-[0.22] sm:opacity-[0.18]"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, rgb(163 163 163 / 0.7) 0.6px, transparent 0.6px)",
+            maskImage: "linear-gradient(to top, black 20%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to top, black 20%, transparent 100%)",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-neutral-200/25 via-neutral-100/8 to-transparent" />
+      </div>
       <div className="relative z-10 mx-auto max-w-7xl px-7 sm:px-8 lg:px-12">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-24">
           <div className="relative order-1">
