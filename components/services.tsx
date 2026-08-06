@@ -29,7 +29,7 @@ const categories: Category[] = [
     age: "16+ anos",
     description: "Acesso directo ou progressivo entre subcategorias.",
     href: "/servicos#categoria-a",
-    image: "/NovaFafe-Facebook/Marketing/categoria-a-s1000rr.png",
+    image: "/NovaFafe-Facebook/Marketing/categoria-a-yamaha-r1.png",
   },
   {
     label: "Categoria AM",

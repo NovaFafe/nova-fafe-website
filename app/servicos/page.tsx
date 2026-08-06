@@ -65,7 +65,7 @@ const formation: Service[] = [
       "A2 — 18 anos, motociclos até 35 kW",
       "A — 24 anos, ou 20 anos com 2 anos de A2",
     ],
-    image: "/NovaFafe-Facebook/Marketing/categoria-a-s1000rr.png",
+    image: "/NovaFafe-Facebook/Marketing/categoria-a-yamaha-r1.png",
   },
   {
     id: "categoria-am",
