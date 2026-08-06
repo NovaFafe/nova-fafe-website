@@ -135,7 +135,9 @@ function CategoryCard({ item }: { item: Category }) {
         className="object-cover scale-105 grayscale transition-all duration-700 group-hover:scale-100 group-hover:grayscale-0"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/45 to-black/15 transition-all duration-700 group-hover:from-black/82 group-hover:via-black/30 group-hover:to-black/5" />
+      <div className="pointer-events-none absolute inset-0 bg-black/15" aria-hidden />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/55 to-transparent sm:h-28" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[72%] bg-gradient-to-t from-black/95 via-black/75 to-transparent" />
 
       {/* Topo — idade */}
       <div
@@ -156,16 +158,6 @@ function CategoryCard({ item }: { item: Category }) {
 
       <div
         className={[
-          "absolute z-10 flex items-center justify-center rounded-full bg-primary text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100",
-          featured ? "right-4 top-5 h-9 w-9 sm:right-4 sm:top-5" : "right-3.5 top-4 h-8 w-8",
-        ].join(" ")}
-      >
-        <ArrowUpRight className={featured ? "h-4 w-4" : "h-3.5 w-3.5"} />
-      </div>
-
-      {/* Base — conteúdo editorial */}
-      <div
-        className={[
           "absolute inset-x-0 bottom-0 z-10",
           featured ? "p-5 sm:p-8 lg:p-10" : "p-4 sm:p-5",
         ].join(" ")}
@@ -176,7 +168,7 @@ function CategoryCard({ item }: { item: Category }) {
 
         <h3
           className={[
-            "font-black leading-[1.05] tracking-tight text-white",
+            "font-black leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]",
             featured ? "mb-2 text-2xl sm:mb-3 sm:text-4xl lg:text-[2.75rem]" : "mb-1 text-lg sm:mb-0.5 sm:text-xl",
           ].join(" ")}
         >
@@ -185,7 +177,7 @@ function CategoryCard({ item }: { item: Category }) {
 
         <p
           className={[
-            "font-light leading-relaxed text-white/70 transition-all duration-500",
+            "font-light leading-relaxed text-white/85 transition-all duration-500",
             featured
               ? "max-w-sm text-sm sm:text-base"
               : "mt-1.5 line-clamp-2 text-sm opacity-100 sm:mt-0 sm:max-h-0 sm:overflow-hidden sm:opacity-0 sm:group-hover:mt-2 sm:group-hover:max-h-16 sm:group-hover:opacity-100",

@@ -18,11 +18,11 @@ const ligeiros: FleetItem = {
 
 const motociclos: FleetItem = {
   id: "bikes",
-  title: "Yamaha R1",
-  description: "Formação nas categorias A, A1 e A2 — do iniciante ao avançado.",
+  title: "Motociclos",
+  description: "Do iniciante ao avançado, com motociclos para as categorias A, A1 e A2.",
   icon: Bike,
-  imageDefault: "/NovaFafe-Facebook/Veiculos/yamaha-r1.jpeg",
-  imageHover: "/NovaFafe-Facebook/Veiculos/yamaha-r1.jpeg",
+  imageDefault: "/NovaFafe-Facebook/Veiculos/motociclos.jpeg",
+  imageHover: "/NovaFafe-Facebook/Veiculos/mota-individual.jpeg",
   subLabel: "Categorias A, A1, A2",
   link: "/servicos#categoria-a",
 }

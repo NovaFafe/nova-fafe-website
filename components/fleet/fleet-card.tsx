@@ -55,12 +55,13 @@ export function FleetCard({
         className="object-cover saturate-90 scale-100 opacity-0 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-black/15" aria-hidden />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[68%] bg-gradient-to-t from-black/95 via-black/70 to-transparent" />
 
       {/* Arrow — always visible on touch, hover-enhanced on desktop */}
       <div
         className={[
-          "absolute flex items-center justify-center rounded-full bg-primary text-white transition-all duration-300",
+          "absolute z-10 flex items-center justify-center rounded-full bg-primary text-white transition-all duration-300",
           "opacity-100 translate-y-0 lg:opacity-0 lg:-translate-y-2 lg:group-hover:opacity-100 lg:group-hover:translate-y-0",
           featured ? "top-5 right-5 h-9 w-9" : "top-3.5 right-3.5 h-8 w-8",
         ].join(" ")}
@@ -68,7 +69,7 @@ export function FleetCard({
         <ArrowUpRight className={featured ? "h-4 w-4" : "h-3.5 w-3.5"} />
       </div>
 
-      <div className={featured ? "absolute inset-x-0 bottom-0 p-6 sm:p-7" : "absolute inset-x-0 bottom-0 p-4 sm:p-5"}>
+      <div className={featured ? "absolute inset-x-0 bottom-0 z-10 p-6 sm:p-7" : "absolute inset-x-0 bottom-0 z-10 p-4 sm:p-5"}>
         <div className="mb-1.5 inline-flex items-center gap-1.5 sm:mb-2.5">
           <Icon className="h-3.5 w-3.5 text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.8)] sm:h-4 sm:w-4" />
           <span className="text-[11px] font-semibold tracking-wide text-white drop-shadow-[0_0_6px_rgba(255,255,255,0.8)] sm:text-sm">

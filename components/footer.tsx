@@ -60,12 +60,12 @@ function ScheduleDayRow({
   }
 
   return (
-    <div className="flex gap-4 py-2.5 first:pt-0 last:pb-0 [&+&]:border-t [&+&]:border-white/[0.06]">
-      <dt className="w-[7.5rem] shrink-0 text-xs text-gray-500">{row.days}</dt>
-      <dd className="min-w-0 flex-1">
-        <ul className="space-y-0.5">
+    <div className="grid grid-cols-[minmax(0,1fr)_8.75rem] items-start gap-x-5 border-t border-white/[0.06] py-2.5 first:border-t-0 first:pt-0 last:pb-0">
+      <dt className="pt-0.5 text-xs leading-snug text-gray-400">{row.days}</dt>
+      <dd className="text-right">
+        <ul className="space-y-1">
           {row.slots.map((slot) => (
-            <li key={slot} className="text-sm tabular-nums text-gray-300">
+            <li key={slot} className="whitespace-nowrap text-sm font-medium tabular-nums text-gray-200">
               {slot}
             </li>
           ))}
@@ -79,7 +79,7 @@ function FooterSchedule({ className, layout = "desktop" }: { className?: string;
   const isMobile = layout === "mobile"
 
   return (
-    <div className={cn(isMobile ? "space-y-3" : "space-y-4", className)}>
+    <div className={cn(isMobile ? "space-y-3" : "space-y-5", className)}>
       {schedules.map((block) => {
         if ("closed" in block && block.closed) {
           return (
@@ -88,14 +88,15 @@ function FooterSchedule({ className, layout = "desktop" }: { className?: string;
               className={cn(
                 isMobile
                   ? "flex flex-col items-center gap-3 rounded-xl bg-white/[0.04] px-4 py-4 text-center"
-                  : "flex items-center justify-between py-1",
+                  : "grid grid-cols-[minmax(0,1fr)_8.75rem] items-center gap-x-5 border-t border-white/[0.06] pt-4",
               )}
             >
-              <p className="text-sm font-medium text-white">{block.title}</p>
+              <p className={cn("font-medium text-white", isMobile ? "text-sm" : "text-sm")}>{block.title}</p>
               <span
                 className={cn(
                   "text-xs font-medium uppercase tracking-wide text-gray-500",
                   isMobile && "rounded-full bg-white/[0.06] px-2.5 py-1",
+                  !isMobile && "text-right",
                 )}
               >
                 Encerrado
@@ -108,18 +109,18 @@ function FooterSchedule({ className, layout = "desktop" }: { className?: string;
           <div
             key={block.title}
             className={cn(
-              isMobile ? "rounded-xl bg-white/[0.04] px-4 py-5 text-center" : "",
+              isMobile ? "rounded-xl bg-white/[0.04] px-4 py-5 text-center" : "border-t border-white/[0.06] pt-4 first:border-t-0 first:pt-0",
             )}
           >
             <p
               className={cn(
                 "font-semibold text-white",
-                isMobile ? "mb-5 text-sm" : "mb-2 text-sm",
+                isMobile ? "mb-5 text-sm" : "mb-3 text-sm",
               )}
             >
               {block.title}
             </p>
-            <dl className={isMobile ? "" : "space-y-0"}>
+            <dl className={isMobile ? "" : "min-w-0"}>
               {block.rows.map((row) => (
                 <ScheduleDayRow key={row.days} row={row} layout={layout} />
               ))}

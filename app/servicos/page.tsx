@@ -200,13 +200,14 @@ function ServicePanel({
             isBanner ? "object-[center_40%] lg:object-right" : "object-center",
           ].join(" ")}
         />
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-[42%] bg-gradient-to-b from-black/85 via-black/50 to-transparent transition-all duration-700 group-hover:from-black/70 group-hover:via-black/35" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-black/20" aria-hidden />
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-32 bg-gradient-to-b from-black/60 to-transparent sm:h-36" />
         <div
           className={[
-            "absolute inset-0 transition-all duration-700",
+            "pointer-events-none absolute inset-0 z-[1]",
             isBanner
-              ? "bg-gradient-to-r from-black/90 via-black/65 to-black/25 group-hover:from-black/82 group-hover:via-black/50 group-hover:to-black/15"
-              : "bg-gradient-to-t from-black/95 via-black/55 to-transparent group-hover:from-black/85 group-hover:via-black/40",
+              ? "bg-gradient-to-r from-black/85 via-black/55 to-black/20"
+              : "bg-gradient-to-t from-black/95 via-black/70 via-40% to-black/25",
           ].join(" ")}
         />
 
@@ -218,14 +219,9 @@ function ServicePanel({
         >
           {/* Cabeçalho */}
           <div className="flex items-start justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-black/30 text-white backdrop-blur-md transition-colors group-hover:bg-primary">
-                <service.icon className="h-5 w-5" strokeWidth={1.75} />
-              </div>
-              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-primary sm:text-xs">
-                {service.category}
-              </span>
-            </div>
+            <span className="text-[10px] font-black uppercase tracking-[0.25em] text-primary drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)] sm:text-xs">
+              {service.category}
+            </span>
 
             {service.age && isBanner && service.age.note && (
               <div className="hidden shrink-0 rounded-2xl bg-black/30 px-5 py-4 text-right backdrop-blur-md lg:block">
@@ -252,7 +248,7 @@ function ServicePanel({
           <div className="mt-5 flex flex-1 flex-col">
             <h3
               className={[
-                "font-black tracking-tight text-white",
+                "font-black tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]",
                 isBanner ? "text-3xl sm:text-4xl" : "text-xl sm:text-2xl",
               ].join(" ")}
             >
@@ -260,7 +256,7 @@ function ServicePanel({
             </h3>
             <p
               className={[
-                "mt-2 font-light leading-relaxed text-white/70",
+                "mt-2 font-light leading-relaxed text-white/85",
                 isBanner ? "max-w-2xl text-base" : "text-sm",
               ].join(" ")}
             >
@@ -269,7 +265,7 @@ function ServicePanel({
 
             <ul className={["mt-5 flex-1", isBanner ? "space-y-2.5" : "space-y-2"].join(" ")}>
               {service.points.map((point) => (
-                <li key={point} className="flex items-start gap-2.5 text-sm text-white/80">
+                <li key={point} className="flex items-start gap-2.5 text-sm text-white/90">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" strokeWidth={2.5} />
                   {point}
                 </li>
@@ -336,10 +332,7 @@ function ServicePanel({
 
   return (
     <article id={service.id} className="scroll-mt-28 rounded-3xl bg-muted/50 p-7 sm:p-8">
-      <div className="mb-5 flex items-center justify-between gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-          <service.icon className="h-6 w-6 text-primary" strokeWidth={1.75} />
-        </div>
+      <div className="mb-5 flex items-center justify-end gap-4">
         {service.age && (
           <div className="flex shrink-0 flex-col items-end gap-1.5">
             <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground leading-none">
